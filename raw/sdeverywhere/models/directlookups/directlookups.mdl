@@ -1,0 +1,118 @@
+{UTF-8}
+DimA: A1, A2, A3 ~~|
+
+a[DimA] = GET DIRECT LOOKUPS('lookups.CSV', ',', '1', 'e2')
+	~	
+	~	subscript currently required for GET DIRECT LOOKUPS
+	~	This one uses a lowercase letter in the cell reference (atypical, but valid in Vensim).
+  |
+
+a from named xlsx[DimA] = GET DIRECT LOOKUPS('lookups.xlsx', 'a', '1', 'E2')
+	~	
+	~	subscript currently required for GET DIRECT LOOKUPS
+  |
+
+a from tagged xlsx[DimA] = GET DIRECT LOOKUPS('?lookups', 'a', '1', 'E2')
+	~	
+	~	subscript currently required for GET DIRECT LOOKUPS
+  |
+
+a from named xlsx using GET XLS[DimA] = GET XLS LOOKUPS('lookups.xlsx', 'a', '1', 'E2')
+	~	
+	~	subscript currently required for GET XLS LOOKUPS
+  |
+
+a from tagged xlsx using GET XLS[DimA] = GET XLS LOOKUPS('?lookups', 'a', '1', 'E2')
+	~	
+	~	subscript currently required for GET XLS LOOKUPS
+  |
+
+b = a[A1](Time)
+	~	
+	~	access the lookup
+	|
+
+b from named xlsx = a from named xlsx[A1](Time)
+	~	
+	~	access the lookup
+	|
+
+b from tagged xlsx = a from tagged xlsx[A1](Time)
+	~	
+	~	access the lookup
+	|
+
+b from named xlsx using GET XLS = a from named xlsx using GET XLS[A1](Time)
+	~	
+	~	access the lookup
+	|
+
+b from tagged xlsx using GET XLS = a from tagged xlsx using GET XLS[A1](Time)
+	~	
+	~	access the lookup
+	|
+
+c = LOOKUP INVERT(a[A1], 0.5)
+	~	
+	~	look up y for an x value (returns 2035)
+	|
+
+d = LOOKUP FORWARD(a[A1], 2028.1)
+	~	
+	~	look up using the next x without interpolation (returns 0.3)
+	|
+
+e = LOOKUP FORWARD(a[A1], 2028)
+	~	
+	~	no effect when the x value exists in the lookup (returns 0.266667)
+	|
+
+f = a[A1](2028.1)
+	~	
+	~	regular lookups extrapolate by default
+	|
+
+g((0,0),(1,1),(2,2))
+	~	
+	~	lookup definition
+	|
+
+h = LOOKUP FORWARD(g, 1)
+	~	
+	~	non-subscripted look up
+	|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+INITIAL TIME = 2020 ~~|
+FINAL TIME = 2050 ~~|
+TIME STEP = 1 ~~|
+SAVEPER = TIME STEP ~~|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*View 1
+$0-0-0,0,|0||0-0-0|0-0-0|0-0-0|0-0-0|0-0-0|0,0,100,0
+///---\\\
+:L<%^E!@
+9:directlookups
+15:0,0,0,0,0,0
+19:100,0
+27:2,
+34:0,
+5:FINAL TIME
+35:Date
+36:YYYY-MM-DD
+37:2000
+38:1
+39:1
+40:2
+41:0
+42:1
+24:0
+25:0
+26:0

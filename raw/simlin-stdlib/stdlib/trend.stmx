@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xmile version="1.0" xmlns="http://docs.oasis-open.org/xmile/ns/XMILE/v1.0" xmlns:isee="http://iseesystems.com/XMILE" xmlns:simlin="https://simlin.com/XMILE/v1.0">
+    <header>
+        <name>trend</name>
+        <vendor>Simlin</vendor>
+        <product version="0.1.0" lang="en">Simlin</product>
+    </header>
+    <sim_specs method="euler" time_units="time unit">
+        <start>1</start>
+        <stop>13</stop>
+        <dt reciprocal="true">4</dt>
+    </sim_specs>
+    <model name="stdlib⁚trend">
+        <variables>
+            <stock name="stock">
+                <eqn>if isModuleInput(initial_value) then input / (1 + delay_time * initial_value) else input</eqn>
+                <inflow>flow</inflow>
+            </stock>
+            <flow name="flow">
+                <eqn>(input-Stock)/delay_time</eqn>
+            </flow>
+            <aux name="output">
+                <eqn>SAFEDIV(input-Stock, ABS(Stock)*delay_time)</eqn>
+            </aux>
+            <aux name="delay_time">
+                <eqn>1</eqn>
+            </aux>
+            <aux name="input">
+                <eqn>0</eqn>
+            </aux>
+            <aux name="initial_value">
+                <eqn>NAN</eqn>
+            </aux>
+        </variables>
+        <views>
+            <view isee:show_pages="false" page_width="800" page_height="600" view_type="stock_flow">
+                <connector angle="-135">
+                    <from>Stock</from>
+                    <to>flow</to>
+                </connector>
+                <connector angle="38.57130000000001">
+                    <from>Stock</from>
+                    <to>output</to>
+                </connector>
+                <stock name="Stock" x="268.33299999999997" y="244.333" label_side="top"></stock>
+                <flow name="flow" x="196.083" y="244.333" label_side="bottom">
+                    <pts>
+                        <pt x="134.333" y="244.333"></pt>
+                        <pt x="245.833" y="244.333"></pt>
+                    </pts>
+                </flow>
+                <aux name="output" x="347.333" y="181.333" label_side="bottom"></aux>
+                <aux name="delay time" x="255" y="176.333" label_side="bottom"></aux>
+                <connector angle="-130.907">
+                    <from>delay time</from>
+                    <to>flow</to>
+                </connector>
+                <connector angle="-3.1000000000000227">
+                    <from>delay time</from>
+                    <to>output</to>
+                </connector>
+                <aux name="input" x="197" y="118" label_side="bottom"></aux>
+                <connector angle="-90.416">
+                    <from>input</from>
+                    <to>flow</to>
+                </connector>
+                <connector angle="-15.254999999999995">
+                    <from>input</from>
+                    <to>output</to>
+                </connector>
+                <aux name="initial value" x="268.333" y="92" label_side="bottom"></aux>
+            </view>
+        </views>
+    </model>
+</xmile>
