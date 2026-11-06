@@ -1,0 +1,20 @@
+# sd-explorer intake (engine/explorer_intake.py). Page settings only: they never change the model, its
+# parameters, ranges or the refusal gates. Every setting is listed in the page's Model limits dialog.
+mode = "unattended"
+
+[projects]
+value = "named"
+source = "assumed default"
+
+[levers]
+value = "all"
+source = "assumed default"
+
+[audience]
+value = "decision-makers"
+source = "assumed default"
+
+[decision]
+metric = "cum_profit_m60"
+baseline = "baseline store (no lever change)"
+source = "assumed default"

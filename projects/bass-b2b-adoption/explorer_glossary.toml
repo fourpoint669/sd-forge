@@ -1,0 +1,21 @@
+# Explanatory text for the explorer page only: not part of the validated model (the .mdl and .py are unchanged).
+# Plain-language definitions for model variables that have no comment of their own in the model file. Each paraphrases
+# the variable's equation, which the page shows next to it; nothing here changes or adds to the model.
+
+[variables."churn rate monthly"]
+definition = "The annual logo churn rate expressed per month: the fraction of current customers lost each month."
+
+[variables."deals lost"]
+definition = "Evaluations that end without a purchase each month: the closings that are not won. Lost firms move to the cooling-off pool."
+
+[variables."deals won"]
+definition = "Evaluations that end in a purchase each month: closings multiplied by the win rate. Won firms become customers."
+
+[variables."initial cooling off firms"]
+definition = "Firms in the cooling-off pool at launch (month 0); zero, because no firm has yet lost a deal or churned."
+
+[variables."marketing reach rate monthly"]
+definition = "The annual marketing reach rate expressed per month: the fraction of potential customers that marketing brings into an evaluation each month."
+
+[variables."word of mouth rate monthly"]
+definition = "The annual word-of-mouth rate expressed per month; multiplied by customer share, it gives the fraction of potential customers referred into an evaluation each month."

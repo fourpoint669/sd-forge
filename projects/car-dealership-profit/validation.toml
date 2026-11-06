@@ -1,0 +1,1152 @@
+# Validation spec for engine/validate.py. Parameter sources and confidence tags: assumptions_register.md.
+# Base parameter set = the baseline store with every engine on (gate 3 condition 2); lens scenarios are [[policies]].
+# Initial stocks are fixed constants set from settled_initial.json (settle.py) and are not sampled.
+# [reference] uses the analytic function "goal_seeking", which does not exist in engine/validate.py yet: it needs
+# the user's approval (a one-line addition to ANALYTIC, a test and a line in library/validation_tests.md).
+dominance_min_period = 1.0
+# "retention loss when overloaded" is 0 in the base case and sits on a link in every one of the model's loops, so at
+# base every loop score is 0, every relative score is NaN, and the explorer's loop-strength view is empty. Measured on
+# the built page: raising it alone draws 64 of the 67 loops; raising "allocation response strength" (also 0 at base)
+# as well draws 65; raising that one alone changes nothing. Declared here because T8 refuses to ship an empty
+# loop-strength view silently; the base case is deliberate, not an oversight.
+dominance_empty_at_base = "retention loss when overloaded is 0 in the base case and sits on a link in every loop, so no loop carries a score; raise it to see loop strength (allocation response strength, also 0 at base, adds one more loop but on its own changes nothing)"
+
+[model]
+name = "car-dealership-profit"
+mdl = "model/car_dealership_profit.mdl"
+py = "model/car_dealership_profit.py"
+time_unit = "Month"
+final_time = 180
+time_step = 0.0625
+saveper = 1
+key_outputs = ["Cumulative Net Profit", "net profit", "New Inventory", "Used Frontline Inventory", "Service Customers", "absorption rate", "Owners"]
+
+# role: time_constant -> low end in the fastest corner (T4); rate -> high end.
+[parameters."shopping rate"]
+base = 6.0
+low = 3.0
+high = 10.0
+distribution = "triangular"
+domain = [0, 24]
+role = "rate"
+unit = "1/Year"
+confidence = "estimated"
+
+[parameters."new share of shoppers"]
+base = 0.55
+low = 0.35
+high = 0.75
+distribution = "fixed"
+domain = [0.05, 0.95]
+unit = "Dmnl"
+confidence = "estimated"
+
+[parameters."market entry rate"]
+base = 70.0
+low = 45.0
+high = 95.0
+distribution = "triangular"
+domain = [0, 1000]
+role = "rate"
+unit = "Household/Month"
+confidence = "estimated"
+
+[parameters."maximum marketing starts"]
+base = 30.0
+low = 15.0
+high = 50.0
+distribution = "triangular"
+domain = [0, 500]
+role = "rate"
+unit = "Household/Month"
+confidence = "estimated"
+
+[parameters."marketing spend scale"]
+base = 20000
+low = 10000
+high = 50000
+distribution = "triangular"
+domain = [100, 10000000.0]
+unit = "USD/Month"
+confidence = "estimated"
+
+[parameters."marketing spend"]
+base = 25000
+low = 0.0
+high = 60000.0
+distribution = "fixed"
+domain = [0, 10000000.0]
+unit = "USD/Month"
+confidence = "estimated"
+
+[parameters."availability constant new"]
+base = 8.0
+low = 4.0
+high = 16.0
+distribution = "triangular"
+domain = [0.5, 200]
+unit = "Vehicle"
+confidence = "estimated"
+
+[parameters."target new days supply"]
+base = 60.0
+low = 60.0
+high = 60.0
+distribution = "fixed"
+domain = [5, 200]
+unit = "Day"
+confidence = "estimated"
+
+[parameters."new inventory adjustment time"]
+base = 1.5
+low = 1.0
+high = 3.0
+distribution = "triangular"
+domain = [0.1, 24]
+role = "time_constant"
+unit = "Month"
+confidence = "estimated"
+
+[parameters."order lead time"]
+base = 1.0
+low = 0.5
+high = 2.0
+distribution = "triangular"
+domain = [0.1, 12]
+role = "time_constant"
+unit = "Month"
+confidence = "estimated"
+
+[parameters."manufacturer allocation"]
+base = 160.0
+low = 120.0
+high = 220.0
+distribution = "triangular"
+domain = [0, 2000]
+unit = "Vehicle/Month"
+confidence = "estimated"
+
+[parameters."allocation response strength"]
+base = 0.0
+low = 0.0
+high = 0.8
+distribution = "triangular"
+domain = [0, 1]
+unit = "Dmnl"
+confidence = "estimated"
+
+[parameters."allocation memory"]
+base = 6.0
+low = 3.0
+high = 12.0
+distribution = "triangular"
+domain = [0.5, 36]
+role = "time_constant"
+unit = "Month"
+confidence = "estimated"
+
+[parameters."availability constant used"]
+base = 8.0
+low = 4.0
+high = 16.0
+distribution = "triangular"
+domain = [0.5, 200]
+unit = "Vehicle"
+confidence = "estimated"
+
+[parameters."discount demand sensitivity"]
+base = 1.5
+low = 0.5
+high = 3.0
+distribution = "triangular"
+domain = [0, 3]
+unit = "Dmnl"
+confidence = "estimated"
+
+[parameters."discount sensitivity"]
+base = 0.15
+low = 0.05
+high = 0.3
+distribution = "triangular"
+domain = [0, 0.3]
+unit = "Dmnl"
+confidence = "estimated"
+
+[parameters."maximum price discount"]
+base = 0.25
+low = 0.15
+high = 0.35
+distribution = "triangular"
+domain = [0.05, 0.5]
+unit = "Dmnl"
+confidence = "estimated"
+
+[parameters."target used days supply"]
+base = 45.0
+low = 30.0
+high = 80.0
+distribution = "fixed"
+domain = [5, 150]
+unit = "Day"
+confidence = "estimated"
+
+[parameters."used sales memory"]
+base = 2.0
+low = 1.0
+high = 4.0
+distribution = "triangular"
+domain = [0.5, 24]
+role = "time_constant"
+unit = "Month"
+confidence = "estimated"
+
+[parameters."used inventory adjustment time"]
+base = 1.5
+low = 1.0
+high = 3.0
+distribution = "triangular"
+domain = [0.1, 24]
+role = "time_constant"
+unit = "Month"
+confidence = "estimated"
+
+[parameters."reconditioning time"]
+base = 0.5
+low = 0.25
+high = 1.0
+distribution = "triangular"
+domain = [0.1, 6]
+role = "time_constant"
+unit = "Month"
+confidence = "estimated"
+
+[parameters."wholesale exit rate"]
+base = 0.5
+low = 0.25
+high = 1.0
+distribution = "triangular"
+domain = [0, 5]
+role = "rate"
+unit = "1/Year"
+confidence = "estimated"
+
+[parameters."trade in share"]
+base = 0.25
+low = 0.15
+high = 0.4
+distribution = "triangular"
+domain = [0, 1]
+unit = "Dmnl"
+confidence = "estimated"
+
+[parameters."off lease return share"]
+base = 0.8
+low = 0.6
+high = 0.95
+distribution = "triangular"
+domain = [0, 1]
+unit = "Dmnl"
+confidence = "estimated"
+
+[parameters."lease remarketing loss per vehicle"]
+base = 200.0
+low = -1000.0
+high = 1500.0
+distribution = "triangular"
+domain = [-5000, 5000]
+unit = "USD/Vehicle"
+confidence = "estimated"
+
+[parameters."used retail price"]
+base = 28000.0
+low = 24000.0
+high = 32000.0
+distribution = "triangular"
+domain = [5000, 100000]
+unit = "USD/Vehicle"
+confidence = "estimated"
+
+[parameters."used vehicle unit cost"]
+base = 26500.0
+low = 22000.0
+high = 30000.0
+distribution = "triangular"
+domain = [5000, 100000]
+unit = "USD/Vehicle"
+confidence = "estimated"
+
+[parameters."lease share"]
+base = 0.25
+low = 0.1
+high = 0.5
+distribution = "fixed"
+domain = [0, 0.9]
+unit = "Dmnl"
+confidence = "estimated"
+
+[parameters."lease term"]
+base = 36.0
+low = 24.0
+high = 48.0
+distribution = "triangular"
+domain = [12, 60]
+role = "time_constant"
+unit = "Month"
+confidence = "estimated"
+
+[parameters."ownership period"]
+base = 66.0
+low = 48.0
+high = 96.0
+distribution = "triangular"
+domain = [12, 240]
+role = "time_constant"
+unit = "Month"
+confidence = "estimated"
+
+[parameters."loyalty floor"]
+base = 0.1
+low = 0.05
+high = 0.2
+distribution = "triangular"
+domain = [0, 0.3]
+unit = "Dmnl"
+confidence = "estimated"
+
+[parameters."loyalty ceiling"]
+base = 0.6
+low = 0.4
+high = 0.75
+distribution = "triangular"
+domain = [0.3, 1]
+unit = "Dmnl"
+confidence = "estimated"
+
+[parameters."loyalty half saturation"]
+base = 1.5
+low = 0.5
+high = 3.0
+distribution = "triangular"
+domain = [0.1, 10]
+unit = "Dmnl"
+confidence = "estimated"
+
+[parameters."service capture share"]
+base = 2.2
+low = 1.6
+high = 3.2
+distribution = "fixed"
+domain = [0, 6]
+unit = "Dmnl"
+confidence = "estimated"
+
+[parameters."base defection rate"]
+base = 0.25
+low = 0.15
+high = 0.4
+distribution = "triangular"
+domain = [0, 2]
+role = "rate"
+unit = "1/Year"
+confidence = "estimated"
+
+[parameters."visits per customer"]
+base = 1.5
+low = 1.0
+high = 2.2
+distribution = "triangular"
+domain = [0.1, 6]
+unit = "RO/(Household*Year)"
+confidence = "estimated"
+
+[parameters."repairs per technician"]
+base = 80.0
+low = 60.0
+high = 100.0
+distribution = "triangular"
+domain = [10, 300]
+unit = "RO/(Technician*Month)"
+confidence = "estimated"
+
+[parameters."retention loss when overloaded"]
+base = 0.0
+low = 0.0
+high = 0.6
+distribution = "triangular"
+domain = [0, 1]
+unit = "Dmnl"
+confidence = "estimated"
+
+[parameters."technician target"]
+base = 28.0
+low = 20.0
+high = 34.0
+distribution = "fixed"
+domain = [0, 200]
+unit = "Technician"
+confidence = "estimated"
+
+[parameters."hire time"]
+base = 3.0
+low = 1.5
+high = 6.0
+distribution = "triangular"
+domain = [0.5, 24]
+role = "time_constant"
+unit = "Month"
+confidence = "estimated"
+
+[parameters."attrition rate"]
+base = 0.25
+low = 0.15
+high = 0.4
+distribution = "triangular"
+domain = [0, 2]
+role = "rate"
+unit = "1/Year"
+confidence = "estimated"
+
+[parameters."gross per repair order"]
+base = 165.0
+low = 120.0
+high = 220.0
+distribution = "triangular"
+domain = [0, 2000]
+unit = "USD/RO"
+confidence = "estimated"
+
+[parameters."parts gross per repair order"]
+base = 103.0
+low = 70.0
+high = 140.0
+distribution = "triangular"
+domain = [0, 2000]
+unit = "USD/RO"
+confidence = "estimated"
+
+[parameters."technician cost"]
+base = 70000.0
+low = 55000.0
+high = 90000.0
+distribution = "triangular"
+domain = [10000, 300000]
+role = "rate"
+unit = "USD/(Technician*Year)"
+confidence = "estimated"
+
+[parameters."F and I base penetration"]
+base = 0.85
+low = 0.7
+high = 0.92
+distribution = "triangular"
+domain = [0, 0.92]
+unit = "Dmnl"
+confidence = "estimated"
+
+[parameters."F and I maximum penetration uplift"]
+base = 0.05
+low = 0.0
+high = 0.08
+distribution = "triangular"
+domain = [0, 0.08]
+unit = "Dmnl"
+confidence = "estimated"
+
+[parameters."F and I spend scale"]
+base = 10000
+low = 5000
+high = 30000
+distribution = "triangular"
+domain = [100, 10000000.0]
+unit = "USD/Month"
+confidence = "estimated"
+
+[parameters."F and I programme spend"]
+base = 0.0
+low = 0.0
+high = 20000.0
+distribution = "fixed"
+domain = [0, 10000000.0]
+unit = "USD/Month"
+confidence = "estimated"
+
+[parameters."F and I gross per contract"]
+base = 2050.0
+low = 1500.0
+high = 2600.0
+distribution = "triangular"
+domain = [0, 20000]
+unit = "USD/Household"
+confidence = "reported"
+
+[parameters."chargeback rate"]
+base = 0.1
+low = 0.05
+high = 0.2
+distribution = "triangular"
+domain = [0, 1]
+unit = "Dmnl"
+confidence = "estimated"
+
+[parameters."new gross per vehicle"]
+base = 2250.0
+low = 1200.0
+high = 3200.0
+distribution = "triangular"
+domain = [-5000, 20000]
+unit = "USD/Vehicle"
+confidence = "reported"
+
+[parameters."used gross per vehicle"]
+base = 1400.0
+low = 900.0
+high = 1900.0
+distribution = "triangular"
+domain = [-5000, 20000]
+unit = "USD/Vehicle"
+confidence = "reported"
+
+[parameters."fixed overhead"]
+base = 530000.0
+low = 400000.0
+high = 650000.0
+distribution = "triangular"
+domain = [1000, 100000000.0]
+unit = "USD/Month"
+confidence = "estimated"
+
+[parameters."commission rate"]
+base = 0.25
+low = 0.15
+high = 0.3
+distribution = "triangular"
+domain = [0, 1]
+unit = "Dmnl"
+confidence = "estimated"
+
+[parameters."wholesale loss per vehicle"]
+base = 1200.0
+low = 600.0
+high = 2000.0
+distribution = "triangular"
+domain = [0, 20000]
+unit = "USD/Vehicle"
+confidence = "estimated"
+
+[parameters."new vehicle unit cost"]
+base = 45000.0
+low = 40000.0
+high = 50000.0
+distribution = "triangular"
+domain = [5000, 150000]
+unit = "USD/Vehicle"
+confidence = "estimated"
+
+[parameters."advance rate"]
+base = 0.9
+low = 0.8
+high = 1.0
+distribution = "triangular"
+domain = [0, 1]
+unit = "Dmnl"
+confidence = "estimated"
+
+[parameters."floorplan rate"]
+base = 0.07
+low = 0.05
+high = 0.1
+distribution = "triangular"
+domain = [0, 0.5]
+role = "rate"
+unit = "1/Year"
+confidence = "estimated"
+
+[parameters."discount rate"]
+base = 0.1
+low = 0.07
+high = 0.15
+distribution = "triangular"
+domain = [0, 1]
+unit = "1/Year"
+confidence = "estimated"
+
+[parameters."margin shock size"]
+base = 0.0
+low = 0.0
+high = 0.5
+distribution = "fixed"
+domain = [0, 1]
+unit = "Dmnl"
+confidence = "verified"
+
+[parameters."rate shock size"]
+base = 0.0
+low = 0.0
+high = 0.08
+distribution = "fixed"
+domain = [0, 0.2]
+unit = "1/Year"
+confidence = "verified"
+
+[parameters."demand shock size"]
+base = 0.0
+low = 0.0
+high = 0.4
+distribution = "fixed"
+domain = [0, 1]
+unit = "Dmnl"
+confidence = "verified"
+
+[parameters."shock start month"]
+base = 24.0
+low = 0.0
+high = 60.0
+distribution = "fixed"
+domain = [0, 180]
+unit = "Month"
+confidence = "verified"
+
+[parameters."shock duration"]
+base = 12.0
+low = 0.0
+high = 36.0
+distribution = "fixed"
+domain = [0, 180]
+unit = "Month"
+confidence = "verified"
+
+# T8 reads link signs with parameters A and C switched on (inside their ranges), so the two loops through them get a polarity;
+# their bases stay 0. Scores and dominance still come from the true base run (gate 3, option a).
+[loop_check]
+set = { "allocation response strength" = 0.4, "retention loss when overloaded" = 0.3, "attrition rate" = 0.35 }
+
+[[conservation]]
+name = "households (closed market plus source and sink)"
+stocks = ["Households Outside Market", "Prospects", "Owners", "Lessees Early", "Lessees Mid", "Lessees Late", "Households Elsewhere"]
+
+[[conservation]]
+name = "new vehicles (manufacturer source to sold)"
+stocks = ["Manufacturer Supply Outside", "New Vehicles On Order", "New Inventory", "New Vehicles Sold"]
+
+[[conservation]]
+name = "used vehicles (outside supply to sold on)"
+stocks = ["Used Vehicle Supply Outside", "Reconditioning Pipeline", "Used Frontline Inventory", "Used Vehicles Sold On"]
+
+[[extreme]]
+name = "nobody shops: no sales, owners only replace"
+set = { "shopping rate" = 0 }
+expect = [{ var = "new sales", stat = "max", op = "<=", value = 1e-9 },
+          { var = "used sales", stat = "max", op = "<=", value = 1e-9 },
+          { var = "Owners", stat = "monotone_nonincreasing" }]
+
+[[extreme]]
+name = "no leases: no lease starts, lessees run off"
+set = { "lease share" = 0 }
+expect = [{ var = "lease starts", stat = "max", op = "<=", value = 1e-9 },
+          { var = "Lessees Late", stat = "monotone_nonincreasing" }]
+
+[[extreme]]
+name = "no service capture: service customers only defect"
+set = { "service capture share" = 0 }
+expect = [{ var = "Service Customers", stat = "monotone_nonincreasing" }]
+
+[[extreme]]
+name = "no technician target: headcount only falls"
+set = { "technician target" = 0 }
+expect = [{ var = "Technicians", stat = "monotone_nonincreasing" }]
+
+[[extreme]]
+name = "F and I off: no F and I income"
+set = { "F and I base penetration" = 0, "F and I maximum penetration uplift" = 0 }
+expect = [{ var = "F and I income", stat = "max", op = "<=", value = 1e-9 }]
+
+[[extreme]]
+name = "no manufacturer allocation: no new orders"
+set = { "manufacturer allocation" = 0 }
+expect = [{ var = "new orders", stat = "max", op = "<=", value = 1e-9 },
+          { var = "New Vehicles On Order", stat = "monotone_nonincreasing" }]
+
+[[extreme]]
+name = "no wholesaling: no exits"
+set = { "wholesale exit rate" = 0 }
+expect = [{ var = "wholesale exits", stat = "max", op = "<=", value = 1e-9 }]
+
+[[extreme]]
+name = "no demand sources: outside market and marketing off"
+set = { "market entry rate" = 0, "maximum marketing starts" = 0 }
+expect = [{ var = "Households Outside Market", stat = "max", op = "<=", value = 1e-9 }]
+
+# shock window is months 24-36 (shock start month 24, duration 12), so month 30 is inside it
+[[extreme]]
+name = "margin squeeze to zero: new gross is zero inside the window"
+set = { "margin shock size" = 1 }
+expect = [{ var = "new gross", stat = "value_at", time = 30, op = "<=", value = 1e-9 }]
+
+# base interest is about 55,000 a month (settled debt 9.5M x 7%/12); +0.10/yr gives about 135,000
+[[extreme]]
+name = "rate shock of 10 points: floorplan interest more than doubles inside the window"
+set = { "rate shock size" = 0.1 }
+expect = [{ var = "floorplan interest", stat = "value_at", time = 30, op = ">=", value = 120000 }]
+
+[[extreme]]
+name = "demand shock of 100%: no shoppers inside the window"
+set = { "demand shock size" = 1 }
+expect = [{ var = "shoppers", stat = "value_at", time = 30, op = "<=", value = 1e-9 }]
+
+[[extreme]]
+name = "maximum overload sensitivity with few technicians: stocks stay non-negative"
+set = { "retention loss when overloaded" = 1, "technician target" = 5 }
+expect = [{ var = "Service Customers", stat = "min", op = ">=", value = 0 }]
+
+[[extreme]]
+name = "extreme discount response: demand stays positive"
+set = { "discount demand sensitivity" = 3, "discount sensitivity" = 0.3 }
+expect = [{ var = "used demand", stat = "min", op = ">=", value = 0 }]
+
+# T5 limit case: constant new-vehicle demand with a huge prospect pool, no allocation cap, no response, availability = 1.
+# Then d(New Inventory + New Vehicles On Order)/dt = (target - stock)/adjustment time exactly (deliveries cancel), whatever the
+# lead time, so the stock follows the goal-seeking closed form  G + (y0 - G) exp(-t/tau)  with
+#   G = N x (target new days supply / days per month + order lead time) = 80 x (60/30.4 + 1) = 237.8947...
+#   y0 = initial new inventory + initial new vehicles on order = 40 + 0, tau = new inventory adjustment time.
+# N = initial prospects x shopping rate / months per year x new share of shoppers = 1e9 x 1.7454545e-6 / 12 x 0.55 = 80.
+# The prospect pool loses 80 x 180 = 14,400 households of 1e9 (1.4e-5 relative), so demand is constant to that precision.
+[reference]
+function = "goal_seeking"
+compare = ["New Inventory", "New Vehicles On Order"]
+set = { "initial prospects" = 1e9, "shopping rate" = 1.7454545454545454e-6, "availability constant new" = 1e-6, "manufacturer allocation" = 1e6, "allocation response strength" = 0, "market entry rate" = 0, "maximum marketing starts" = 0, "initial new inventory" = 40, "initial new vehicles on order" = 0 }
+time_step = 0.0625
+args = { G = 237.89473684210526, y0 = 40, tau = { param = "new inventory adjustment time" } }
+nrmse_max = 0.10
+# Base run: the store starts settled, so only profit accumulation moves; declared mode for the cumulative profit is growth.
+modes = [{ var = "Cumulative Net Profit", mode = "growth" }]
+
+[sectors]
+"demand and prospects" = ["Prospects", "shoppers", "shopping rate", "shopping rate monthly", "new share of shoppers", "new demand", "used demand", "marketing spend", "marketing starts", "maximum marketing starts", "marketing spend scale", "market entry rate", "market entries", "Households Outside Market", "repeat to store", "store loyalty", "service ratio", "loyalty floor", "loyalty ceiling", "loyalty half saturation", "minimum owner base", "initial prospects"]
+"new vehicles" = ["New Inventory", "New Vehicles On Order", "Manufacturer Supply Outside", "New Vehicles Sold", "new sales", "new orders", "deliveries", "target new inventory", "target new days supply", "new inventory adjustment time", "order lead time", "manufacturer allocation", "allocation response", "allocation response strength", "Trailing New Sales", "trailing change", "allocation memory", "availability constant new", "reference new sales", "initial new inventory", "initial new vehicles on order"]
+"used vehicles" = ["Used Frontline Inventory", "Reconditioning Pipeline", "Used Vehicle Supply Outside", "Used Vehicles Sold On", "Trailing Used Sales", "trailing used change", "used sales memory", "reference used sales", "used sales", "used acquisitions", "trade ins", "off lease returns", "auction buys", "recon done", "wholesale exits", "used days supply", "used price discount", "target used inventory", "target used days supply", "used inventory adjustment time", "reconditioning time", "wholesale exit rate", "wholesale exit rate monthly", "trade in share", "off lease return share", "availability constant used", "discount demand sensitivity", "discount sensitivity", "maximum price discount", "minimum used sales rate", "minimum sellout time", "initial used supply outside", "initial used frontline inventory", "initial reconditioning pipeline"]
+"customer base and leases" = ["Owners", "Lessees Early", "Lessees Mid", "Lessees Late", "Households Elsewhere", "retail new buys", "lease starts", "lease advance 1", "lease advance 2", "lease end", "lease stage time", "replacement", "leakage", "lease share", "lease term", "number of lease stages", "ownership period", "initial owners", "initial lessees per stage"]
+"service and parts" = ["Service Customers", "service capture", "service capture share", "defection", "base defection rate", "base defection rate monthly", "ro demand", "visits per customer", "visits per customer monthly", "ro done", "capacity", "repairs per technician", "utilisation", "retention loss when overloaded", "Technicians", "technician target", "hiring", "attrition", "hire time", "attrition rate", "attrition rate monthly", "initial service customers", "initial technicians"]
+"F and I" = ["F and I penetration", "F and I base penetration", "F and I maximum penetration uplift", "F and I spend scale", "F and I programme spend", "F and I gross per contract", "chargeback rate", "F and I income"]
+"financing" = ["Floorplan Debt", "Inventory at Cost", "inventory cost released", "floorplan payoff", "advance rate", "floorplan rate", "floorplan rate monthly", "floorplan rate effective", "floorplan interest", "new vehicle unit cost", "used vehicle unit cost", "initial inventory at cost", "initial floorplan debt"]
+"profit and cost" = ["new gross", "used gross", "lease remarketing gain", "service gross", "parts gross", "total gross", "commissions", "technician payroll", "wholesale loss", "net profit", "net cash flow", "absorption rate", "Cash", "Cumulative Net Profit", "Cash Received", "Cash Paid Out", "Cumulative Profit Earned", "Cumulative Loss Incurred", "initial cash", "new gross per vehicle", "used gross per vehicle", "used retail price", "lease remarketing loss per vehicle", "gross per repair order", "parts gross per repair order", "technician cost", "technician cost monthly", "fixed overhead", "commission rate", "wholesale loss per vehicle"]
+"scenario levers and shocks" = ["shock active", "margin shock factor", "margin shock size", "rate shock size", "demand shock size", "shock start month", "shock duration"]
+"valuation" = ["discount rate", "discount rate monthly", "discount factor", "discounted net cash flow", "Cumulative Discounted Cash Flow", "Cumulative Discounted Cash Received", "Cumulative Discounted Cash Paid"]
+"unit conversion and time" = ["months per year", "days per month", "vehicles per household purchase", "simulation horizon"]
+
+[montecarlo]
+n = 1000
+seed = 20261030
+metrics = [
+  { name = "cum_profit_m60", var = "Cumulative Net Profit", stat = "value_at", time = 60 },
+  { name = "cum_profit_m120", var = "Cumulative Net Profit", stat = "value_at", time = 120 },
+  { name = "cum_profit_m180", var = "Cumulative Net Profit", stat = "value_at", time = 180 },
+  { name = "cum_dcf_m120", var = "Cumulative Discounted Cash Flow", stat = "value_at", time = 120 },
+  { name = "net_profit_m60", var = "net profit", stat = "value_at", time = 60 },
+  { name = "cash_m60", var = "Cash", stat = "value_at", time = 60 },
+  { name = "service_gross_m60", var = "service gross", stat = "value_at", time = 60 },
+  { name = "total_gross_m60", var = "total gross", stat = "value_at", time = 60 },
+  { name = "owners_m60", var = "Owners", stat = "value_at", time = 60 },
+  { name = "min_net_profit", var = "net profit", stat = "min" },
+  { name = "min_absorption_rate", var = "absorption rate", stat = "min" },
+  { name = "peak_used_days_supply", var = "used days supply", stat = "max" }
+]
+
+# Objective for the policy ranking: cumulative net profit before tax at month 60 (all lenses use it; lens B reads min_net_profit, lens D cum_dcf_m120).
+# "baseline store" is listed FIRST: gains are measured per sample against it (gate 4 decision).
+[policy]
+objective = "cum_profit_m60"
+maximize = true
+
+[[policies]]
+name = "baseline store (no lever change)"
+
+[[policies]]
+name = "A used inventory +33 days supply (about $10k a month of carrying cost)"
+changes = { "target used days supply" = { add = 33 } }
+
+[[policies]]
+name = "A technicians +1.7 (about $10k a month of payroll)"
+changes = { "technician target" = { add = 1.7 } }
+
+[[policies]]
+name = "A F and I programme +$10k a month"
+changes = { "F and I programme spend" = { set = 10000 } }
+
+[[policies]]
+name = "A marketing +$10k a month"
+changes = { "marketing spend" = { add = 10000 } }
+
+[[policies]]
+name = "B new-vehicle gross -30% for 12 months"
+changes = { "margin shock size" = { set = 0.3 } }
+
+[[policies]]
+name = "B floorplan rate +3 points for 12 months"
+changes = { "rate shock size" = { set = 0.03 } }
+
+[[policies]]
+name = "B demand -20% for 12 months"
+changes = { "demand shock size" = { set = 0.2 } }
+
+[[policies]]
+name = "B all three shocks together, 12 months"
+changes = { "margin shock size" = { set = 0.3 }, "rate shock size" = { set = 0.03 }, "demand shock size" = { set = 0.2 } }
+
+[[policies]]
+name = "B new-vehicle gross -30% for 24 months"
+changes = { "margin shock size" = { set = 0.3 }, "shock duration" = { set = 24 } }
+
+[[policies]]
+name = "C used-heavy mix (new share 0.45, used days supply +15)"
+changes = { "new share of shoppers" = { set = 0.45 }, "target used days supply" = { add = 15 } }
+
+[[policies]]
+name = "C lease-heavy mix (lease share 0.40)"
+changes = { "lease share" = { set = 0.4 } }
+
+[[policies]]
+name = "C fixed-ops: technicians +3 only (capacity, no extra demand)"
+changes = { "technician target" = { add = 3 } }
+
+[[policies]]
+name = "C fixed-ops: service capture x1.25 only (costs nothing in the model: an upper bound)"
+changes = { "service capture share" = { mul = 1.25 } }
+
+[[policies]]
+name = "C fixed-ops-heavy mix (both of the above)"
+changes = { "service capture share" = { mul = 1.25 }, "technician target" = { add = 3 } }
+
+[[loops]]
+name = "B1  "
+polarity = "B"
+variables = ["Lessees Late", "lease end"]
+
+[[loops]]
+name = "B2  "
+polarity = "B"
+variables = ["Lessees Mid", "lease advance 2"]
+
+[[loops]]
+name = "B3  "
+polarity = "B"
+variables = ["Owners", "replacement"]
+
+[[loops]]
+name = "B4  "
+polarity = "B"
+variables = ["Service Customers", "defection"]
+
+[[loops]]
+name = "B5  "
+polarity = "B"
+variables = ["Trailing New Sales", "trailing change"]
+
+[[loops]]
+name = "B6  "
+polarity = "B"
+variables = ["Used Frontline Inventory", "used sales"]
+
+[[loops]]
+name = "B7  "
+polarity = "B"
+variables = ["Lessees Early", "lease advance 1"]
+
+[[loops]]
+name = "B8  "
+polarity = "B"
+variables = ["New Inventory", "new sales"]
+
+[[loops]]
+name = "B9  "
+polarity = "B"
+variables = ["New Vehicles On Order", "deliveries"]
+
+[[loops]]
+name = "B10  "
+polarity = "B"
+variables = ["New Vehicles On Order", "new orders"]
+
+[[loops]]
+name = "B11  "
+polarity = "B"
+variables = ["Technicians", "attrition"]
+
+[[loops]]
+name = "B12  "
+polarity = "B"
+variables = ["Technicians", "hiring"]
+
+[[loops]]
+name = "B13  "
+polarity = "B"
+variables = ["Reconditioning Pipeline", "recon done"]
+
+[[loops]]
+name = "B14  "
+polarity = "B"
+variables = ["Reconditioning Pipeline", "auction buys", "used acquisitions"]
+
+[[loops]]
+name = "B15  "
+polarity = "B"
+variables = ["Used Frontline Inventory", "used days supply", "wholesale exits"]
+
+[[loops]]
+name = "B16  "
+polarity = "B"
+variables = ["New Inventory", "new orders", "New Vehicles On Order", "deliveries"]
+
+[[loops]]
+name = "B17  "
+polarity = "B"
+variables = ["Prospects", "shoppers", "new demand", "new sales"]
+
+[[loops]]
+name = "B18  "
+polarity = "B"
+variables = ["Prospects", "shoppers", "used demand", "used sales"]
+
+[[loops]]
+name = "B19  "
+polarity = "B"
+variables = ["Service Customers", "ro demand", "utilisation", "defection"]
+
+[[loops]]
+name = "B21  "
+polarity = "B"
+variables = ["Used Frontline Inventory", "used days supply", "used price discount", "used demand", "used sales"]
+
+[[loops]]
+name = "B22  "
+polarity = "B"
+variables = ["Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "auction buys", "used acquisitions"]
+
+[[loops]]
+name = "B23  "
+polarity = "B"
+variables = ["Owners", "service ratio", "store loyalty", "repeat to store", "Prospects", "shoppers", "used demand", "used sales"]
+
+[[loops]]
+name = "B24  "
+polarity = "B"
+variables = ["Owners", "service ratio", "store loyalty", "repeat to store", "Prospects", "shoppers", "new demand", "new sales", "retail new buys"]
+
+[[loops]]
+name = "B25  "
+polarity = "B"
+variables = ["Owners", "replacement", "trade ins", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used sales", "Prospects", "shoppers", "new demand", "new sales", "retail new buys"]
+
+[[loops]]
+name = "B26  "
+polarity = "B"
+variables = ["Owners", "replacement", "trade ins", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used days supply", "used price discount", "used demand", "used sales", "Prospects", "shoppers", "new demand", "new sales", "retail new buys"]
+
+[[loops]]
+name = "B27  "
+polarity = "B"
+variables = ["Lessees Early", "lease advance 1", "Lessees Mid", "lease advance 2", "Lessees Late", "lease end", "off lease returns", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used sales", "Prospects", "shoppers", "new demand", "new sales", "lease starts"]
+
+[[loops]]
+name = "B28  "
+polarity = "B"
+variables = ["Lessees Early", "lease advance 1", "Lessees Mid", "lease advance 2", "Lessees Late", "lease end", "off lease returns", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used days supply", "used price discount", "used demand", "used sales", "Prospects", "shoppers", "new demand", "new sales", "lease starts"]
+
+[[loops]]
+name = "B29  "
+polarity = "B"
+variables = ["Lessees Early", "lease advance 1", "Lessees Mid", "lease advance 2", "Lessees Late", "lease end", "off lease returns", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used sales", "Owners", "service ratio", "store loyalty", "repeat to store", "Prospects", "shoppers", "new demand", "new sales", "lease starts"]
+
+[[loops]]
+name = "B30  "
+polarity = "B"
+variables = ["Lessees Early", "lease advance 1", "Lessees Mid", "lease advance 2", "Lessees Late", "lease end", "off lease returns", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used days supply", "used price discount", "used demand", "used sales", "Owners", "service ratio", "store loyalty", "repeat to store", "Prospects", "shoppers", "new demand", "new sales", "lease starts"]
+
+[[loops]]
+name = "B31  "
+polarity = "B"
+variables = ["Used Frontline Inventory", "wholesale exits"]
+
+[[loops]]
+name = "B32  "
+polarity = "B"
+variables = ["Owners", "replacement", "trade ins", "auction buys", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used sales"]
+
+[[loops]]
+name = "B33  "
+polarity = "B"
+variables = ["Owners", "replacement", "trade ins", "auction buys", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used days supply", "used price discount", "used demand", "used sales"]
+
+[[loops]]
+name = "B34  "
+polarity = "B"
+variables = ["Owners", "replacement", "trade ins", "auction buys", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used sales", "service capture", "Service Customers", "service ratio", "store loyalty", "repeat to store", "Prospects", "shoppers", "new demand", "new sales", "retail new buys"]
+
+[[loops]]
+name = "B35  "
+polarity = "B"
+variables = ["Lessees Early", "lease advance 1", "Lessees Mid", "lease advance 2", "Lessees Late", "lease end", "off lease returns", "auction buys", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used sales", "Owners", "replacement", "repeat to store", "Prospects", "shoppers", "new demand", "new sales", "lease starts"]
+
+[[loops]]
+name = "B36  "
+polarity = "B"
+variables = ["Owners", "replacement", "trade ins", "auction buys", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used days supply", "used price discount", "used demand", "used sales", "service capture", "Service Customers", "service ratio", "store loyalty", "repeat to store", "Prospects", "shoppers", "new demand", "new sales", "retail new buys"]
+
+[[loops]]
+name = "B37  "
+polarity = "B"
+variables = ["Lessees Early", "lease advance 1", "Lessees Mid", "lease advance 2", "Lessees Late", "lease end", "off lease returns", "auction buys", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used sales", "service capture", "Service Customers", "service ratio", "store loyalty", "repeat to store", "Prospects", "shoppers", "new demand", "new sales", "lease starts"]
+
+[[loops]]
+name = "B38  "
+polarity = "B"
+variables = ["Lessees Early", "lease advance 1", "Lessees Mid", "lease advance 2", "Lessees Late", "lease end", "off lease returns", "auction buys", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used days supply", "used price discount", "used demand", "used sales", "Owners", "replacement", "repeat to store", "Prospects", "shoppers", "new demand", "new sales", "lease starts"]
+
+[[loops]]
+name = "B39  "
+polarity = "B"
+variables = ["Lessees Early", "lease advance 1", "Lessees Mid", "lease advance 2", "Lessees Late", "lease end", "off lease returns", "auction buys", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used days supply", "used price discount", "used demand", "used sales", "service capture", "Service Customers", "service ratio", "store loyalty", "repeat to store", "Prospects", "shoppers", "new demand", "new sales", "lease starts"]
+
+[[loops]]
+name = "B40  "
+polarity = "B"
+variables = ["Trailing Used Sales", "trailing used change"]
+
+[[loops]]
+name = "B41  "
+polarity = "B"
+variables = ["Trailing Used Sales", "used days supply", "used price discount", "used demand", "used sales", "trailing used change"]
+
+[[loops]]
+name = "R2  "
+polarity = "R"
+variables = ["New Inventory", "new sales", "new orders", "New Vehicles On Order", "deliveries"]
+
+[[loops]]
+name = "R3  "
+polarity = "R"
+variables = ["Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used sales", "auction buys", "used acquisitions"]
+
+[[loops]]
+name = "R4  "
+polarity = "R"
+variables = ["Owners", "replacement", "repeat to store", "Prospects", "shoppers", "used demand", "used sales"]
+
+[[loops]]
+name = "R5  "
+polarity = "R"
+variables = ["New Inventory", "new sales", "trailing change", "Trailing New Sales", "allocation response", "new orders", "New Vehicles On Order", "deliveries"]
+
+[[loops]]
+name = "R6  "
+polarity = "R"
+variables = ["Owners", "replacement", "repeat to store", "Prospects", "shoppers", "new demand", "new sales", "retail new buys"]
+
+[[loops]]
+name = "R7  "
+polarity = "R"
+variables = ["Prospects", "shoppers", "new demand", "new sales", "service capture", "Service Customers", "service ratio", "store loyalty", "repeat to store"]
+
+[[loops]]
+name = "R8  "
+polarity = "R"
+variables = ["Prospects", "shoppers", "used demand", "used sales", "service capture", "Service Customers", "service ratio", "store loyalty", "repeat to store"]
+
+[[loops]]
+name = "R9  "
+polarity = "R"
+variables = ["Owners", "replacement", "trade ins", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used sales"]
+
+[[loops]]
+name = "R10  "
+polarity = "R"
+variables = ["Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used days supply", "used price discount", "used demand", "used sales", "auction buys", "used acquisitions"]
+
+[[loops]]
+name = "R11  "
+polarity = "R"
+variables = ["Owners", "replacement", "trade ins", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used days supply", "used price discount", "used demand", "used sales"]
+
+[[loops]]
+name = "R12  "
+polarity = "R"
+variables = ["Lessees Early", "lease advance 1", "Lessees Mid", "lease advance 2", "Lessees Late", "lease end", "repeat to store", "Prospects", "shoppers", "new demand", "new sales", "lease starts"]
+
+[[loops]]
+name = "R13  "
+polarity = "R"
+variables = ["Owners", "replacement", "trade ins", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used sales", "service capture", "Service Customers", "service ratio", "store loyalty", "repeat to store", "Prospects", "shoppers", "new demand", "new sales", "retail new buys"]
+
+[[loops]]
+name = "R14  "
+polarity = "R"
+variables = ["Lessees Early", "lease advance 1", "Lessees Mid", "lease advance 2", "Lessees Late", "lease end", "off lease returns", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used sales", "Owners", "replacement", "repeat to store", "Prospects", "shoppers", "new demand", "new sales", "lease starts"]
+
+[[loops]]
+name = "R15  "
+polarity = "R"
+variables = ["Owners", "replacement", "trade ins", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used days supply", "used price discount", "used demand", "used sales", "service capture", "Service Customers", "service ratio", "store loyalty", "repeat to store", "Prospects", "shoppers", "new demand", "new sales", "retail new buys"]
+
+[[loops]]
+name = "R16  "
+polarity = "R"
+variables = ["Lessees Early", "lease advance 1", "Lessees Mid", "lease advance 2", "Lessees Late", "lease end", "off lease returns", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used sales", "service capture", "Service Customers", "service ratio", "store loyalty", "repeat to store", "Prospects", "shoppers", "new demand", "new sales", "lease starts"]
+
+[[loops]]
+name = "R17  "
+polarity = "R"
+variables = ["Lessees Early", "lease advance 1", "Lessees Mid", "lease advance 2", "Lessees Late", "lease end", "off lease returns", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used days supply", "used price discount", "used demand", "used sales", "Owners", "replacement", "repeat to store", "Prospects", "shoppers", "new demand", "new sales", "lease starts"]
+
+[[loops]]
+name = "R18  "
+polarity = "R"
+variables = ["Lessees Early", "lease advance 1", "Lessees Mid", "lease advance 2", "Lessees Late", "lease end", "off lease returns", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used days supply", "used price discount", "used demand", "used sales", "service capture", "Service Customers", "service ratio", "store loyalty", "repeat to store", "Prospects", "shoppers", "new demand", "new sales", "lease starts"]
+
+[[loops]]
+name = "R19  "
+polarity = "R"
+variables = ["New Inventory", "new sales", "target new inventory", "new orders", "New Vehicles On Order", "deliveries"]
+
+[[loops]]
+name = "R20  "
+polarity = "R"
+variables = ["Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used sales", "target used inventory", "auction buys", "used acquisitions"]
+
+[[loops]]
+name = "R21  "
+polarity = "R"
+variables = ["Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used days supply", "used price discount", "used demand", "used sales", "target used inventory", "auction buys", "used acquisitions"]
+
+[[loops]]
+name = "R22  "
+polarity = "R"
+variables = ["Owners", "replacement", "trade ins", "auction buys", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used sales", "Prospects", "shoppers", "new demand", "new sales", "retail new buys"]
+
+[[loops]]
+name = "R23  "
+polarity = "R"
+variables = ["Owners", "replacement", "trade ins", "auction buys", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used days supply", "used price discount", "used demand", "used sales", "Prospects", "shoppers", "new demand", "new sales", "retail new buys"]
+
+[[loops]]
+name = "R24  "
+polarity = "R"
+variables = ["Lessees Early", "lease advance 1", "Lessees Mid", "lease advance 2", "Lessees Late", "lease end", "off lease returns", "auction buys", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used sales", "Prospects", "shoppers", "new demand", "new sales", "lease starts"]
+
+[[loops]]
+name = "R25  "
+polarity = "R"
+variables = ["Lessees Early", "lease advance 1", "Lessees Mid", "lease advance 2", "Lessees Late", "lease end", "off lease returns", "auction buys", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used days supply", "used price discount", "used demand", "used sales", "Prospects", "shoppers", "new demand", "new sales", "lease starts"]
+
+[[loops]]
+name = "R26  "
+polarity = "R"
+variables = ["Lessees Early", "lease advance 1", "Lessees Mid", "lease advance 2", "Lessees Late", "lease end", "off lease returns", "auction buys", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used sales", "Owners", "service ratio", "store loyalty", "repeat to store", "Prospects", "shoppers", "new demand", "new sales", "lease starts"]
+
+[[loops]]
+name = "R27  "
+polarity = "R"
+variables = ["Lessees Early", "lease advance 1", "Lessees Mid", "lease advance 2", "Lessees Late", "lease end", "off lease returns", "auction buys", "used acquisitions", "Reconditioning Pipeline", "recon done", "Used Frontline Inventory", "used days supply", "used price discount", "used demand", "used sales", "Owners", "service ratio", "store loyalty", "repeat to store", "Prospects", "shoppers", "new demand", "new sales", "lease starts"]
+
+[[loops]]
+name = "R28  "
+polarity = "R"
+variables = ["Trailing Used Sales", "used days supply", "wholesale exits", "Used Frontline Inventory", "used sales", "trailing used change"]

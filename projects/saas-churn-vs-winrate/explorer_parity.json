@@ -1,0 +1,149 @@
+{
+ "engine_sha256": "d4ddc302a5375346f65b702bb36e2e1fe13b50bfb168e7b6855882e27b653f5c",
+ "errors": [],
+ "headline": {
+  "max_rel": 0.0,
+  "n_values": 280,
+  "worst": {
+   "metric": "peak_evaluation_month",
+   "run": "domain low"
+  }
+ },
+ "html_sha256": "f94ac974a225fd14855750e4fd44e83e59b6e4692c54fe9657a729e98fb9f6fa",
+ "ltm": {
+  "end_to_end": {
+   "complete": true,
+   "expected_link": 768,
+   "expected_loop": 132,
+   "max_link": 2.843205064147842e-11,
+   "max_loop": 1.1914053546605103e-12,
+   "n_link": 768,
+   "n_loop": 132,
+   "worst": {
+    "link": [
+     "base",
+     "churn>recently_churned_firms"
+    ],
+    "loop": [
+     "random 5",
+     [
+      "churn",
+      "cooling_off_firms",
+      "re_entry",
+      "potential_customers",
+      "word_of_mouth_starts",
+      "evaluation_starts",
+      "firms_in_evaluation",
+      "deal_closings",
+      "deals_won",
+      "customers",
+      "cs_coverage",
+      "cs_effect",
+      "churn_reduction",
+      "effective_churn_fraction"
+     ]
+    ]
+   }
+  },
+  "implementation": {
+   "complete": true,
+   "expected_link": 768,
+   "expected_loop": 132,
+   "max_link": 0.0,
+   "max_loop": 0.0,
+   "n_link": 768,
+   "n_loop": 132,
+   "worst": {
+    "link": [
+     "random 5",
+     "win_rate_programme_spend>total_programme_spend"
+    ],
+    "loop": [
+     "random 5",
+     [
+      "churn",
+      "cooling_off_firms",
+      "re_entry",
+      "potential_customers",
+      "word_of_mouth_starts",
+      "evaluation_starts",
+      "firms_in_evaluation",
+      "deal_closings",
+      "deals_won",
+      "customers",
+      "cs_coverage",
+      "cs_effect",
+      "churn_reduction",
+      "effective_churn_fraction"
+     ]
+    ]
+   }
+  },
+  "labels": [
+   "base",
+   "random 1",
+   "random 2",
+   "random 3",
+   "random 4",
+   "random 5"
+  ],
+  "mode": "live",
+  "n_link_series": 768,
+  "n_loop_series": 132,
+  "n_runs": 6,
+  "pass": true,
+  "tolerance": 1e-09
+ },
+ "max_pointwise_rel": 1.7157063474137726e-12,
+ "max_scale_rel": 5.505740344488425e-16,
+ "metric": "A = max|js-py|/S, S = max|py| per series; B = max|js-py|/|py| where |py| >= 1e-6*S",
+ "metrics_sha256": "05842c9b31a16621b507cfaac133d90ea27c58195e86680bb29ffac2bd40e84a",
+ "missing_columns": [],
+ "model_sha256": "7ed67ad6d4a2bd40a5b82ceecc34783b3c2c34c4f344b4d9b53ddd0db482516c",
+ "n_random": 25,
+ "n_runs": 35,
+ "n_series": 3185,
+ "pass": true,
+ "pointwise_floor": 1e-06,
+ "release": {
+  "files": {
+   "assumptions_register.md": "b06fdfc1234a04f599b78500821b9a5a010f8ead9b7baed4c4ad5c9abc409be6",
+   "breakeven_24_36.csv": "66ebbf0964c660141f4ad1e48dc7f52c785a1fa8460f00a0a0d57f206ad6b855",
+   "breakeven_30_30.csv": "891a1225a8669e7901e2970f923c7a9f005ef82ffda923d17823c880b1819387",
+   "checks.py": "d547f1618d5b03331f560620532b35a71bab5aa36e3b08a611dd39bbb23dc848",
+   "checks_results.json": "e8a9d0f314d4817ad5b8fd3232ce5bb5b65aa707b11ac7cc07aa5742a85a9094",
+   "delay_audit.json": "3ceb41e31645caecd1c9357d881987cbe7ecda399cc0447438857893545b3680",
+   "explorer.toml": "ef1e797c6065e1d5e66377cac963b38667e034098a0decb67a6dfbbae25bacc0",
+   "explorer_glossary.toml": "c0d8fdb66376aab15f7a7ba8f4098579a7cfa134de375da1f7e8be75876b011e",
+   "explorer_intake.toml": "063acd7a205d164b3c729499f61a93e69c86e99d2100aef471376c4a6a1addeb",
+   "gate8_analysis.py": "ed3f9597d0abef649188947d25421858ecb9d4202362c4d5a7cdaa9216008f6a",
+   "gate8_results.json": "854402d60be6582d65d91b6d2793078885aceacc4acbf925fbcf7fac8972704f",
+   "loop_dominance.json": "d6fac25a3c594d458683ec77bb10f425c6958bbd1d0ccb68e3799d416b72c55d",
+   "mc_bands.csv": "74ca3f241369fe101af81ba4efd4f21831a13adf1fb5d3dc226af97487899cb3",
+   "model/build_mdl.py": "ca85f257ba013ce634d50e874a68a16dcf23f9bf88d7ba38b749d948500a83b0",
+   "model/saas_churn_vs_winrate.mdl": "b7093b167ed9cedaf6be76e014b805a8995c0750d19d48444e20ff68759a0d04",
+   "model/saas_churn_vs_winrate.py": "7ed67ad6d4a2bd40a5b82ceecc34783b3c2c34c4f344b4d9b53ddd0db482516c",
+   "order_difference_bands.csv": "09003be35eb62afa371fc6bb5e4c4dea69ffdfff4bcc5687000b75abe926ff1f",
+   "policy_results.csv": "de32179db4c28449141cdd15adf14669a6eaacaef83a18013fc4526ab5dd9aa8",
+   "scenario_bands.csv": "47fad49667154b90e0547dfe877b596b27d0cb1eb374119554c92f33fca0d5e9",
+   "summary.md": "fdbfe8a760e7b0e3dfa70960fbf7749eec2b827d494e126f011ee410d53a5d43",
+   "validation.toml": "e71b0e798a7c10033c201f41627464af7ab14d059adb21ed11ae6436ce9b2bd5",
+   "validation_report.md": "7a6896cf605973e718d4068e0b34bc3e958a1963078fd39e2b78184cd389cbfc",
+   "validation_results.json": "1b297c560d1bd58ba862b74ed56a901fe217ea7c5e7e61c0a0cf2e3b5aa0b394"
+  },
+  "gate": "validation_report.md Overall PASS; validation_results.json all_pass, spec and model unchanged since validation; checks_results.json all_pass, checks code, spec and model unchanged since the checks ran",
+  "template_sha256": "aa53023a16335fee8e2c2647df0e54654aa79b4ae1ed4f2787354063ace5109a"
+ },
+ "reported_only": [],
+ "seed": 20261029,
+ "spec_sha256": "e71b0e798a7c10033c201f41627464af7ab14d059adb21ed11ae6436ce9b2bd5",
+ "tolerance": 1e-09,
+ "worst_pointwise": {
+  "run": "random 13",
+  "series": "expansion lift"
+ },
+ "worst_scale": {
+  "run": "random 10",
+  "series": "capability change"
+ }
+}

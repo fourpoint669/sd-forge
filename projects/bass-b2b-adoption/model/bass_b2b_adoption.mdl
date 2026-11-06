@@ -1,0 +1,192 @@
+{UTF-8}
+Potential Customers= INTEG (
+	re entry - evaluation starts,
+		total market - initial customers)
+	~	Firm
+	~	Firms in the target market that are neither customers, in an evaluation, nor \
+		cooling off. Original model for sd-forge (structure from library/archetypes.md \
+		section 4 plus a sales pipeline and churn).
+	|
+
+Firms in Evaluation= INTEG (
+	evaluation starts - deals won - deals lost,
+		initial firms in evaluation)
+	~	Firm
+	~	Open sales opportunities (trial, proof of concept, procurement).
+	|
+
+Customers= INTEG (
+	deals won - churn,
+		initial customers)
+	~	Firm
+	~	Paying customer firms (logos).
+	|
+
+Cooling Off Firms= INTEG (
+	deals lost + churn - re entry,
+		initial cooling off firms)
+	~	Firm
+	~	Firms that lost a deal or churned and will not re-evaluate until the cool-off \
+		time has passed.
+	|
+
+evaluation starts=
+	marketing driven starts + word of mouth starts
+	~	Firm/Month
+	~	Bass adoption flow, here entry into a sales evaluation.
+	|
+
+marketing driven starts=
+	marketing reach rate monthly * Potential Customers
+	~	Firm/Month
+	~	Bass innovation term p*P.
+	|
+
+word of mouth starts=
+	word of mouth rate monthly * Potential Customers * customer share
+	~	Firm/Month
+	~	Bass imitation term q*P*C/N.
+	|
+
+customer share=
+	Customers / total market
+	~	Dmnl
+	~	Fraction of the target market that are customers.
+	|
+
+deal closings=
+	Firms in Evaluation / sales cycle time
+	~	Firm/Month
+	~	First-order exit from the pipeline (average time in evaluation = sales cycle time).
+	|
+
+deals won=
+	deal closings * win rate
+	~	Firm/Month
+	~		|
+
+deals lost=
+	deal closings * (1 - win rate)
+	~	Firm/Month
+	~		|
+
+churn=
+	Customers * churn rate monthly
+	~	Firm/Month
+	~	Logo churn.
+	|
+
+re entry=
+	Cooling Off Firms / cool off time
+	~	Firm/Month
+	~	Firms return to the potential pool after the cool-off time.
+	|
+
+marketing reach rate monthly=
+	marketing reach rate / months per year
+	~	1/Month
+	~		|
+
+word of mouth rate monthly=
+	word of mouth rate / months per year
+	~	1/Month
+	~		|
+
+churn rate monthly=
+	annual logo churn rate / months per year
+	~	1/Month
+	~		|
+
+marketing reach rate=
+	0.14
+	~	1/Year [0,?]
+	~	p for entry into evaluation. Bass innovation coefficient p ~ 0.03/yr (meta-analysis \
+		mean, reported) divided by base win rate 0.21. Range 0.05-0.25. Confidence: estimated.
+	|
+
+word of mouth rate=
+	1.8
+	~	1/Year [0,?]
+	~	q for entry into evaluation. Bass imitation coefficient q ~ 0.38/yr (meta-analysis \
+		mean, reported) divided by base win rate 0.21. Range 1.0-2.9. Confidence: estimated.
+	|
+
+sales cycle time=
+	6
+	~	Month [0.5,?]
+	~	Mid-market B2B SaaS, 3-9 months. Confidence: reported (secondary benchmarks).
+	|
+
+win rate=
+	0.21
+	~	Dmnl [0,1]
+	~	Share of evaluations that close won, 0.15-0.30. Confidence: reported (secondary \
+		benchmarks).
+	|
+
+annual logo churn rate=
+	0.08
+	~	1/Year [0,?]
+	~	Mid-market logo churn, 0.05-0.20 per year. Confidence: reported (secondary \
+		benchmarks, wide disagreement).
+	|
+
+cool off time=
+	18
+	~	Month [0.5,?]
+	~	Time before a lost or churned firm re-evaluates, 12-36 months. Confidence: estimated.
+	|
+
+total market=
+	5000
+	~	Firm [1,?]
+	~	Illustrative count of target firms (replace with your own market sizing), \
+		3000-8000. Confidence: estimated.
+	|
+
+initial customers=
+	10
+	~	Firm [0,?]
+	~	Design partners at launch, 5-25. Confidence: estimated.
+	|
+
+initial firms in evaluation=
+	0
+	~	Firm [0,?]
+	~	Launch starts with an empty pipeline.
+	|
+
+initial cooling off firms=
+	0
+	~	Firm [0,?]
+	~		|
+
+months per year=
+	12
+	~	Month/Year
+	~	Unit conversion.
+	|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+FINAL TIME  = 180
+	~	Month
+	~	Fifteen-year horizon: long enough to see the saturation limit (decision horizon is 5 years).
+	|
+
+INITIAL TIME  = 0
+	~	Month
+	~		|
+
+SAVEPER  = 1
+	~	Month [0,?]
+	~		|
+
+TIME STEP  = 0.25
+	~	Month [0,?]
+	~	At most 1/12 of the shortest time constant in the parameter ranges (sales cycle 3 months).
+	|

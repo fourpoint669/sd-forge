@@ -1,0 +1,669 @@
+{
+ "functions": [],
+ "model_file": "model/car_dealership_profit.py",
+ "project": "car-dealership-profit",
+ "stocks": [
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "none",
+   "downstream": [],
+   "first_order_candidate": false,
+   "form": "source",
+   "inflows": [],
+   "order": null,
+   "outflows": [
+    "net cash flow"
+   ],
+   "state_dependent": null,
+   "stock": "Cash Paid Out",
+   "tau": null,
+   "tau_base": null,
+   "tau_range": null,
+   "tau_run": null,
+   "tau_var": null
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "none",
+   "downstream": [],
+   "first_order_candidate": false,
+   "form": "accumulator",
+   "inflows": [
+    "net cash flow"
+   ],
+   "order": null,
+   "outflows": [],
+   "state_dependent": null,
+   "stock": "Cash Received",
+   "tau": null,
+   "tau_base": null,
+   "tau_range": null,
+   "tau_run": null,
+   "tau_var": null
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "none",
+   "downstream": [],
+   "first_order_candidate": false,
+   "form": "source",
+   "inflows": [],
+   "order": null,
+   "outflows": [
+    "discounted net cash flow"
+   ],
+   "state_dependent": null,
+   "stock": "Cumulative Discounted Cash Paid",
+   "tau": null,
+   "tau_base": null,
+   "tau_range": null,
+   "tau_run": null,
+   "tau_var": null
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "none",
+   "downstream": [],
+   "first_order_candidate": false,
+   "form": "accumulator",
+   "inflows": [
+    "discounted net cash flow"
+   ],
+   "order": null,
+   "outflows": [],
+   "state_dependent": null,
+   "stock": "Cumulative Discounted Cash Received",
+   "tau": null,
+   "tau_base": null,
+   "tau_range": null,
+   "tau_run": null,
+   "tau_var": null
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "none",
+   "downstream": [],
+   "first_order_candidate": false,
+   "form": "source",
+   "inflows": [],
+   "order": null,
+   "outflows": [
+    "net profit"
+   ],
+   "state_dependent": null,
+   "stock": "Cumulative Loss Incurred",
+   "tau": null,
+   "tau_base": null,
+   "tau_range": null,
+   "tau_run": null,
+   "tau_var": null
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "none",
+   "downstream": [],
+   "first_order_candidate": false,
+   "form": "accumulator",
+   "inflows": [
+    "net profit"
+   ],
+   "order": null,
+   "outflows": [],
+   "state_dependent": null,
+   "stock": "Cumulative Profit Earned",
+   "tau": null,
+   "tau_base": null,
+   "tau_range": null,
+   "tau_run": null,
+   "tau_var": null
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "none",
+   "downstream": [],
+   "first_order_candidate": false,
+   "form": "source",
+   "inflows": [],
+   "order": null,
+   "outflows": [
+    "floorplan payoff"
+   ],
+   "state_dependent": null,
+   "stock": "Floorplan Debt",
+   "tau": null,
+   "tau_base": null,
+   "tau_range": null,
+   "tau_run": null,
+   "tau_var": null
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "none",
+   "downstream": [],
+   "first_order_candidate": false,
+   "form": "accumulator",
+   "inflows": [
+    "leakage"
+   ],
+   "order": null,
+   "outflows": [],
+   "state_dependent": null,
+   "stock": "Households Elsewhere",
+   "tau": null,
+   "tau_base": null,
+   "tau_range": null,
+   "tau_run": null,
+   "tau_var": null
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "none",
+   "downstream": [],
+   "first_order_candidate": false,
+   "form": "source",
+   "inflows": [],
+   "order": null,
+   "outflows": [
+    "market entries",
+    "marketing starts"
+   ],
+   "state_dependent": null,
+   "stock": "Households Outside Market",
+   "tau": null,
+   "tau_base": null,
+   "tau_range": null,
+   "tau_run": null,
+   "tau_var": null
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "none",
+   "downstream": [],
+   "first_order_candidate": false,
+   "form": "source",
+   "inflows": [
+    "deliveries",
+    "used acquisitions"
+   ],
+   "order": null,
+   "outflows": [
+    "inventory cost released"
+   ],
+   "state_dependent": null,
+   "stock": "Inventory at Cost",
+   "tau": null,
+   "tau_base": null,
+   "tau_range": null,
+   "tau_run": null,
+   "tau_var": null
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "material",
+   "downstream": [
+    "Lessees Mid"
+   ],
+   "first_order_candidate": true,
+   "form": "drain",
+   "inflows": [
+    "lease starts"
+   ],
+   "order": 1,
+   "outflows": [
+    "lease advance 1"
+   ],
+   "state_dependent": true,
+   "stock": "Lessees Early",
+   "tau": "lease stage time",
+   "tau_base": 12.0,
+   "tau_range": null,
+   "tau_run": [
+    12.0,
+    12.0
+   ],
+   "tau_var": null
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "material",
+   "downstream": [],
+   "first_order_candidate": true,
+   "form": "drain",
+   "inflows": [
+    "lease advance 2"
+   ],
+   "order": 1,
+   "outflows": [
+    "lease end"
+   ],
+   "state_dependent": true,
+   "stock": "Lessees Late",
+   "tau": "lease stage time",
+   "tau_base": 12.0,
+   "tau_range": null,
+   "tau_run": [
+    12.0,
+    12.0
+   ],
+   "tau_var": null
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "material",
+   "downstream": [
+    "Lessees Late"
+   ],
+   "first_order_candidate": true,
+   "form": "drain",
+   "inflows": [
+    "lease advance 1"
+   ],
+   "order": 1,
+   "outflows": [
+    "lease advance 2"
+   ],
+   "state_dependent": true,
+   "stock": "Lessees Mid",
+   "tau": "lease stage time",
+   "tau_base": 12.0,
+   "tau_range": null,
+   "tau_run": [
+    12.0,
+    12.0
+   ],
+   "tau_var": null
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "none",
+   "downstream": [],
+   "first_order_candidate": false,
+   "form": "source",
+   "inflows": [],
+   "order": null,
+   "outflows": [
+    "new orders"
+   ],
+   "state_dependent": null,
+   "stock": "Manufacturer Supply Outside",
+   "tau": null,
+   "tau_base": null,
+   "tau_range": null,
+   "tau_run": null,
+   "tau_var": null
+  },
+  {
+   "cap": "new demand \u00d7 New Inventory / (New Inventory + availability constant new)",
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "material",
+   "downstream": [
+    "New Vehicles Sold"
+   ],
+   "first_order_candidate": true,
+   "form": "drain_capped",
+   "inflows": [
+    "deliveries"
+   ],
+   "order": 1,
+   "outflows": [
+    "new sales"
+   ],
+   "state_dependent": false,
+   "stock": "New Inventory",
+   "tau": "minimum sellout time \u00d7 vehicles per household purchase",
+   "tau_base": 0.25,
+   "tau_range": null,
+   "tau_run": [
+    0.25,
+    0.25
+   ],
+   "tau_var": null
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "material",
+   "downstream": [
+    "Inventory at Cost",
+    "New Inventory"
+   ],
+   "first_order_candidate": true,
+   "form": "drain",
+   "inflows": [
+    "new orders"
+   ],
+   "order": 1,
+   "outflows": [
+    "deliveries"
+   ],
+   "state_dependent": false,
+   "stock": "New Vehicles On Order",
+   "tau": "order lead time",
+   "tau_base": 1.0,
+   "tau_range": [
+    0.5,
+    2.0
+   ],
+   "tau_run": [
+    1.0,
+    1.0
+   ],
+   "tau_var": "order lead time"
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "none",
+   "downstream": [],
+   "first_order_candidate": false,
+   "form": "accumulator",
+   "inflows": [
+    "new sales"
+   ],
+   "order": null,
+   "outflows": [],
+   "state_dependent": null,
+   "stock": "New Vehicles Sold",
+   "tau": null,
+   "tau_base": null,
+   "tau_range": null,
+   "tau_run": null,
+   "tau_var": null
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "material",
+   "downstream": [],
+   "first_order_candidate": true,
+   "form": "drain",
+   "inflows": [
+    "retail new buys",
+    "used sales"
+   ],
+   "order": 1,
+   "outflows": [
+    "replacement"
+   ],
+   "state_dependent": false,
+   "stock": "Owners",
+   "tau": "ownership period",
+   "tau_base": 66.0,
+   "tau_range": [
+    48.0,
+    96.0
+   ],
+   "tau_run": [
+    66.0,
+    66.0
+   ],
+   "tau_var": "ownership period"
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "none",
+   "downstream": [],
+   "first_order_candidate": false,
+   "form": "other",
+   "inflows": [
+    "market entries",
+    "marketing starts",
+    "repeat to store"
+   ],
+   "order": null,
+   "outflows": [
+    "new sales",
+    "used sales"
+   ],
+   "state_dependent": null,
+   "stock": "Prospects",
+   "tau": null,
+   "tau_base": null,
+   "tau_range": null,
+   "tau_run": null,
+   "tau_var": null
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "material",
+   "downstream": [
+    "Used Frontline Inventory"
+   ],
+   "first_order_candidate": true,
+   "form": "drain",
+   "inflows": [
+    "used acquisitions"
+   ],
+   "order": 1,
+   "outflows": [
+    "recon done"
+   ],
+   "state_dependent": false,
+   "stock": "Reconditioning Pipeline",
+   "tau": "reconditioning time",
+   "tau_base": 0.5,
+   "tau_range": [
+    0.25,
+    1.0
+   ],
+   "tau_run": [
+    0.5,
+    0.5
+   ],
+   "tau_var": "reconditioning time"
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "material",
+   "downstream": [],
+   "first_order_candidate": true,
+   "form": "rate",
+   "inflows": [
+    "service capture"
+   ],
+   "order": 1,
+   "outflows": [
+    "defection"
+   ],
+   "state_dependent": false,
+   "stock": "Service Customers",
+   "tau": "1 / (base defection rate monthly \u00d7 (1 + retention loss when overloaded \u00d7 (utilisation \u2212 1)))",
+   "tau_base": 48.0,
+   "tau_range": null,
+   "tau_run": [
+    48.0,
+    48.0
+   ],
+   "tau_var": null
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "material",
+   "downstream": [],
+   "first_order_candidate": true,
+   "form": "rate",
+   "inflows": [
+    "hiring"
+   ],
+   "order": 1,
+   "outflows": [
+    "attrition"
+   ],
+   "state_dependent": false,
+   "stock": "Technicians",
+   "tau": "1 / (attrition rate monthly)",
+   "tau_base": 48.0,
+   "tau_range": null,
+   "tau_run": [
+    48.0,
+    48.0
+   ],
+   "tau_var": null
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "information",
+   "downstream": [],
+   "first_order_candidate": true,
+   "form": "goal_seeking",
+   "inflows": [
+    "trailing change"
+   ],
+   "order": 1,
+   "outflows": [],
+   "state_dependent": false,
+   "stock": "Trailing New Sales",
+   "target": "new sales",
+   "tau": "allocation memory",
+   "tau_base": 6.0,
+   "tau_range": [
+    3.0,
+    12.0
+   ],
+   "tau_run": [
+    6.0,
+    6.0
+   ],
+   "tau_var": "allocation memory"
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "information",
+   "downstream": [],
+   "first_order_candidate": true,
+   "form": "goal_seeking",
+   "inflows": [
+    "trailing used change"
+   ],
+   "order": 1,
+   "outflows": [],
+   "state_dependent": false,
+   "stock": "Trailing Used Sales",
+   "target": "used sales",
+   "tau": "used sales memory",
+   "tau_base": 2.0,
+   "tau_range": [
+    1.0,
+    4.0
+   ],
+   "tau_run": [
+    2.0,
+    2.0
+   ],
+   "tau_var": "used sales memory"
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "none",
+   "downstream": [],
+   "first_order_candidate": false,
+   "form": "mixed:drain_capped,other",
+   "inflows": [
+    "recon done"
+   ],
+   "order": null,
+   "outflows": [
+    "used sales",
+    "wholesale exits"
+   ],
+   "state_dependent": null,
+   "stock": "Used Frontline Inventory",
+   "tau": null,
+   "tau_base": null,
+   "tau_range": null,
+   "tau_run": null,
+   "tau_var": null
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "none",
+   "downstream": [],
+   "first_order_candidate": false,
+   "form": "source",
+   "inflows": [],
+   "order": null,
+   "outflows": [
+    "used acquisitions"
+   ],
+   "state_dependent": null,
+   "stock": "Used Vehicle Supply Outside",
+   "tau": null,
+   "tau_base": null,
+   "tau_range": null,
+   "tau_run": null,
+   "tau_var": null
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "none",
+   "downstream": [],
+   "first_order_candidate": false,
+   "form": "accumulator",
+   "inflows": [
+    "used sales",
+    "wholesale exits"
+   ],
+   "order": null,
+   "outflows": [],
+   "state_dependent": null,
+   "stock": "Used Vehicles Sold On",
+   "tau": null,
+   "tau_base": null,
+   "tau_range": null,
+   "tau_run": null,
+   "tau_var": null
+  }
+ ],
+ "time_step": 0.0625,
+ "time_unit": "Month"
+}

@@ -1,0 +1,132 @@
+{
+ "engine_sha256": "e2d8bc7de08253a97fb871953f54efae7c1a6b78cbcc8ed857303080fa6c99cf",
+ "errors": [],
+ "headline": {
+  "max_rel": 0.0,
+  "n_values": 315,
+  "worst": {
+   "metric": "peak_evaluation_month",
+   "run": "domain low"
+  }
+ },
+ "html_sha256": "84278d0447b4ff5c08a7ce3c9a9a312cdf4d2b79d03da36a3d6c55fd6ddb5be2",
+ "ltm": {
+  "end_to_end": {
+   "complete": true,
+   "expected_link": 210,
+   "expected_loop": 66,
+   "max_link": 0.0,
+   "max_loop": 0.0,
+   "n_link": 210,
+   "n_loop": 66,
+   "worst": {
+    "link": [
+     "random 5",
+     "annual_logo_churn_rate>churn_rate_monthly"
+    ],
+    "loop": [
+     "random 5",
+     [
+      "churn",
+      "cooling_off_firms",
+      "re_entry",
+      "potential_customers",
+      "word_of_mouth_starts",
+      "evaluation_starts",
+      "firms_in_evaluation",
+      "deal_closings",
+      "deals_won",
+      "customers"
+     ]
+    ]
+   }
+  },
+  "implementation": {
+   "complete": true,
+   "expected_link": 210,
+   "expected_loop": 66,
+   "max_link": 0.0,
+   "max_loop": 0.0,
+   "n_link": 210,
+   "n_loop": 66,
+   "worst": {
+    "link": [
+     "random 5",
+     "annual_logo_churn_rate>churn_rate_monthly"
+    ],
+    "loop": [
+     "random 5",
+     [
+      "churn",
+      "cooling_off_firms",
+      "re_entry",
+      "potential_customers",
+      "word_of_mouth_starts",
+      "evaluation_starts",
+      "firms_in_evaluation",
+      "deal_closings",
+      "deals_won",
+      "customers"
+     ]
+    ]
+   }
+  },
+  "labels": [
+   "base",
+   "random 1",
+   "random 2",
+   "random 3",
+   "random 4",
+   "random 5"
+  ],
+  "mode": "live",
+  "n_link_series": 210,
+  "n_loop_series": 66,
+  "n_runs": 6,
+  "pass": true,
+  "tolerance": 1e-09
+ },
+ "max_pointwise_rel": 0.0,
+ "max_scale_rel": 0.0,
+ "metric": "A = max|js-py|/S, S = max|py| per series; B = max|js-py|/|py| where |py| >= 1e-6*S",
+ "metrics_sha256": "05842c9b31a16621b507cfaac133d90ea27c58195e86680bb29ffac2bd40e84a",
+ "missing_columns": [],
+ "model_sha256": "d6ed9a4dcfa4adebb01c93f965dc2e355e03574f253a8ddc7eba96a05895bf5f",
+ "n_random": 25,
+ "n_runs": 35,
+ "n_series": 980,
+ "pass": true,
+ "pointwise_floor": 1e-06,
+ "release": {
+  "files": {
+   "assumptions_register.md": "7f750934e0cfc7fbb7b6ce7d8102569c3c2ec46021a337a094154ca254887a7a",
+   "delay_audit.json": "e007e711805b26045a5a11f4604ed7804671580ba76e85d6ac3d7923183d779c",
+   "explorer.toml": "6d955d11125081857f846ee842a7f88eb309a5c6f075c7d813dd6354825536a2",
+   "explorer_glossary.toml": "3b23752c4522f872e6bcd39fed7b7eb35fba32bb138fb42f7f4f224c770e3702",
+   "explorer_intake.toml": "03b127b91a1b1d2a67cc17670555b5d922d616b1516767b7e8bc8d0ffdfb5176",
+   "loop_dominance.json": "964b42ab7612d51692c17702265e2ed8642bd4d7838974b6ee7d1af3156b7980",
+   "mc_bands.csv": "3ac21ae2e12421322f49ccdbe5f5cae8d7b529937b53f12f40ce4a7f05ba66f0",
+   "model/bass_b2b_adoption.mdl": "7d93d50291bce7452c0d8c9ceaae812577a923177c8ca7211d71da6b9817461a",
+   "model/bass_b2b_adoption.py": "d6ed9a4dcfa4adebb01c93f965dc2e355e03574f253a8ddc7eba96a05895bf5f",
+   "policy_results.csv": "9b50f32a2a2b2a0daa6e754a8e485377581174f14d0563ea7bb61965b37fcb4f",
+   "summary.md": "f3017a56d2c443c373533698cc1763dbf2b8b15e611502f9b9593203a4e60537",
+   "validation.toml": "3c031dc9a412d0aedd319f7a26be66b53d8acc401e2547a6e2d9ed0e136d042b",
+   "validation_report.md": "66e4d01f1a2839b05bcd8ce4b722396a2a1f864c1e8880a857acc8bbb6fda981",
+   "validation_results.json": "ce646ea5235da4fc2757186b70cfb01684ec27a758198389303245ac6d9ab604"
+  },
+  "gate": "validation_report.md Overall PASS; validation_results.json all_pass, spec and model unchanged since validation",
+  "template_sha256": "aa53023a16335fee8e2c2647df0e54654aa79b4ae1ed4f2787354063ace5109a"
+ },
+ "reported_only": [],
+ "seed": 20261029,
+ "spec_sha256": "3c031dc9a412d0aedd319f7a26be66b53d8acc401e2547a6e2d9ed0e136d042b",
+ "tolerance": 1e-09,
+ "worst_pointwise": {
+  "run": "domain low",
+  "series": "word of mouth starts"
+ },
+ "worst_scale": {
+  "run": "domain low",
+  "series": "word of mouth starts"
+ }
+}

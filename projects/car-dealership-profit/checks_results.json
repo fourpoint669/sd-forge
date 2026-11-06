@@ -1,0 +1,74 @@
+{
+ "pl_identity": {
+  "pass": true,
+  "tolerance": 1e-06,
+  "cases": {
+   "base": {
+    "max_abs_gap": 0.0,
+    "rel_gap": 0.0,
+    "pass": true
+   },
+   "corner": {
+    "max_abs_gap": 0.0,
+    "rel_gap": 0.0,
+    "pass": true
+   },
+   "shocked": {
+    "max_abs_gap": 0.0,
+    "rel_gap": 0.0,
+    "pass": true
+   }
+  }
+ },
+ "equity_identity": {
+  "pass": true,
+  "tolerance": 1e-06,
+  "cases": {
+   "base": {
+    "max_abs_drift": 2.7008354663848877e-07,
+    "rel_drift": 2.5555385196326273e-14,
+    "opening_equity": 2556855.7070000004,
+    "pass": true
+   },
+   "corner": {
+    "max_abs_drift": 1.1362135410308838e-07,
+    "rel_drift": 7.756983786123604e-15,
+    "opening_equity": 2556855.7070000004,
+    "pass": true
+   },
+   "shocked": {
+    "max_abs_drift": 6.51925802230835e-08,
+    "rel_drift": 4.700293413677895e-15,
+    "opening_equity": 2556855.7070000004,
+    "pass": true
+   }
+  }
+ },
+ "oracle_vs_mirror": {
+  "pass": true,
+  "tolerance": 1e-06,
+  "cases": {
+   "base": {
+    "max_rel_diff": 9.202898190369239e-10,
+    "worst_series": "used price discount",
+    "pass": true
+   },
+   "shocked": {
+    "max_rel_diff": 2.713250630797307e-10,
+    "worst_series": "net profit",
+    "pass": true
+   }
+  }
+ },
+ "all_pass": true,
+ "inputs": {
+  "checks.py": "1cfc8fa51da8a3574c027348e2004a0266af6096d3cef5c5df06810269673d05",
+  "validation.toml": "1a5fc5d266c4ee093515bc6e5b09a9a85a2625ac46dc3c2140449e327a6f464d",
+  "model/car_dealership_profit.mdl": "c8c5d3bfcb6b896fc0a1b8327e70a2b0665c1c2354d12973e1bc9b804df20ed7",
+  "model/car_dealership_profit.py": "c914b26e0fc208afde521601324df10bbe98f53a0e0974d1686251f212c2bcb8",
+  "model_spec.py": "14f710383b73f70a82ecc984681b8314a74b26b304071eabfa2e84de4b463b19",
+  "settle.py": "6298c2e331f9a3607a15cbfec916affd205ceda4537ab8a4332c3db3c9749df1",
+  "settled_initial.json": "19d8f98a6a791423bffd585e866a547ceabd3acc022cb445e20216c57b0f6aed"
+ },
+ "external_inputs": {}
+}

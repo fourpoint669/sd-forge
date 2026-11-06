@@ -1,0 +1,35 @@
+{
+ "source": "order_difference_bands.csv (monthly rows; difference = win rate first minus churn first, 30/30, ARR USD/yr)",
+ "median_peak": {
+  "month": 36.0,
+  "value": 1816440.0
+ },
+ "median_first_month_at_or_below_zero_after_peak": 74.0,
+ "share_win_first_first_month_below_half_after_peak": 74.0,
+ "at_month": {
+  "36": {
+   "P5": 517198.0,
+   "P25": 1165570.0,
+   "P50": 1816440.0,
+   "P75": 2673980.0,
+   "P95": 4485070.0,
+   "share_win_first_ahead": 0.996
+  },
+  "60": {
+   "P5": -326235.0,
+   "P25": 209143.0,
+   "P50": 522203.0,
+   "P75": 908946.0,
+   "P95": 1841530.0,
+   "share_win_first_ahead": 0.863
+  },
+  "120": {
+   "P5": -1514220.0,
+   "P25": -619974.0,
+   "P50": -248225.0,
+   "P75": 37166.9,
+   "P95": 513606.0,
+   "share_win_first_ahead": 0.276
+  }
+ }
+}

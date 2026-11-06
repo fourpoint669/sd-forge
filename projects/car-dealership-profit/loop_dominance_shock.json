@@ -1,0 +1,451 @@
+{
+ "scenario": "B all three shocks together, 12 months",
+ "window": [
+  24.0,
+  36.0
+ ],
+ "dominance": [
+  {
+   "start": 0.0,
+   "end": 26.5,
+   "loop": null,
+   "family": null,
+   "mean_relative_score": null
+  },
+  {
+   "start": 26.5,
+   "end": 31.25,
+   "loop": "B13  ",
+   "family": "used sourcing",
+   "mean_relative_score": -0.25254364660680384
+  },
+  {
+   "start": 31.25,
+   "end": 32.25,
+   "loop": "B5  ",
+   "family": "first-order adjustment",
+   "mean_relative_score": -0.3980694068823876
+  },
+  {
+   "start": 32.25,
+   "end": 34.3125,
+   "loop": "B16  ",
+   "family": "new-vehicle ordering",
+   "mean_relative_score": -0.34644640875498534
+  },
+  {
+   "start": 34.3125,
+   "end": 38.4375,
+   "loop": "B22  ",
+   "family": "used sourcing",
+   "mean_relative_score": -0.2793410851656203
+  },
+  {
+   "start": 38.4375,
+   "end": 42.4375,
+   "loop": "B13  ",
+   "family": "used sourcing",
+   "mean_relative_score": -0.24592067187687655
+  },
+  {
+   "start": 42.4375,
+   "end": 43.4375,
+   "loop": "B5  ",
+   "family": "first-order adjustment",
+   "mean_relative_score": -0.43107196116299473
+  },
+  {
+   "start": 43.4375,
+   "end": 45.25,
+   "loop": "B16  ",
+   "family": "new-vehicle ordering",
+   "mean_relative_score": -0.31077513812990376
+  },
+  {
+   "start": 45.25,
+   "end": 48.5625,
+   "loop": "B22  ",
+   "family": "used sourcing",
+   "mean_relative_score": -0.21425679134052508
+  },
+  {
+   "start": 48.5625,
+   "end": 50.625,
+   "loop": "B1  ",
+   "family": "first-order adjustment",
+   "mean_relative_score": -0.27881734240922573
+  },
+  {
+   "start": 50.625,
+   "end": 53.9375,
+   "loop": "B13  ",
+   "family": "used sourcing",
+   "mean_relative_score": -0.17664672808173748
+  },
+  {
+   "start": 53.9375,
+   "end": 58.4375,
+   "loop": "B22  ",
+   "family": "used sourcing",
+   "mean_relative_score": -0.3715392670991702
+  },
+  {
+   "start": 58.4375,
+   "end": 60.125,
+   "loop": "B16  ",
+   "family": "new-vehicle ordering",
+   "mean_relative_score": -0.4315715477325329
+  },
+  {
+   "start": 60.125,
+   "end": 69.625,
+   "loop": "B22  ",
+   "family": "used sourcing",
+   "mean_relative_score": -0.2961567921064877
+  },
+  {
+   "start": 69.625,
+   "end": 70.6875,
+   "loop": "B2  ",
+   "family": "first-order adjustment",
+   "mean_relative_score": -0.23969107455950975
+  },
+  {
+   "start": 70.6875,
+   "end": 72.6875,
+   "loop": "B22  ",
+   "family": "used sourcing",
+   "mean_relative_score": -0.21743030990742274
+  },
+  {
+   "start": 72.6875,
+   "end": 73.75,
+   "loop": "B2  ",
+   "family": "first-order adjustment",
+   "mean_relative_score": -0.20494437264673646
+  },
+  {
+   "start": 73.75,
+   "end": 76.5,
+   "loop": "B16  ",
+   "family": "new-vehicle ordering",
+   "mean_relative_score": -0.18251261004457867
+  },
+  {
+   "start": 76.5,
+   "end": 80.5625,
+   "loop": "B13  ",
+   "family": "used sourcing",
+   "mean_relative_score": -0.18166198705894115
+  },
+  {
+   "start": 80.5625,
+   "end": 91.9375,
+   "loop": "B22  ",
+   "family": "used sourcing",
+   "mean_relative_score": -0.12264142368671527
+  },
+  {
+   "start": 91.9375,
+   "end": 180.0,
+   "loop": "B16  ",
+   "family": "new-vehicle ordering",
+   "mean_relative_score": -0.7443155572865672
+  }
+ ],
+ "top_loops": [
+  {
+   "name": "B16  ",
+   "polarity": "B",
+   "family": "new-vehicle ordering",
+   "mean_abs_relative_score": 0.11993497014795611,
+   "max_abs_relative_score": 0.8778678010352137,
+   "variables": [
+    "deliveries",
+    "New Inventory",
+    "new orders",
+    "New Vehicles On Order"
+   ]
+  },
+  {
+   "name": "B22  ",
+   "polarity": "B",
+   "family": "used sourcing",
+   "mean_abs_relative_score": 0.08469779549746227,
+   "max_abs_relative_score": 0.6666654640261246,
+   "variables": [
+    "auction buys",
+    "used acquisitions",
+    "Reconditioning Pipeline",
+    "recon done",
+    "Used Frontline Inventory"
+   ]
+  },
+  {
+   "name": "B27  ",
+   "polarity": "B",
+   "family": "lease echo",
+   "mean_abs_relative_score": 0.056763480947954074,
+   "max_abs_relative_score": 0.2416148845820251,
+   "variables": [
+    "lease advance 1",
+    "Lessees Mid",
+    "lease advance 2",
+    "Lessees Late",
+    "lease end",
+    "off lease returns",
+    "used acquisitions",
+    "Reconditioning Pipeline",
+    "recon done",
+    "Used Frontline Inventory",
+    "used sales",
+    "Prospects",
+    "shoppers",
+    "new demand",
+    "new sales",
+    "lease starts",
+    "Lessees Early"
+   ]
+  },
+  {
+   "name": "R24  ",
+   "polarity": "R",
+   "family": "lease echo",
+   "mean_abs_relative_score": 0.05676348092189411,
+   "max_abs_relative_score": 0.24161488455928434,
+   "variables": [
+    "auction buys",
+    "used acquisitions",
+    "Reconditioning Pipeline",
+    "recon done",
+    "Used Frontline Inventory",
+    "used sales",
+    "Prospects",
+    "shoppers",
+    "new demand",
+    "new sales",
+    "lease starts",
+    "Lessees Early",
+    "lease advance 1",
+    "Lessees Mid",
+    "lease advance 2",
+    "Lessees Late",
+    "lease end",
+    "off lease returns"
+   ]
+  },
+  {
+   "name": "R14  ",
+   "polarity": "R",
+   "family": "lease echo",
+   "mean_abs_relative_score": 0.05203462257239316,
+   "max_abs_relative_score": 0.16505845800964905,
+   "variables": [
+    "lease advance 1",
+    "Lessees Mid",
+    "lease advance 2",
+    "Lessees Late",
+    "lease end",
+    "off lease returns",
+    "used acquisitions",
+    "Reconditioning Pipeline",
+    "recon done",
+    "Used Frontline Inventory",
+    "used sales",
+    "Owners",
+    "replacement",
+    "repeat to store",
+    "Prospects",
+    "shoppers",
+    "new demand",
+    "new sales",
+    "lease starts",
+    "Lessees Early"
+   ]
+  },
+  {
+   "name": "B35  ",
+   "polarity": "B",
+   "family": "lease echo",
+   "mean_abs_relative_score": 0.05203462257128402,
+   "max_abs_relative_score": 0.16505845818096013,
+   "variables": [
+    "auction buys",
+    "used acquisitions",
+    "Reconditioning Pipeline",
+    "recon done",
+    "Used Frontline Inventory",
+    "used sales",
+    "Owners",
+    "replacement",
+    "repeat to store",
+    "Prospects",
+    "shoppers",
+    "new demand",
+    "new sales",
+    "lease starts",
+    "Lessees Early",
+    "lease advance 1",
+    "Lessees Mid",
+    "lease advance 2",
+    "Lessees Late",
+    "lease end",
+    "off lease returns"
+   ]
+  },
+  {
+   "name": "R17  ",
+   "polarity": "R",
+   "family": "lease echo",
+   "mean_abs_relative_score": 0.03902193176999159,
+   "max_abs_relative_score": 0.19278464585764915,
+   "variables": [
+    "lease advance 1",
+    "Lessees Mid",
+    "lease advance 2",
+    "Lessees Late",
+    "lease end",
+    "off lease returns",
+    "used acquisitions",
+    "Reconditioning Pipeline",
+    "recon done",
+    "Used Frontline Inventory",
+    "used days supply",
+    "used price discount",
+    "used demand",
+    "used sales",
+    "Owners",
+    "replacement",
+    "repeat to store",
+    "Prospects",
+    "shoppers",
+    "new demand",
+    "new sales",
+    "lease starts",
+    "Lessees Early"
+   ]
+  },
+  {
+   "name": "B38  ",
+   "polarity": "B",
+   "family": "lease echo",
+   "mean_abs_relative_score": 0.03902193176887627,
+   "max_abs_relative_score": 0.19278464590123184,
+   "variables": [
+    "auction buys",
+    "used acquisitions",
+    "Reconditioning Pipeline",
+    "recon done",
+    "Used Frontline Inventory",
+    "used days supply",
+    "used price discount",
+    "used demand",
+    "used sales",
+    "Owners",
+    "replacement",
+    "repeat to store",
+    "Prospects",
+    "shoppers",
+    "new demand",
+    "new sales",
+    "lease starts",
+    "Lessees Early",
+    "lease advance 1",
+    "Lessees Mid",
+    "lease advance 2",
+    "Lessees Late",
+    "lease end",
+    "off lease returns"
+   ]
+  },
+  {
+   "name": "B13  ",
+   "polarity": "B",
+   "family": "used sourcing",
+   "mean_abs_relative_score": 0.03610824630102728,
+   "max_abs_relative_score": 0.3651077085627469,
+   "variables": [
+    "recon done",
+    "Reconditioning Pipeline"
+   ]
+  },
+  {
+   "name": "B28  ",
+   "polarity": "B",
+   "family": "lease echo",
+   "mean_abs_relative_score": 0.029328443718114192,
+   "max_abs_relative_score": 0.24379416939358123,
+   "variables": [
+    "lease advance 1",
+    "Lessees Mid",
+    "lease advance 2",
+    "Lessees Late",
+    "lease end",
+    "off lease returns",
+    "used acquisitions",
+    "Reconditioning Pipeline",
+    "recon done",
+    "Used Frontline Inventory",
+    "used days supply",
+    "used price discount",
+    "used demand",
+    "used sales",
+    "Prospects",
+    "shoppers",
+    "new demand",
+    "new sales",
+    "lease starts",
+    "Lessees Early"
+   ]
+  },
+  {
+   "name": "R25  ",
+   "polarity": "R",
+   "family": "lease echo",
+   "mean_abs_relative_score": 0.029328443649007704,
+   "max_abs_relative_score": 0.24379416933058923,
+   "variables": [
+    "auction buys",
+    "used acquisitions",
+    "Reconditioning Pipeline",
+    "recon done",
+    "Used Frontline Inventory",
+    "used days supply",
+    "used price discount",
+    "used demand",
+    "used sales",
+    "Prospects",
+    "shoppers",
+    "new demand",
+    "new sales",
+    "lease starts",
+    "Lessees Early",
+    "lease advance 1",
+    "Lessees Mid",
+    "lease advance 2",
+    "Lessees Late",
+    "lease end",
+    "off lease returns"
+   ]
+  },
+  {
+   "name": "R21  ",
+   "polarity": "R",
+   "family": "used discounting",
+   "mean_abs_relative_score": 0.022969863964375545,
+   "max_abs_relative_score": 0.1591778367532193,
+   "variables": [
+    "auction buys",
+    "used acquisitions",
+    "Reconditioning Pipeline",
+    "recon done",
+    "Used Frontline Inventory",
+    "used days supply",
+    "used price discount",
+    "used demand",
+    "used sales",
+    "target used inventory"
+   ]
+  }
+ ]
+}

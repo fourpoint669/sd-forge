@@ -1,0 +1,62 @@
+{
+ "regression_vs_bass_b2b_adoption": {
+  "pass": true,
+  "max_abs_diff": 0.0,
+  "rel_diff": 0.0,
+  "tolerance": 1e-09,
+  "steps": 481,
+  "dt": 0.25,
+  "months": 120,
+  "settings": {
+   "total programme budget": 0,
+   "expansion lift at full CS effect": 0,
+   "sales capacity growth rate": 0,
+   "negative word of mouth multiplier": 0,
+   "base net expansion rate": 0,
+   "market growth rate": 0,
+   "initial sales capacity": 1000000000.0
+  },
+  "shared_params_from_example": {
+   "marketing reach rate": 0.14,
+   "word of mouth rate": 1.8,
+   "sales cycle time": 6,
+   "base win rate": 0.21,
+   "base annual churn rate": 0.08,
+   "cool off time": 18,
+   "initial total market": 5000,
+   "initial customers": 10
+  }
+ },
+ "arr_identity": {
+  "pass": true,
+  "tolerance": 1e-06,
+  "settings": {
+   "base net expansion rate": 0,
+   "expansion lift at full CS effect": 0
+  },
+  "cases": {
+   "base": {
+    "max_abs_gap": 1.862645149230957e-08,
+    "rel_gap": 7.401749155857339e-16,
+    "pass": true
+   },
+   "corner": {
+    "max_abs_gap": 7.450580596923828e-08,
+    "rel_gap": 8.07433829918105e-16,
+    "pass": true
+   }
+  }
+ },
+ "all_pass": true,
+ "inputs": {
+  "checks.py": "d547f1618d5b03331f560620532b35a71bab5aa36e3b08a611dd39bbb23dc848",
+  "validation.toml": "e71b0e798a7c10033c201f41627464af7ab14d059adb21ed11ae6436ce9b2bd5",
+  "model/saas_churn_vs_winrate.mdl": "b7093b167ed9cedaf6be76e014b805a8995c0750d19d48444e20ff68759a0d04",
+  "model/saas_churn_vs_winrate.py": "7ed67ad6d4a2bd40a5b82ceecc34783b3c2c34c4f344b4d9b53ddd0db482516c"
+ },
+ "external_inputs": {
+  "projects/bass-b2b-adoption/validation.toml": "3c031dc9a412d0aedd319f7a26be66b53d8acc401e2547a6e2d9ed0e136d042b",
+  "projects/bass-b2b-adoption/model/bass_b2b_adoption.mdl": "7d93d50291bce7452c0d8c9ceaae812577a923177c8ca7211d71da6b9817461a",
+  "projects/bass-b2b-adoption/model/bass_b2b_adoption.py": "d6ed9a4dcfa4adebb01c93f965dc2e355e03574f253a8ddc7eba96a05895bf5f"
+ }
+}

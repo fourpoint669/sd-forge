@@ -1,0 +1,72 @@
+# Explanatory text for the explorer page only: not part of the validated model (the .mdl and .py are unchanged).
+# Plain-language definitions for model variables that have no comment of their own in the model file. Each paraphrases
+# the variable's equation, which the page shows next to it; nothing here changes or adds to the model.
+
+[variables."ARR per customer"]
+definition = "Average annual recurring revenue per customer: ARR divided by the number of customers (with a floor of the minimum customer base, so it stays finite when there are no customers)."
+
+[variables."base churn rate monthly"]
+definition = "The base annual churn rate expressed per month, before any reduction from the customer-success programme."
+
+[variables."churn programme spend"]
+definition = "Monthly spend on the churn (customer-success) programme: the monthly budget while the programme runs, times the share allocated to churn in the current phase."
+
+[variables."churn reduction"]
+definition = "The fraction by which the customer-success programme lowers churn: the maximum churn reduction scaled by the current CS effect (0 to 1)."
+
+[variables."churn share now"]
+definition = "The share of the programme budget going to churn reduction in the current month: the phase-1 share before the phase switch month, the phase-2 share after it."
+
+[variables."cumulative revenue net of programme spend"]
+definition = "Revenue recognised so far minus everything spent on the programmes so far."
+
+[variables."deals lost"]
+definition = "Evaluations that end without a purchase each month: closings not won at the effective win rate. Lost firms move to the cooling-off pool."
+
+[variables."deals won"]
+definition = "Evaluations that end in a purchase each month: closings multiplied by the effective win rate (base rate plus any programme uplift)."
+
+[variables."detractor fade"]
+definition = "The rate at which recently churned firms stop affecting referrals: the detractor pool divided by the detractor memory time."
+
+[variables."effective churn fraction"]
+definition = "The fraction of customers (and of ARR) lost each month after the programme effect: the base monthly churn rate reduced by the churn reduction."
+
+[variables."effective expansion rate"]
+definition = "The annual rate at which existing customers' revenue grows: the base net expansion rate plus any lift from the customer-success programme."
+
+[variables."effective expansion rate monthly"]
+definition = "The effective expansion rate expressed per month."
+
+[variables."expansion headroom"]
+definition = "How much room is left for revenue per customer to grow: 1 when ARR per customer is far below the ceiling (new-customer ACV times the expansion ceiling multiple), falling to 0 at the ceiling."
+
+[variables."initial cooling off firms"]
+definition = "Firms in the cooling-off pool at launch (month 0); zero, because no firm has yet lost a deal or churned."
+
+[variables."market growth active"]
+definition = "A switch that is 1 while the market is still growing (before the market growth horizon) and 0 after it."
+
+[variables."market growth rate monthly"]
+definition = "The annual market growth rate expressed per month."
+
+[variables."marketing reach rate monthly"]
+definition = "The annual marketing reach rate expressed per month: the fraction of potential customers that marketing brings into an evaluation each month."
+
+[variables."monthly programme budget"]
+definition = "The total programme budget spread evenly over the programme months."
+
+[variables."new ARR"]
+definition = "Annual recurring revenue added each month by new customers: deals won times the new-customer ACV."
+
+[variables."programme active"]
+definition = "A switch that is 1 while the programme runs (before the end of the programme months) and 0 after it."
+
+[variables."total programme spend"]
+definition = "Total monthly spend on both programmes: churn programme spend plus win-rate programme spend."
+
+[variables."win rate programme spend"]
+definition = "Monthly spend on the win-rate (sales enablement) programme: the monthly budget while the programme runs, times the share not allocated to churn in the current phase."
+
+[variables."word of mouth rate monthly"]
+definition = "The annual word-of-mouth rate expressed per month; it drives referrals into evaluations together with customer share."

@@ -1,0 +1,694 @@
+{
+ "model": "bass-b2b-adoption",
+ "model_files": {
+  "model/bass_b2b_adoption.mdl": "7d93d50291bce7452c0d8c9ceaae812577a923177c8ca7211d71da6b9817461a",
+  "model/bass_b2b_adoption.py": "d6ed9a4dcfa4adebb01c93f965dc2e355e03574f253a8ddc7eba96a05895bf5f"
+ },
+ "spec_files": {
+  "validation.toml": "3c031dc9a412d0aedd319f7a26be66b53d8acc401e2547a6e2d9ed0e136d042b"
+ },
+ "tests": {
+  "T0_translation": {
+   "pass": true,
+   "comparison": "dependency-key order normalized",
+   "detail": "fresh PySD translation identical to committed .py (dependency-key order normalized)"
+  },
+  "T1_units": {
+   "pass": true,
+   "checked": 27,
+   "problems": []
+  },
+  "T1b_mece": {
+   "pass": true,
+   "problems": [],
+   "sectors": {
+    "demand generation": 8,
+    "market pool": 6,
+    "sales pipeline": 7,
+    "customer base": 5,
+    "unit conversion": 1
+   }
+  },
+  "T1c_parameter_ranges": {
+   "pass": true,
+   "problems": [],
+   "exempt": "reference limit case (T5)"
+  },
+  "T3_extremes": {
+   "pass": true,
+   "cases": 33,
+   "failures": [],
+   "expectations": [
+    {
+     "case": "no demand generation: no evaluations, customers only churn",
+     "check": "evaluation starts max <= 1e-09",
+     "value": 0.0,
+     "pass": true
+    },
+    {
+     "case": "no demand generation: no evaluations, customers only churn",
+     "check": "Customers monotone_nonincreasing",
+     "value": -0.02014338299543006,
+     "pass": true
+    },
+    {
+     "case": "no launch customers and no marketing: nobody ever adopts",
+     "check": "Customers max <= 1e-09",
+     "value": 0.0,
+     "pass": true
+    },
+    {
+     "case": "never win a deal: customers only churn",
+     "check": "Customers monotone_nonincreasing",
+     "value": -0.02014338299543006,
+     "pass": true
+    },
+    {
+     "case": "no churn: customers never decline",
+     "check": "Customers monotone_nondecreasing",
+     "value": 0.7606948861933507,
+     "pass": true
+    },
+    {
+     "case": "win every deal, no churn: customers stay within the market",
+     "check": "customer share max <= 1.0",
+     "value": 0.9999999999998191,
+     "pass": true
+    },
+    {
+     "case": "win every deal, no churn: customers stay within the market",
+     "check": "customer share final >= 0.99",
+     "value": 0.9999999999998191,
+     "pass": true
+    }
+   ]
+  },
+  "T4_dt_halving": {
+   "pass": true,
+   "problems": [],
+   "dt": 0.25,
+   "max_rel_change": 0.00482970617353377,
+   "base": {
+    "Customers": 0.00017307640702401156,
+    "customer share": 0.00017307640702403918,
+    "evaluation starts": 0.0004792094352169666,
+    "Firms in Evaluation": 0.0023740719751674196,
+    "deals won": 0.0023740719751674426
+   },
+   "corner": {
+    "Customers": 0.0003352838074509364,
+    "customer share": 0.00033528380745093914,
+    "evaluation starts": 0.0010884148763374377,
+    "Firms in Evaluation": 0.00482970617353377,
+    "deals won": 0.0048297061735337555
+   },
+   "euler_error_ratio_dt_vs_dt2": {
+    "Customers": 3.002087724491726,
+    "customer share": 3.0020877244911452,
+    "evaluation starts": 3.0219804051366217,
+    "Firms in Evaluation": 3.0326858793063587,
+    "deals won": 3.0326858793063485
+   },
+   "corner_params": {
+    "marketing reach rate": 0.25,
+    "word of mouth rate": 2.9,
+    "sales cycle time": 3,
+    "win rate": 0.3,
+    "annual logo churn rate": 0.2,
+    "cool off time": 12
+   }
+  },
+  "T5_behavior": {
+   "pass": true,
+   "nrmse": 0.00031758094184375043,
+   "nrmse_max": 0.1,
+   "compare": [
+    "Firms in Evaluation",
+    "Customers"
+   ],
+   "reference": "bass({'p': 0.011666666666666667, 'q': 0.15, 'N': 5000.0})",
+   "limit_case": {
+    "annual logo churn rate": 0,
+    "win rate": 1,
+    "sales cycle time": 0.01,
+    "initial customers": 0
+   },
+   "peak": {
+    "var": "evaluation starts",
+    "sim": 15.83,
+    "analytic": 15.797316626443001,
+    "error": 0.03268337355699913,
+    "tolerance": 0.05,
+    "rule": 0.05,
+    "pass": true
+   },
+   "modes": [
+    {
+     "var": "Customers",
+     "expected": "s-curve",
+     "got": "s-curve",
+     "pass": true
+    },
+    {
+     "var": "customer share",
+     "expected": "s-curve",
+     "got": "s-curve",
+     "pass": true
+    }
+   ]
+  },
+  "T7_monte_carlo": {
+   "pass": true,
+   "n": 1000,
+   "seed": 20261029,
+   "failed_runs": 0,
+   "sampled_parameters": [
+    "marketing reach rate",
+    "word of mouth rate",
+    "sales cycle time",
+    "win rate",
+    "annual logo churn rate",
+    "cool off time",
+    "total market",
+    "initial customers"
+   ],
+   "metrics": {
+    "customers_m12": {
+     "P5": 57.12661589883826,
+     "P25": 80.88326898892652,
+     "P50": 103.8616044916647,
+     "P75": 130.52941819754025,
+     "P95": 179.31573449546332
+    },
+    "customers_m36": {
+     "P5": 225.54560776474244,
+     "P25": 321.72122432361306,
+     "P50": 411.71894675847375,
+     "P75": 523.1478597610014,
+     "P95": 733.337078046371
+    },
+    "customers_m60": {
+     "P5": 410.01223849282724,
+     "P25": 562.5474115516861,
+     "P50": 718.7709034235156,
+     "P75": 921.4260358907433,
+     "P95": 1243.1829794679059
+    },
+    "customers_m120": {
+     "P5": 749.4247527921247,
+     "P25": 1024.1635164877655,
+     "P50": 1291.1854222361417,
+     "P75": 1630.2462893541476,
+     "P95": 2186.827260576594
+    },
+    "customers_m180": {
+     "P5": 943.6855153197893,
+     "P25": 1260.0498642141542,
+     "P50": 1599.5691305107484,
+     "P75": 1998.8827017766866,
+     "P95": 2664.697752922216
+    },
+    "share_m60": {
+     "P5": 0.08093464885263725,
+     "P25": 0.11447621022093545,
+     "P50": 0.13935864742245796,
+     "P75": 0.16693724266609303,
+     "P95": 0.21146831447686093
+    },
+    "share_m180": {
+     "P5": 0.19453171597530172,
+     "P25": 0.2562074997228146,
+     "P50": 0.30903307915702194,
+     "P75": 0.36854095385003205,
+     "P95": 0.44969666853763157
+    },
+    "months_to_10pct_share": {
+     "P5": 31.0,
+     "P25": 38.0,
+     "P50": 44.0,
+     "P75": 53.0,
+     "P95": 73.0
+    },
+    "peak_evaluation_month": {
+     "P5": 0.0,
+     "P25": 49.0,
+     "P50": 70.0,
+     "P75": 102.0,
+     "P95": 180.0
+    }
+   },
+   "spearman": {
+    "customers_m12": {
+     "marketing reach rate": 0.7002617922617923,
+     "word of mouth rate": 0.06548564948564949,
+     "sales cycle time": -0.300012084012084,
+     "win rate": 0.3943699183699184,
+     "annual logo churn rate": -0.031862887862887865,
+     "cool off time": -0.030403890403890403,
+     "total market": 0.48771952371952376,
+     "initial customers": 0.06854114054114055
+    },
+    "customers_m36": {
+     "marketing reach rate": 0.6266635226635227,
+     "word of mouth rate": 0.16724162324162326,
+     "sales cycle time": -0.1857040977040977,
+     "win rate": 0.4922418602418603,
+     "annual logo churn rate": -0.11223665223665223,
+     "cool off time": -0.03733315333315334,
+     "total market": 0.5252563892563893,
+     "initial customers": -0.0075991875991876
+    },
+    "customers_m60": {
+     "marketing reach rate": 0.5090616410616411,
+     "word of mouth rate": 0.23729920529920534,
+     "sales cycle time": -0.1576872616872617,
+     "win rate": 0.5422186822186822,
+     "annual logo churn rate": -0.20333482733482736,
+     "cool off time": -0.06835862035862036,
+     "total market": 0.547989031989032,
+     "initial customers": -0.007824391824391826
+    },
+    "customers_m120": {
+     "marketing reach rate": 0.2964729444729445,
+     "word of mouth rate": 0.25480484680484683,
+     "sales cycle time": -0.12741319941319942,
+     "win rate": 0.516878412878413,
+     "annual logo churn rate": -0.39237711237711237,
+     "cool off time": -0.1591129711129711,
+     "total market": 0.5876140436140437,
+     "initial customers": 0.0019442779442779444
+    },
+    "customers_m180": {
+     "marketing reach rate": 0.18883404883404883,
+     "word of mouth rate": 0.22284849084849084,
+     "sales cycle time": -0.1080863640863641,
+     "win rate": 0.44711375111375107,
+     "annual logo churn rate": -0.5079678759678761,
+     "cool off time": -0.19833341433341434,
+     "total market": 0.593915861915862,
+     "initial customers": 0.008983964983964985
+    },
+    "share_m60": {
+     "marketing reach rate": 0.6045237405237406,
+     "word of mouth rate": 0.29714686514686517,
+     "sales cycle time": -0.19184158784158786,
+     "win rate": 0.6571510051510052,
+     "annual logo churn rate": -0.24034995634995637,
+     "cool off time": -0.08936413736413737,
+     "total market": -0.01061785061785062,
+     "initial customers": -0.018584898584898587
+    },
+    "share_m180": {
+     "marketing reach rate": 0.2314524154524155,
+     "word of mouth rate": 0.2828994308994309,
+     "sales cycle time": -0.12988424188424189,
+     "win rate": 0.5511758751758752,
+     "annual logo churn rate": -0.6459949659949661,
+     "cool off time": -0.26081777681777685,
+     "total market": 0.003535815535815536,
+     "initial customers": 0.0013615093615093616
+    },
+    "months_to_10pct_share": {
+     "marketing reach rate": -0.6906062421185676,
+     "word of mouth rate": -0.24572778173245025,
+     "sales cycle time": 0.21118064198655698,
+     "win rate": -0.6193752734248921,
+     "annual logo churn rate": 0.17337520247016583,
+     "cool off time": 0.06096744986834558,
+     "total market": 0.018595441031953038,
+     "initial customers": 0.015279301407453172
+    },
+    "peak_evaluation_month": {
+     "marketing reach rate": -0.6958888564214325,
+     "word of mouth rate": -0.2311435537650808,
+     "sales cycle time": 0.014932443574612165,
+     "win rate": -0.4123868909483738,
+     "annual logo churn rate": 0.13084723733838263,
+     "cool off time": -0.3831540543605762,
+     "total market": 0.005571966566786436,
+     "initial customers": 0.03902063609291972
+    }
+   }
+  },
+  "T7b_policy_ranking": {
+   "objective": "customers_m60",
+   "maximize": true,
+   "modal_ranking": [
+    "win rate +20%",
+    "marketing reach +20%",
+    "word of mouth +20%",
+    "churn -20%",
+    "sales cycle -20%",
+    "base"
+   ],
+   "full_ranking_stability": 0.341,
+   "best_policy": "win rate +20%",
+   "best_policy_stability": 1.0,
+   "pass": false,
+   "scenarios": {
+    "base": {
+     "P5": 410.01223849282724,
+     "P50": 718.7709034235156,
+     "P95": 1243.1829794679059,
+     "gain_vs_base_P5": 0.0,
+     "gain_vs_base_P50": 0.0,
+     "gain_vs_base_P95": 0.0,
+     "changes": {}
+    },
+    "marketing reach +20%": {
+     "P5": 458.26318599376145,
+     "P50": 792.6142623909409,
+     "P95": 1360.8199438828092,
+     "gain_vs_base_P5": 47.98776221166578,
+     "gain_vs_base_P50": 72.97888224987577,
+     "gain_vs_base_P95": 113.93933837219748,
+     "changes": {
+      "marketing reach rate": {
+       "mul": 1.2
+      }
+     }
+    },
+    "word of mouth +20%": {
+     "P5": 441.86193849995783,
+     "P50": 775.040430491533,
+     "P95": 1342.5980154592762,
+     "gain_vs_base_P5": 26.352057993078382,
+     "gain_vs_base_P50": 51.24940699567958,
+     "gain_vs_base_P95": 102.1010642572963,
+     "changes": {
+      "word of mouth rate": {
+       "mul": 1.2
+      }
+     }
+    },
+    "churn -20%": {
+     "P5": 433.66649168641425,
+     "P50": 758.8668505653901,
+     "P95": 1304.1902512816825,
+     "gain_vs_base_P5": 19.633185609936323,
+     "gain_vs_base_P50": 37.41289595204685,
+     "gain_vs_base_P95": 70.60537033187214,
+     "changes": {
+      "annual logo churn rate": {
+       "mul": 0.8
+      }
+     }
+    },
+    "sales cycle -20%": {
+     "P5": 425.9222595994175,
+     "P50": 755.1095935212779,
+     "P95": 1307.2208974589937,
+     "gain_vs_base_P5": 17.270889123162913,
+     "gain_vs_base_P50": 34.60781199634175,
+     "gain_vs_base_P95": 67.36919141354284,
+     "changes": {
+      "sales cycle time": {
+       "mul": 0.8
+      }
+     }
+    },
+    "win rate +20%": {
+     "P5": 521.6156009875564,
+     "P50": 916.0710298836052,
+     "P95": 1584.3892913491904,
+     "gain_vs_base_P5": 111.58650188507681,
+     "gain_vs_base_P50": 193.12232696970887,
+     "gain_vs_base_P95": 330.0442729502476,
+     "changes": {
+      "win rate": {
+       "mul": 1.2
+      }
+     }
+    }
+   },
+   "gating": false
+  },
+  "T6_conservation": {
+   "pass": true,
+   "problems": [],
+   "max_rel_drift": {
+    "base": 9.094947017729283e-16,
+    "corner": 1.2732925824820995e-15,
+    "base_fine": 1.0913936421275138e-15,
+    "monte_carlo_max": 2.9837932888771225e-15
+   },
+   "groups": [
+    {
+     "name": "closed target market",
+     "stocks": [
+      "Potential Customers",
+      "Firms in Evaluation",
+      "Customers",
+      "Cooling Off Firms"
+     ]
+    }
+   ]
+  },
+  "T8_loops": {
+   "pass": true,
+   "n_loops": 11,
+   "problems": [],
+   "polarity_run": "base",
+   "polarity_from_loop_check": [],
+   "loops": [
+    {
+     "id": "L1",
+     "name": "B3 churn",
+     "polarity": "B",
+     "polarity_source": "base",
+     "variables": [
+      "churn",
+      "Customers"
+     ],
+     "mean_abs_relative_score": 0.028766370223919868,
+     "max_abs_relative_score": 0.17966044987480337
+    },
+    {
+     "id": "L2",
+     "name": "B6 cool-off drain",
+     "polarity": "B",
+     "polarity_source": "base",
+     "variables": [
+      "Cooling Off Firms",
+      "re entry"
+     ],
+     "mean_abs_relative_score": 0.060947088344809684,
+     "max_abs_relative_score": 0.5160719777438134
+    },
+    {
+     "id": "L3",
+     "name": "B5 pipeline drain (lost)",
+     "polarity": "B",
+     "polarity_source": "base",
+     "variables": [
+      "deal closings",
+      "deals lost",
+      "Firms in Evaluation"
+     ],
+     "mean_abs_relative_score": 0.10780834440788623,
+     "max_abs_relative_score": 0.3941616935065297
+    },
+    {
+     "id": "L4",
+     "name": "B4 pipeline drain (won)",
+     "polarity": "B",
+     "polarity_source": "base",
+     "variables": [
+      "deal closings",
+      "deals won",
+      "Firms in Evaluation"
+     ],
+     "mean_abs_relative_score": 0.028657914336273408,
+     "max_abs_relative_score": 0.10477715903335909
+    },
+    {
+     "id": "L5",
+     "name": "B2 saturation via marketing",
+     "polarity": "B",
+     "polarity_source": "base",
+     "variables": [
+      "evaluation starts",
+      "Potential Customers",
+      "marketing driven starts"
+     ],
+     "mean_abs_relative_score": 0.031280774758033744,
+     "max_abs_relative_score": 0.4994653571112184
+    },
+    {
+     "id": "L6",
+     "name": "B1 saturation via word of mouth",
+     "polarity": "B",
+     "polarity_source": "base",
+     "variables": [
+      "evaluation starts",
+      "Potential Customers",
+      "word of mouth starts"
+     ],
+     "mean_abs_relative_score": 0.046718759861359024,
+     "max_abs_relative_score": 0.39895595186558813
+    },
+    {
+     "id": "L7",
+     "name": "R1 word of mouth",
+     "polarity": "R",
+     "polarity_source": "base",
+     "variables": [
+      "customer share",
+      "word of mouth starts",
+      "evaluation starts",
+      "Firms in Evaluation",
+      "deal closings",
+      "deals won",
+      "Customers"
+     ],
+     "mean_abs_relative_score": 0.25954856373169743,
+     "max_abs_relative_score": 0.6476106402178561
+    },
+    {
+     "id": "L8",
+     "name": "R2 lost-deal recycling via marketing",
+     "polarity": "R",
+     "polarity_source": "base",
+     "variables": [
+      "Cooling Off Firms",
+      "re entry",
+      "Potential Customers",
+      "marketing driven starts",
+      "evaluation starts",
+      "Firms in Evaluation",
+      "deal closings",
+      "deals lost"
+     ],
+     "mean_abs_relative_score": 0.1025697596560353,
+     "max_abs_relative_score": 0.3776124715602201
+    },
+    {
+     "id": "L9",
+     "name": "R3 lost-deal recycling via word of mouth",
+     "polarity": "R",
+     "polarity_source": "base",
+     "variables": [
+      "Cooling Off Firms",
+      "re entry",
+      "Potential Customers",
+      "word of mouth starts",
+      "evaluation starts",
+      "Firms in Evaluation",
+      "deal closings",
+      "deals lost"
+     ],
+     "mean_abs_relative_score": 0.22748422676876226,
+     "max_abs_relative_score": 0.6290762346931247
+    },
+    {
+     "id": "L10",
+     "name": "R4 churn recycling via marketing",
+     "polarity": "R",
+     "polarity_source": "base",
+     "variables": [
+      "churn",
+      "Cooling Off Firms",
+      "re entry",
+      "Potential Customers",
+      "marketing driven starts",
+      "evaluation starts",
+      "Firms in Evaluation",
+      "deal closings",
+      "deals won",
+      "Customers"
+     ],
+     "mean_abs_relative_score": 0.03512983437428632,
+     "max_abs_relative_score": 0.12252151691751244
+    },
+    {
+     "id": "L11",
+     "name": "R5 churn recycling via word of mouth",
+     "polarity": "R",
+     "polarity_source": "base",
+     "variables": [
+      "churn",
+      "Cooling Off Firms",
+      "re entry",
+      "Potential Customers",
+      "word of mouth starts",
+      "evaluation starts",
+      "Firms in Evaluation",
+      "deal closings",
+      "deals won",
+      "Customers"
+     ],
+     "mean_abs_relative_score": 0.07108836353693672,
+     "max_abs_relative_score": 0.1821360813787393
+    }
+   ],
+   "dominance": [
+    {
+     "start": 0.0,
+     "end": 1.75,
+     "loop": "L5",
+     "mean_relative_score": -0.4435971191332727
+    },
+    {
+     "start": 1.75,
+     "end": 6.0,
+     "loop": "L3",
+     "mean_relative_score": -0.3180494695200931
+    },
+    {
+     "start": 6.0,
+     "end": 14.0,
+     "loop": "L2",
+     "mean_relative_score": -0.3694790065805794
+    },
+    {
+     "start": 14.0,
+     "end": 16.0,
+     "loop": "L8",
+     "mean_relative_score": 0.25113794011527446
+    },
+    {
+     "start": 16.0,
+     "end": 78.75,
+     "loop": "L7",
+     "mean_relative_score": 0.42310079113463916
+    },
+    {
+     "start": 78.75,
+     "end": 91.25,
+     "loop": "L9",
+     "mean_relative_score": 0.22666819767669788
+    },
+    {
+     "start": 91.25,
+     "end": 100.75,
+     "loop": "L6",
+     "mean_relative_score": -0.270248699920497
+    },
+    {
+     "start": 100.75,
+     "end": 140.25,
+     "loop": "L9",
+     "mean_relative_score": 0.31909963505178873
+    },
+    {
+     "start": 140.25,
+     "end": 153.75,
+     "loop": "L7",
+     "mean_relative_score": 0.3577907777277044
+    },
+    {
+     "start": 153.75,
+     "end": 180.0,
+     "loop": "L9",
+     "mean_relative_score": 0.5092392559530844
+    }
+   ]
+  }
+ },
+ "all_pass": true,
+ "output_files": {
+  "loop_dominance.json": "964b42ab7612d51692c17702265e2ed8642bd4d7838974b6ee7d1af3156b7980",
+  "mc_bands.csv": "3ac21ae2e12421322f49ccdbe5f5cae8d7b529937b53f12f40ce4a7f05ba66f0",
+  "policy_results.csv": "9b50f32a2a2b2a0daa6e754a8e485377581174f14d0563ea7bb61965b37fcb4f"
+ }
+}

@@ -1,0 +1,130 @@
+{
+ "functions": [],
+ "model_file": "model/bass_b2b_adoption.py",
+ "project": "bass-b2b-adoption",
+ "stocks": [
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "material",
+   "downstream": [
+    "Potential Customers"
+   ],
+   "first_order_candidate": true,
+   "form": "drain",
+   "inflows": [
+    "deals lost",
+    "churn"
+   ],
+   "order": 1,
+   "outflows": [
+    "re entry"
+   ],
+   "state_dependent": false,
+   "stock": "Cooling Off Firms",
+   "tau": "cool off time",
+   "tau_base": 18.0,
+   "tau_range": [
+    12,
+    36
+   ],
+   "tau_run": [
+    18.0,
+    18.0
+   ],
+   "tau_var": "cool off time"
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "material",
+   "downstream": [
+    "Cooling Off Firms"
+   ],
+   "first_order_candidate": true,
+   "form": "rate",
+   "inflows": [
+    "deals won"
+   ],
+   "order": 1,
+   "outflows": [
+    "churn"
+   ],
+   "state_dependent": false,
+   "stock": "Customers",
+   "tau": "1 / (churn rate monthly)",
+   "tau_base": 150.0,
+   "tau_range": null,
+   "tau_run": [
+    150.0,
+    150.0
+   ],
+   "tau_var": null
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "material",
+   "downstream": [
+    "Cooling Off Firms",
+    "Customers"
+   ],
+   "first_order_candidate": true,
+   "form": "drain",
+   "inflows": [
+    "evaluation starts"
+   ],
+   "order": 1,
+   "outflows": [
+    "deals won",
+    "deals lost"
+   ],
+   "state_dependent": false,
+   "stock": "Firms in Evaluation",
+   "tau": "sales cycle time",
+   "tau_base": 6.0,
+   "tau_range": [
+    3,
+    9
+   ],
+   "tau_run": [
+    6.0,
+    6.0
+   ],
+   "tau_var": "sales cycle time"
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "material",
+   "downstream": [
+    "Firms in Evaluation"
+   ],
+   "first_order_candidate": true,
+   "form": "rate",
+   "inflows": [
+    "re entry"
+   ],
+   "order": 1,
+   "outflows": [
+    "evaluation starts"
+   ],
+   "state_dependent": true,
+   "stock": "Potential Customers",
+   "tau": "1 / (marketing reach rate monthly + word of mouth rate monthly \u00d7 customer share)",
+   "tau_base": 83.56545961002786,
+   "tau_range": null,
+   "tau_run": [
+    15.000128053952585,
+    83.56545961002786
+   ],
+   "tau_var": null
+  }
+ ],
+ "time_step": 0.25,
+ "time_unit": "Month"
+}

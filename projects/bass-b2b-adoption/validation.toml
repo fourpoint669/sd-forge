@@ -1,0 +1,235 @@
+# Validation spec for engine/validate.py. Parameter sources and confidence tags: assumptions_register.md.
+dominance_min_period = 1.0
+
+[model]
+name = "bass-b2b-adoption"
+mdl = "model/bass_b2b_adoption.mdl"
+py = "model/bass_b2b_adoption.py"
+time_unit = "Month"
+final_time = 180
+time_step = 0.25
+saveper = 1
+key_outputs = ["Customers", "customer share", "evaluation starts", "Firms in Evaluation", "deals won"]
+
+# role: time_constant -> low end in the fastest corner (T4); rate -> high end.
+[parameters."marketing reach rate"]
+base = 0.14
+low = 0.05
+high = 0.25
+distribution = "triangular"
+domain = [0, inf]
+role = "rate"
+unit = "1/Year"
+confidence = "estimated"
+
+[parameters."word of mouth rate"]
+base = 1.8
+low = 1.0
+high = 2.9
+distribution = "triangular"
+domain = [0, inf]
+role = "rate"
+unit = "1/Year"
+confidence = "estimated"
+
+[parameters."sales cycle time"]
+base = 6
+low = 3
+high = 9
+distribution = "triangular"
+domain = [0.5, inf]
+role = "time_constant"
+unit = "Month"
+confidence = "reported"
+
+[parameters."win rate"]
+base = 0.21
+low = 0.15
+high = 0.30
+distribution = "triangular"
+domain = [0, 1]
+role = "rate"
+unit = "Dmnl"
+confidence = "reported"
+
+[parameters."annual logo churn rate"]
+base = 0.08
+low = 0.05
+high = 0.20
+distribution = "triangular"
+domain = [0, inf]
+role = "rate"
+unit = "1/Year"
+confidence = "reported"
+
+[parameters."cool off time"]
+base = 18
+low = 12
+high = 36
+distribution = "triangular"
+domain = [0.5, inf]
+role = "time_constant"
+unit = "Month"
+confidence = "estimated"
+
+[parameters."total market"]
+base = 5000
+low = 3000
+high = 8000
+distribution = "triangular"
+domain = [100, inf]
+unit = "Firm"
+confidence = "estimated"
+
+[parameters."initial customers"]
+base = 10
+low = 5
+high = 25
+distribution = "triangular"
+domain = [0, 100]
+unit = "Firm"
+confidence = "estimated"
+
+[[conservation]]
+name = "closed target market"
+stocks = ["Potential Customers", "Firms in Evaluation", "Customers", "Cooling Off Firms"]
+
+[[extreme]]
+name = "no demand generation: no evaluations, customers only churn"
+set = { "marketing reach rate" = 0, "word of mouth rate" = 0 }
+expect = [{ var = "evaluation starts", stat = "max", op = "<=", value = 1e-9 },
+          { var = "Customers", stat = "monotone_nonincreasing" }]
+
+[[extreme]]
+name = "no launch customers and no marketing: nobody ever adopts"
+set = { "initial customers" = 0, "marketing reach rate" = 0 }
+expect = [{ var = "Customers", stat = "max", op = "<=", value = 1e-9 }]
+
+[[extreme]]
+name = "never win a deal: customers only churn"
+set = { "win rate" = 0 }
+expect = [{ var = "Customers", stat = "monotone_nonincreasing" }]
+
+[[extreme]]
+name = "no churn: customers never decline"
+set = { "annual logo churn rate" = 0 }
+expect = [{ var = "Customers", stat = "monotone_nondecreasing" }]
+
+[[extreme]]
+name = "win every deal, no churn: customers stay within the market"
+set = { "win rate" = 1, "annual logo churn rate" = 0, "word of mouth rate" = 29 }
+expect = [{ var = "customer share", stat = "max", op = "<=", value = 1.0 },
+          { var = "customer share", stat = "final", op = ">=", value = 0.99 }]
+
+# T5: limit case that collapses to classic Bass (no churn, every deal won, near-instant sales cycle,
+# no launch customers); compare evaluations + customers with the closed form. Any pipeline delay tau sits
+# inside the word-of-mouth loop and shifts the peak by about t* x q x tau = 2.37 x tau months
+# (t* = 15.80, q = 0.15/month); the sweep in t5_audit.md matches this within 0.006 months for tau <= 0.25.
+# Peak rule (library T5): 5 steps of this run's own dt = 5 x 0.01 = 0.05 months.
+# tau chosen from the formula: predicted shift <= 0.6 x 0.05 = 0.03 gives tau <= 0.0127; Euler needs
+# dt <= tau, so tau >= 0.01. tau = 0.01 -> predicted shift 0.024 months.
+# History: tau = 0.5 peaked 1.2 months late (17.0 vs 15.8); tau = 0.05 passed only a 1.0-month tolerance
+# that broke the rule (shift 0.12).
+[reference]
+function = "bass"
+compare = ["Firms in Evaluation", "Customers"]
+set = { "annual logo churn rate" = 0, "win rate" = 1, "sales cycle time" = 0.01, "initial customers" = 0 }
+time_step = 0.01
+args = { p = { param = "marketing reach rate", factor = 0.08333333333333333 }, q = { param = "word of mouth rate", factor = 0.08333333333333333 }, N = { param = "total market" } }
+nrmse_max = 0.10
+peak = { var = "evaluation starts", tolerance = 0.05 }
+modes = [{ var = "Customers", mode = "s-curve" }, { var = "customer share", mode = "s-curve" }]
+
+[sectors]
+"demand generation" = ["evaluation starts", "marketing driven starts", "word of mouth starts", "customer share",
+                       "marketing reach rate", "marketing reach rate monthly", "word of mouth rate", "word of mouth rate monthly"]
+"market pool" = ["Potential Customers", "Cooling Off Firms", "re entry", "cool off time", "total market",
+                 "initial cooling off firms"]
+"sales pipeline" = ["Firms in Evaluation", "deal closings", "deals won", "deals lost", "sales cycle time", "win rate",
+                    "initial firms in evaluation"]
+"customer base" = ["Customers", "churn", "churn rate monthly", "annual logo churn rate", "initial customers"]
+"unit conversion" = ["months per year"]
+
+[[loops]]
+name = "R1 word of mouth"
+polarity = "R"
+variables = ["Customers", "customer share", "word of mouth starts", "evaluation starts", "Firms in Evaluation", "deal closings", "deals won"]
+[[loops]]
+name = "B1 saturation via word of mouth"
+polarity = "B"
+variables = ["Potential Customers", "word of mouth starts", "evaluation starts"]
+[[loops]]
+name = "B2 saturation via marketing"
+polarity = "B"
+variables = ["Potential Customers", "marketing driven starts", "evaluation starts"]
+[[loops]]
+name = "B3 churn"
+polarity = "B"
+variables = ["Customers", "churn"]
+[[loops]]
+name = "B4 pipeline drain (won)"
+polarity = "B"
+variables = ["Firms in Evaluation", "deal closings", "deals won"]
+[[loops]]
+name = "B5 pipeline drain (lost)"
+polarity = "B"
+variables = ["Firms in Evaluation", "deal closings", "deals lost"]
+[[loops]]
+name = "B6 cool-off drain"
+polarity = "B"
+variables = ["Cooling Off Firms", "re entry"]
+[[loops]]
+name = "R2 lost-deal recycling via marketing"
+polarity = "R"
+variables = ["Cooling Off Firms", "re entry", "Potential Customers", "marketing driven starts", "evaluation starts", "Firms in Evaluation", "deal closings", "deals lost"]
+[[loops]]
+name = "R3 lost-deal recycling via word of mouth"
+polarity = "R"
+variables = ["Cooling Off Firms", "re entry", "Potential Customers", "word of mouth starts", "evaluation starts", "Firms in Evaluation", "deal closings", "deals lost"]
+[[loops]]
+name = "R4 churn recycling via marketing"
+polarity = "R"
+variables = ["Customers", "churn", "Cooling Off Firms", "re entry", "Potential Customers", "marketing driven starts", "evaluation starts", "Firms in Evaluation", "deal closings", "deals won"]
+[[loops]]
+name = "R5 churn recycling via word of mouth"
+polarity = "R"
+variables = ["Customers", "churn", "Cooling Off Firms", "re entry", "Potential Customers", "word of mouth starts", "evaluation starts", "Firms in Evaluation", "deal closings", "deals won"]
+
+[montecarlo]
+n = 1000
+seed = 20261029
+metrics = [
+  { name = "customers_m12", var = "Customers", stat = "value_at", time = 12 },
+  { name = "customers_m36", var = "Customers", stat = "value_at", time = 36 },
+  { name = "customers_m60", var = "Customers", stat = "value_at", time = 60 },
+  { name = "customers_m120", var = "Customers", stat = "value_at", time = 120 },
+  { name = "customers_m180", var = "Customers", stat = "value_at", time = 180 },
+  { name = "share_m60", var = "customer share", stat = "value_at", time = 60 },
+  { name = "share_m180", var = "customer share", stat = "value_at", time = 180 },
+  { name = "months_to_10pct_share", var = "customer share", stat = "time_to_reach", value = 0.10 },
+  { name = "peak_evaluation_month", var = "evaluation starts", stat = "time_of_max" },
+]
+
+[policy]
+objective = "customers_m60"
+maximize = true
+
+[[policies]]
+name = "base"
+# Equal-sized levers: each improved by 20% of its base value, so the ranking shows leverage per unit of
+# change, not the size of an assumed programme. Costs are not modelled.
+[[policies]]
+name = "marketing reach +20%"
+changes = { "marketing reach rate" = { mul = 1.2 } }
+[[policies]]
+name = "word of mouth +20%"
+changes = { "word of mouth rate" = { mul = 1.2 } }
+[[policies]]
+name = "churn -20%"
+changes = { "annual logo churn rate" = { mul = 0.8 } }
+[[policies]]
+name = "sales cycle -20%"
+changes = { "sales cycle time" = { mul = 0.8 } }
+[[policies]]
+name = "win rate +20%"
+changes = { "win rate" = { mul = 1.2 } }

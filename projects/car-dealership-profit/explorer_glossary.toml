@@ -1,0 +1,225 @@
+# Explanatory text for the explorer page only: not part of the validated model (the .mdl and .py are unchanged).
+# Plain-language definitions for model variables that have no comment of their own in the model file. Each paraphrases
+# the variable's equation, which the page shows next to it; nothing here changes or adds to the model.
+
+[variables."Cash"]
+definition = "Opening cash plus all cash received minus all cash paid out so far. It is the running balance of net cash flow, which is net profit less the cash tied up in inventory not financed by the floorplan."
+
+[variables."Cumulative Discounted Cash Flow"]
+definition = "Discounted net cash flow received so far minus discounted net cash flow paid out so far: the present value, at the chosen discount rate, of everything the store has generated to date."
+
+[variables."Cumulative Net Profit"]
+definition = "Net profit before tax added up from month 0: profit earned so far minus losses incurred so far. This is the objective for the allocation, resilience and strategy lenses."
+
+[variables."F and I income"]
+definition = "Monthly finance and insurance income: car sales (new plus used) times the share carrying an F and I product, times the gross per contract, less the share cancelled early (chargebacks)."
+
+[variables."F and I penetration"]
+definition = "Share of retail sales that carry an F and I product: the base penetration plus an uplift that grows, with diminishing returns, as the funded F and I programme spend rises."
+
+[variables."absorption rate"]
+definition = "Service and parts gross after technician pay, divided by fixed overhead. 1 means the service department covers all fixed costs; the published average is about 0.69."
+
+[variables."allocation response"]
+definition = "How far trailing new-car sales sit above or below their reference, times the allocation response strength. Zero in the base store; when switched on it raises or lowers new-vehicle orders."
+
+[variables."attrition"]
+definition = "Technicians leaving each month: the current headcount times the monthly attrition rate."
+
+[variables."attrition rate monthly"]
+definition = "The annual technician attrition rate expressed per month."
+
+[variables."auction buys"]
+definition = "Used vehicles bought at auction each month to keep used stock at target: what is needed to replace sales and close the gap to the target inventory, less trade-ins and off-lease returns already coming in. Never negative."
+
+[variables."base defection rate monthly"]
+definition = "The annual rate at which service customers stop coming, expressed per month."
+
+[variables."capacity"]
+definition = "Repair orders the service department can complete each month: technicians times repairs per technician."
+
+[variables."commissions"]
+definition = "Variable selling pay: the commission rate times front-end gross (new, used and F and I)."
+
+[variables."defection"]
+definition = "Service customers lost each month: the service base times the monthly defection rate, raised if the department is overloaded and the optional retention-loss parameter is on."
+
+[variables."deliveries"]
+definition = "New vehicles arriving from the factory each month: vehicles on order divided by the order lead time."
+
+[variables."discount factor"]
+definition = "The weight given to cash at the current month: the exponential of minus the monthly discount rate times time."
+
+[variables."discount rate monthly"]
+definition = "The annual discount rate expressed per month."
+
+[variables."discounted net cash flow"]
+definition = "Net cash flow each month multiplied by the discount factor."
+
+[variables."floorplan interest"]
+definition = "Monthly interest on floorplan debt: debt times the effective floorplan rate."
+
+[variables."floorplan payoff"]
+definition = "Floorplan debt repaid each month as vehicles are sold or wholesaled: the advance rate times the cost of the vehicles released from inventory."
+
+[variables."floorplan rate effective"]
+definition = "The monthly floorplan interest rate, plus the extra rate during a rate shock."
+
+[variables."floorplan rate monthly"]
+definition = "The annual floorplan interest rate expressed per month."
+
+[variables."hiring"]
+definition = "Net technician hiring each month: the gap between the technician target and current headcount, divided by the hire time."
+
+[variables."inventory cost released"]
+definition = "Cost of the vehicles that leave inventory each month: new vehicles sold at unit cost, plus used vehicles sold and wholesaled at their unit cost."
+
+[variables."leakage"]
+definition = "Households that leave the store's customer base each month: replacing owners and lease endings that do not return to this store."
+
+[variables."lease advance 1"]
+definition = "Households moving from the first to the second lease stage each month: the first-stage lessees divided by the stage time."
+
+[variables."lease advance 2"]
+definition = "Households moving from the second to the third lease stage each month."
+
+[variables."lease end"]
+definition = "Households whose lease ends each month: third-stage lessees divided by the stage time. The cars return to the store (or are bought out) and the household decides what to drive next."
+
+[variables."lease remarketing gain"]
+definition = "Monthly gain (or loss, if negative) from reselling off-lease cars: minus the number returned times the remarketing loss per vehicle."
+
+[variables."lease stage time"]
+definition = "The time spent in each of the three lease stages: the lease term divided by the number of stages."
+
+[variables."lease starts"]
+definition = "New leases each month: new-vehicle sales times the lease share."
+
+[variables."margin shock factor"]
+definition = "Multiplier on new-vehicle gross: 1 normally, and 1 minus the margin shock size while the shock window is open."
+
+[variables."market entries"]
+definition = "Households entering the store's addressable market each month, at a constant rate."
+
+[variables."marketing starts"]
+definition = "Prospects added by paid marketing each month: a ceiling times one minus the exponential of minus the spend over the spend scale, so extra spend adds less and less."
+
+[variables."net cash flow"]
+definition = "Net profit less the part of the monthly inventory build that the floorplan does not finance (the equity put into inventory)."
+
+[variables."net profit"]
+definition = "Monthly net profit before tax: total gross less commissions, marketing, F and I programme spend, technician payroll, wholesale losses, fixed overhead and floorplan interest."
+
+[variables."new demand"]
+definition = "Households wanting a new vehicle each month: shoppers times the new share of shoppers."
+
+[variables."new gross"]
+definition = "Monthly new-vehicle gross profit: units sold times gross per vehicle, reduced during a margin shock."
+
+[variables."new orders"]
+definition = "New vehicles ordered each month: enough to replace sales and close the gap to the target stock (on hand plus on order), adjusted by any allocation response, never negative and never above the manufacturer allocation."
+
+[variables."new sales"]
+definition = "New-vehicle sales each month: demand, limited by how much stock is on the lot (more stock means more of the demand is served) and by the time it takes to sell the lot."
+
+[variables."off lease returns"]
+definition = "Vehicles returning from leases each month: lease endings times the share that come back to the store."
+
+[variables."parts gross"]
+definition = "Monthly parts gross profit: repair orders completed times parts gross per repair order."
+
+[variables."recon done"]
+definition = "Used vehicles finishing reconditioning each month: the reconditioning pipeline divided by the reconditioning time."
+
+[variables."repeat to store"]
+definition = "Households that come back to this store to buy: replacing owners and lease endings times the store loyalty share."
+
+[variables."replacement"]
+definition = "Owners replacing their vehicle each month: owners divided by the ownership period."
+
+[variables."retail new buys"]
+definition = "New-vehicle buyers who purchase rather than lease: new sales times one minus the lease share."
+
+[variables."ro demand"]
+definition = "Repair orders customers want each month: service customers times visits per customer."
+
+[variables."ro done"]
+definition = "Repair orders actually completed each month: demand, up to the department's capacity."
+
+[variables."service capture"]
+definition = "Households added to the service base each month: vehicles sold (new plus used) times the service capture share."
+
+[variables."service gross"]
+definition = "Monthly labor gross before technician pay: repair orders completed times gross per repair order."
+
+[variables."service ratio"]
+definition = "Service customers per owner: the size of the service relationship relative to the owner base. It lifts the share of owners who return."
+
+[variables."shock active"]
+definition = "1 while the shock window is open (from the shock start month for the shock duration), otherwise 0."
+
+[variables."shoppers"]
+definition = "Prospects shopping each month: the prospect pool times the monthly shopping rate, reduced during a demand shock."
+
+[variables."shopping rate monthly"]
+definition = "The annual shopping rate expressed per month."
+
+[variables."store loyalty"]
+definition = "Share of replacing owners who return to this store: a floor plus a rise toward a ceiling as the service ratio grows."
+
+[variables."target new inventory"]
+definition = "The new-vehicle supply the store aims for (on hand plus on order): sales times the target days of supply plus the order lead time."
+
+[variables."target used inventory"]
+definition = "The used-vehicle stock the store aims for (frontline plus reconditioning): sales times the target days of supply plus the reconditioning time."
+
+[variables."technician cost monthly"]
+definition = "The annual loaded cost of a technician expressed per month."
+
+[variables."technician payroll"]
+definition = "Monthly technician pay: headcount times monthly cost per technician."
+
+[variables."total gross"]
+definition = "Monthly gross profit: new, used, lease remarketing, F and I, service labor and parts."
+
+[variables."trade ins"]
+definition = "Used vehicles acquired from replacing owners each month: replacements times the trade-in share."
+
+[variables."trailing change"]
+definition = "Change in trailing new sales each month: the gap between current new sales and the trailing average, divided by the allocation memory."
+
+[variables."trailing used change"]
+definition = "Change in trailing used sales each month: the gap between current used sales and the trailing average, divided by the used sales memory."
+
+[variables."used acquisitions"]
+definition = "Used vehicles acquired each month: trade-ins plus off-lease returns plus auction buys."
+
+[variables."used days supply"]
+definition = "How many days the frontline used stock would last at the recent (trailing) used sales rate."
+
+[variables."used demand"]
+definition = "Households wanting a used vehicle each month: shoppers not buying new, lifted when used prices are discounted."
+
+[variables."used gross"]
+definition = "Monthly used-vehicle gross profit: units sold times (gross per vehicle minus the price discount times the retail price)."
+
+[variables."used price discount"]
+definition = "Discount on used cars when stock runs long: a sensitivity times how far days supply is above target, capped at the maximum discount. Slightly negative (a premium) when stock is lean."
+
+[variables."used sales"]
+definition = "Used-vehicle sales each month: demand, limited by stock on the lot and by the time it takes to sell the lot."
+
+[variables."utilisation"]
+definition = "Repair-order demand divided by capacity. Above 1 the department is overloaded."
+
+[variables."visits per customer monthly"]
+definition = "The annual number of repair orders per service customer expressed per month."
+
+[variables."wholesale exit rate monthly"]
+definition = "The annual share of used stock wholesaled, expressed per month."
+
+[variables."wholesale exits"]
+definition = "Aged used vehicles sold off wholesale each month: stock times the monthly exit rate, rising when days supply is above target."
+
+[variables."wholesale loss"]
+definition = "Monthly loss on wholesaled vehicles: the number wholesaled times the loss per vehicle."

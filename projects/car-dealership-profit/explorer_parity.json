@@ -1,0 +1,173 @@
+{
+ "engine_sha256": "3e1cb6ec736748d5e6165f1b36854b1be912935d1ba2ef64dd9da5826e906949",
+ "errors": [],
+ "headline": {
+  "max_rel": 1.5845166938673641e-15,
+  "n_values": 528,
+  "worst": {
+   "metric": "net_profit_m60",
+   "run": "random 9"
+  }
+ },
+ "html_sha256": "9afc2c63c830e524e1e8da711c1688851b892d2781fe3e916953a0690fc92561",
+ "ltm": {
+  "end_to_end": {
+   "complete": true,
+   "expected_link": 1746,
+   "expected_loop": 402,
+   "max_link": 4.895395538447966e-10,
+   "max_loop": 0.0,
+   "n_link": 1746,
+   "n_loop": 402,
+   "worst": {
+    "link": [
+     "random 1",
+     "discount_factor>discounted_net_cash_flow"
+    ],
+    "loop": [
+     "random 5",
+     [
+      "auction_buys",
+      "used_acquisitions",
+      "reconditioning_pipeline",
+      "recon_done",
+      "used_frontline_inventory",
+      "used_days_supply",
+      "used_price_discount",
+      "used_demand",
+      "used_sales",
+      "service_capture",
+      "service_customers",
+      "service_ratio",
+      "store_loyalty",
+      "repeat_to_store",
+      "prospects",
+      "shoppers",
+      "new_demand",
+      "new_sales",
+      "lease_starts",
+      "lessees_early",
+      "lease_advance_1",
+      "lessees_mid",
+      "lease_advance_2",
+      "lessees_late",
+      "lease_end",
+      "off_lease_returns"
+     ]
+    ]
+   }
+  },
+  "implementation": {
+   "complete": true,
+   "expected_link": 1746,
+   "expected_loop": 402,
+   "max_link": 0.0,
+   "max_loop": 0.0,
+   "n_link": 1746,
+   "n_loop": 402,
+   "worst": {
+    "link": [
+     "random 5",
+     "technician_cost>technician_cost_monthly"
+    ],
+    "loop": [
+     "random 5",
+     [
+      "auction_buys",
+      "used_acquisitions",
+      "reconditioning_pipeline",
+      "recon_done",
+      "used_frontline_inventory",
+      "used_days_supply",
+      "used_price_discount",
+      "used_demand",
+      "used_sales",
+      "service_capture",
+      "service_customers",
+      "service_ratio",
+      "store_loyalty",
+      "repeat_to_store",
+      "prospects",
+      "shoppers",
+      "new_demand",
+      "new_sales",
+      "lease_starts",
+      "lessees_early",
+      "lease_advance_1",
+      "lessees_mid",
+      "lease_advance_2",
+      "lessees_late",
+      "lease_end",
+      "off_lease_returns"
+     ]
+    ]
+   }
+  },
+  "labels": [
+   "base",
+   "random 1",
+   "random 2",
+   "random 3",
+   "random 4",
+   "random 5"
+  ],
+  "mode": "live",
+  "n_link_series": 1746,
+  "n_loop_series": 402,
+  "n_runs": 6,
+  "pass": true,
+  "tolerance": 1e-09
+ },
+ "max_pointwise_rel": 1.4488441967847485e-11,
+ "max_scale_rel": 8.079266340792568e-14,
+ "metric": "A = max|js-py|/S, S = max|py| per series; B = max|js-py|/|py| where |py| >= 1e-6*S",
+ "metrics_sha256": "05842c9b31a16621b507cfaac133d90ea27c58195e86680bb29ffac2bd40e84a",
+ "missing_columns": [],
+ "model_sha256": "c914b26e0fc208afde521601324df10bbe98f53a0e0974d1686251f212c2bcb8",
+ "n_random": 25,
+ "n_runs": 44,
+ "n_series": 8316,
+ "pass": true,
+ "pointwise_floor": 1e-06,
+ "release": {
+  "files": {
+   "assumptions_register.md": "d902e461846f0ab1720d1acbff37120dfbb61a4857eb3c1d3e6b9ee91b3b6ef3",
+   "checks.py": "1cfc8fa51da8a3574c027348e2004a0266af6096d3cef5c5df06810269673d05",
+   "checks_results.json": "ec10929e0a79f7c26cdff5831ebfad2480f757f212ee5ee652f1ce8114383197",
+   "declared_loops_draft.json": "62adb2fb37e494897c2e875c596fe63d56706faaab91271f053c12b87c97fc4b",
+   "delay_audit.json": "6b409384c5aa8d36af051295d023c13cdccb2fc4ad4f4d870a225ef05222fc54",
+   "explorer.toml": "a5fb8fb09b23e73ece393b8d214adf3e331c052dda5dc54e5c09ae57a8dc9e1f",
+   "explorer_glossary.toml": "867b3a1b91881d0cec1e4e4b5c6ea58b78a61f30478d2348efa10d78373e5c41",
+   "explorer_intake.toml": "9286fd7ac288710d8e5b34e3aa12cb4b8bdbe4df2baa1cd2c83a7f1d0eae10df",
+   "gate8_analysis.py": "91d8de85a25d7fe8f364bd8a308945255dc5e5fb2a93a9a038ac72ab79d57979",
+   "gate8_results.json": "48243ea4e864f673288b086e199770be3be83a51ef76addcd6913b29750780f4",
+   "loop_dominance.json": "c2147e9db026d0f627920924ed14463a377cea193df30a541c616a9247d4d433",
+   "loop_dominance_shock.json": "6b9f5be42b3236c88fc763760feccb1078a14ca6ec6f2f15f97858117ba7e503",
+   "mc_bands.csv": "97e4d40c28a331eff913de665da48ec7cb9bac34c93452a514fc3a8ec0bbec04",
+   "model/build_mdl.py": "f58db6faa9f43227d2d75f562d7c4133ed656f28d042b1f9bf517145a139437b",
+   "model/car_dealership_profit.mdl": "c8c5d3bfcb6b896fc0a1b8327e70a2b0665c1c2354d12973e1bc9b804df20ed7",
+   "model/car_dealership_profit.py": "c914b26e0fc208afde521601324df10bbe98f53a0e0974d1686251f212c2bcb8",
+   "policy_results.csv": "62ba3681f793197c9afa0521287dacadfb148b395c6ee08f19405b575606e252",
+   "resilience.csv": "e04098b2ec752a828a0602474df19062bc43b102bf2c890621df24495fca01a4",
+   "scenario_gains.csv": "b4cd8fb3913dc4f680d66044dbcdd77407f8d1cf0c0f2f8487f6a0a114fc578a",
+   "summary.md": "10b379cd3d6cc312dbd95ea982ffec2f6d3fa563b360fb7cdcd68ad99d46049b",
+   "validation.toml": "1a5fc5d266c4ee093515bc6e5b09a9a85a2625ac46dc3c2140449e327a6f464d",
+   "validation_report.md": "7215e09c500938fe95960c327e422ad9389f47b90982fb390aa99c907ce57650",
+   "validation_results.json": "9f155155ad3ee53e0cdd54098305d7bbde67c9e8b08945e72239668aba2bff4c"
+  },
+  "gate": "validation_report.md Overall PASS; validation_results.json all_pass, spec and model unchanged since validation; checks_results.json all_pass, checks code, spec and model unchanged since the checks ran",
+  "template_sha256": "aa53023a16335fee8e2c2647df0e54654aa79b4ae1ed4f2787354063ace5109a"
+ },
+ "reported_only": [],
+ "seed": 20261029,
+ "spec_sha256": "1a5fc5d266c4ee093515bc6e5b09a9a85a2625ac46dc3c2140449e327a6f464d",
+ "tolerance": 1e-09,
+ "worst_pointwise": {
+  "run": "policy: A marketing +$10k a month",
+  "series": "trailing used change"
+ },
+ "worst_scale": {
+  "run": "policy: A marketing +$10k a month",
+  "series": "trailing used change"
+ }
+}

@@ -1,0 +1,16 @@
+scenario,P5,P50,P95,gain_P5,gain_P50,gain_P95
+baseline store (no lever change),-4.21579e+06,6.24313e+06,1.92447e+07,0,0,0
+A used inventory +33 days supply (about $10k a month of carrying cost),-4.61684e+06,5.81538e+06,1.85804e+07,-823507,-503679,-101224
+A technicians +1.7 (about $10k a month of payroll),-4.53499e+06,6.44017e+06,1.99061e+07,-556131,-279649,1.48222e+06
+A F and I programme +$10k a month,-4.5189e+06,5.9049e+06,1.88993e+07,-528313,-352714,-97324
+A marketing +$10k a month,-4.13722e+06,6.39484e+06,1.94642e+07,-206041,131119,604869
+B new-vehicle gross -30% for 12 months,-4.56576e+06,5.75364e+06,1.86096e+07,-682718,-487406,-325133
+B floorplan rate +3 points for 12 months,-4.45002e+06,5.96626e+06,1.89195e+07,-343642,-278764,-215315
+B demand -20% for 12 months,-4.29233e+06,6.19454e+06,1.91533e+07,-171867,-49291.5,-4844.75
+"B all three shocks together, 12 months",-4.83258e+06,5.45243e+06,1.82944e+07,-1.02758e+06,-786283,-591550
+B new-vehicle gross -30% for 24 months,-4.90674e+06,5.19054e+06,1.79591e+07,-1.36521e+06,-973901,-650427
+"C used-heavy mix (new share 0.45, used days supply +15)",-4.30754e+06,6.00585e+06,1.86393e+07,-1.0376e+06,-338389,469232
+C lease-heavy mix (lease share 0.40),-4.15935e+06,6.29636e+06,1.93844e+07,-223039,92513.9,363921
+"C fixed-ops: technicians +3 only (capacity, no extra demand)",-4.85261e+06,6.57544e+06,2.05448e+07,-983546,-532205,2.50786e+06
+C fixed-ops: service capture x1.25 only (costs nothing in the model: an upper bound),-2.42305e+06,8.11598e+06,2.04224e+07,165683,2.01523e+06,3.63046e+06
+C fixed-ops-heavy mix (both of the above),-2.30254e+06,8.71799e+06,2.23686e+07,1.64221e+06,2.48368e+06,3.43426e+06

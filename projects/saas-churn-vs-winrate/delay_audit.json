@@ -1,0 +1,304 @@
+{
+ "functions": [],
+ "model_file": "model/saas_churn_vs_winrate.py",
+ "project": "saas-churn-vs-winrate",
+ "stocks": [
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": "Customers",
+   "delay_type": "none",
+   "downstream": [],
+   "first_order_candidate": false,
+   "form": "coflow",
+   "inflows": [
+    "new ARR",
+    "expansion ARR"
+   ],
+   "order": null,
+   "outflows": [
+    "churned ARR"
+   ],
+   "state_dependent": null,
+   "stock": "ARR",
+   "tau": null,
+   "tau_base": null,
+   "tau_range": null,
+   "tau_run": null,
+   "tau_var": null
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "information",
+   "downstream": [],
+   "first_order_candidate": true,
+   "form": "goal_seeking",
+   "inflows": [
+    "CS capacity change"
+   ],
+   "order": 1,
+   "outflows": [],
+   "state_dependent": false,
+   "stock": "CS Capacity",
+   "target": "funded CS capacity",
+   "tau": "CS ramp up time",
+   "tau_base": 4.0,
+   "tau_range": [
+    2,
+    9
+   ],
+   "tau_run": [
+    4.0,
+    4.0
+   ],
+   "tau_var": "CS ramp up time"
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "material",
+   "downstream": [
+    "Potential Customers"
+   ],
+   "first_order_candidate": true,
+   "form": "drain",
+   "inflows": [
+    "deals lost",
+    "churn"
+   ],
+   "order": 1,
+   "outflows": [
+    "re entry"
+   ],
+   "state_dependent": false,
+   "stock": "Cooling Off Firms",
+   "tau": "cool off time",
+   "tau_base": 18.0,
+   "tau_range": [
+    12,
+    36
+   ],
+   "tau_run": [
+    18.0,
+    18.0
+   ],
+   "tau_var": "cool off time"
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "none",
+   "downstream": [],
+   "first_order_candidate": false,
+   "form": "accumulator",
+   "inflows": [
+    "total programme spend"
+   ],
+   "order": null,
+   "outflows": [],
+   "state_dependent": null,
+   "stock": "Cumulative Programme Spend",
+   "tau": null,
+   "tau_base": null,
+   "tau_range": null,
+   "tau_run": null,
+   "tau_var": null
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "none",
+   "downstream": [],
+   "first_order_candidate": false,
+   "form": "accumulator",
+   "inflows": [
+    "revenue recognition"
+   ],
+   "order": null,
+   "outflows": [],
+   "state_dependent": null,
+   "stock": "Cumulative Revenue",
+   "tau": null,
+   "tau_base": null,
+   "tau_range": null,
+   "tau_run": null,
+   "tau_var": null
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "material",
+   "downstream": [
+    "Cooling Off Firms",
+    "Recently Churned Firms"
+   ],
+   "first_order_candidate": true,
+   "form": "rate",
+   "inflows": [
+    "deals won"
+   ],
+   "order": 1,
+   "outflows": [
+    "churn"
+   ],
+   "state_dependent": true,
+   "stock": "Customers",
+   "tau": "1 / (effective churn fraction)",
+   "tau_base": 150.0,
+   "tau_range": null,
+   "tau_run": [
+    150.0,
+    199.98271369545674
+   ],
+   "tau_var": null
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "none",
+   "downstream": [],
+   "first_order_candidate": false,
+   "form": "source",
+   "inflows": [],
+   "order": null,
+   "outflows": [
+    "market entries"
+   ],
+   "state_dependent": null,
+   "stock": "Firms Yet To Enter",
+   "tau": null,
+   "tau_base": null,
+   "tau_range": null,
+   "tau_run": null,
+   "tau_var": null
+  },
+  {
+   "cap": "sales capacity",
+   "cap_var": "sales capacity",
+   "coflow_of": null,
+   "delay_type": "material",
+   "downstream": [
+    "Cooling Off Firms",
+    "Customers"
+   ],
+   "first_order_candidate": true,
+   "form": "drain_capped",
+   "inflows": [
+    "evaluation starts"
+   ],
+   "order": 1,
+   "outflows": [
+    "deals won",
+    "deals lost"
+   ],
+   "state_dependent": false,
+   "stock": "Firms in Evaluation",
+   "tau": "sales cycle time",
+   "tau_base": 6.0,
+   "tau_range": [
+    3,
+    9
+   ],
+   "tau_run": [
+    6.0,
+    6.0
+   ],
+   "tau_var": "sales cycle time"
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "material",
+   "downstream": [
+    "Firms in Evaluation"
+   ],
+   "first_order_candidate": true,
+   "form": "rate",
+   "inflows": [
+    "re entry",
+    "market entries"
+   ],
+   "order": 1,
+   "outflows": [
+    "evaluation starts"
+   ],
+   "state_dependent": true,
+   "stock": "Potential Customers",
+   "tau": "1 / (marketing reach rate monthly + word of mouth rate monthly \u00d7 max(0, customer share \u2212 negative word of mouth multiplier \u00d7 detractor share))",
+   "tau_base": 83.56545961002786,
+   "tau_range": null,
+   "tau_run": [
+    27.150599851897052,
+    83.56545961002786
+   ],
+   "tau_var": null
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "information",
+   "downstream": [],
+   "first_order_candidate": true,
+   "form": "drain",
+   "inflows": [
+    "churn"
+   ],
+   "order": 1,
+   "outflows": [
+    "detractor fade"
+   ],
+   "state_dependent": false,
+   "stock": "Recently Churned Firms",
+   "tau": "detractor memory time",
+   "tau_base": 12.0,
+   "tau_range": [
+    6,
+    24
+   ],
+   "tau_run": [
+    12.0,
+    12.0
+   ],
+   "tau_var": "detractor memory time"
+  },
+  {
+   "cap": null,
+   "cap_var": null,
+   "coflow_of": null,
+   "delay_type": "information",
+   "downstream": [],
+   "first_order_candidate": true,
+   "form": "goal_seeking",
+   "inflows": [
+    "capability change"
+   ],
+   "order": 1,
+   "outflows": [],
+   "state_dependent": false,
+   "stock": "Win Rate Capability",
+   "target": "target capability",
+   "tau": "enablement ramp up time",
+   "tau_base": 6.0,
+   "tau_range": [
+    3,
+    12
+   ],
+   "tau_run": [
+    6.0,
+    6.0
+   ],
+   "tau_var": "enablement ramp up time"
+  }
+ ],
+ "time_step": 0.25,
+ "time_unit": "Month"
+}

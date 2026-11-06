@@ -1,0 +1,1152 @@
+{UTF-8}
+Prospects=
+	INTEG ((market entries + marketing starts + repeat to store) - (new sales + used sales), initial prospects)
+	~	Household
+	~	Material. Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+Owners=
+	INTEG ((retail new buys + used sales) - replacement, initial owners)
+	~	Household
+	~	Material (ownership period). Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+Lessees Early=
+	INTEG (lease starts - lease advance 1, initial lessees per stage)
+	~	Household
+	~	Material (lease stage 1). Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+Lessees Mid=
+	INTEG (lease advance 1 - lease advance 2, initial lessees per stage)
+	~	Household
+	~	Material (lease stage 2). Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+Lessees Late=
+	INTEG (lease advance 2 - lease end, initial lessees per stage)
+	~	Household
+	~	Material (lease stage 3). Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+Households Elsewhere=
+	INTEG (leakage, 0)
+	~	Household
+	~	Material sink (bought or leased at other stores). Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+Households Outside Market=
+	INTEG (-(market entries + marketing starts), (market entry rate + maximum marketing starts) * simulation horizon)
+	~	Household
+	~	Material source. Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+New Inventory=
+	INTEG (deliveries - new sales * vehicles per household purchase, initial new inventory)
+	~	Vehicle
+	~	Material. Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+New Vehicles On Order=
+	INTEG (new orders - deliveries, initial new vehicles on order)
+	~	Vehicle
+	~	Material (order lead time). Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+Used Frontline Inventory=
+	INTEG (recon done - (used sales * vehicles per household purchase + wholesale exits), initial used frontline inventory)
+	~	Vehicle
+	~	Material. Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+Reconditioning Pipeline=
+	INTEG (used acquisitions - recon done, initial reconditioning pipeline)
+	~	Vehicle
+	~	Material (reconditioning time). Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+Manufacturer Supply Outside=
+	INTEG (-new orders, manufacturer allocation * simulation horizon)
+	~	Vehicle
+	~	Material source (bounded by the allocation cap). Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+New Vehicles Sold=
+	INTEG (new sales * vehicles per household purchase, 0)
+	~	Vehicle
+	~	Material sink. Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+Used Vehicle Supply Outside=
+	INTEG (-used acquisitions, initial used supply outside)
+	~	Vehicle
+	~	Material source. Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+Used Vehicles Sold On=
+	INTEG ((used sales * vehicles per household purchase + wholesale exits), 0)
+	~	Vehicle
+	~	Material sink. Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+Trailing New Sales=
+	INTEG (trailing change, reference new sales)
+	~	Household/Month
+	~	Information (allocation memory). Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+Trailing Used Sales=
+	INTEG (trailing used change, reference used sales)
+	~	Household/Month
+	~	Information (used sales memory). Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+Service Customers=
+	INTEG (service capture - defection, initial service customers)
+	~	Household
+	~	Material subset of the customer base. Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+Technicians=
+	INTEG (hiring - attrition, initial technicians)
+	~	Technician
+	~	Resource (hiring delay). Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+Inventory at Cost=
+	INTEG ((deliveries * new vehicle unit cost + used acquisitions * used vehicle unit cost) - inventory cost released, initial inventory at cost)
+	~	USD
+	~	Money (valued at unit cost). Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+Floorplan Debt=
+	INTEG ((advance rate * (deliveries * new vehicle unit cost + used acquisitions * used vehicle unit cost)) - floorplan payoff, initial floorplan debt)
+	~	USD
+	~	Money. Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+Cash Received=
+	INTEG (MAX(0, net cash flow), 0)
+	~	USD
+	~	Accumulator (non-negative part of cash flow). Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+Cash Paid Out=
+	INTEG ((MAX(0, 0 - net cash flow)), 0)
+	~	USD
+	~	Accumulator (non-negative part of cash flow). Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+Cumulative Profit Earned=
+	INTEG (MAX(0, net profit), 0)
+	~	USD
+	~	Accumulator (non-negative part of net profit). Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+Cumulative Loss Incurred=
+	INTEG ((MAX(0, 0 - net profit)), 0)
+	~	USD
+	~	Accumulator (non-negative part of net profit). Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+Cumulative Discounted Cash Received=
+	INTEG (MAX(0, discounted net cash flow), 0)
+	~	USD
+	~	Accumulator (non-negative part). Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+Cumulative Discounted Cash Paid=
+	INTEG ((MAX(0, 0 - discounted net cash flow)), 0)
+	~	USD
+	~	Accumulator (non-negative part). Model: sd-forge car-dealership-profit; structure in 04_stock_flow.md.
+	|
+
+shock active=
+	IF THEN ELSE(Time >= shock start month, IF THEN ELSE(Time < shock start month + shock duration, 1, 0), 0)
+	~	Dmnl
+	~	
+	|
+
+shoppers=
+	Prospects * shopping rate monthly * (1 - demand shock size * shock active)
+	~	Household/Month
+	~	
+	|
+
+new demand=
+	shoppers * new share of shoppers
+	~	Household/Month
+	~	
+	|
+
+used demand=
+	shoppers * (1 - new share of shoppers) * (1 + discount demand sensitivity * used price discount)
+	~	Household/Month
+	~	
+	|
+
+new sales=
+	MIN(new demand * New Inventory / (New Inventory + availability constant new), New Inventory / (minimum sellout time * vehicles per household purchase))
+	~	Household/Month
+	~	
+	|
+
+used sales=
+	MIN(used demand * Used Frontline Inventory / (Used Frontline Inventory + availability constant used), Used Frontline Inventory / (minimum sellout time * vehicles per household purchase))
+	~	Household/Month
+	~	
+	|
+
+lease starts=
+	new sales * lease share
+	~	Household/Month
+	~	
+	|
+
+retail new buys=
+	new sales * (1 - lease share)
+	~	Household/Month
+	~	
+	|
+
+lease stage time=
+	lease term / number of lease stages
+	~	Month
+	~	
+	|
+
+lease advance 1=
+	Lessees Early / lease stage time
+	~	Household/Month
+	~	
+	|
+
+lease advance 2=
+	Lessees Mid / lease stage time
+	~	Household/Month
+	~	
+	|
+
+lease end=
+	Lessees Late / lease stage time
+	~	Household/Month
+	~	
+	|
+
+replacement=
+	Owners / ownership period
+	~	Household/Month
+	~	
+	|
+
+service ratio=
+	Service Customers / MAX(Owners, minimum owner base)
+	~	Dmnl
+	~	
+	|
+
+store loyalty=
+	loyalty floor + (loyalty ceiling - loyalty floor) * service ratio / (service ratio + loyalty half saturation)
+	~	Dmnl
+	~	
+	|
+
+repeat to store=
+	(replacement + lease end) * store loyalty
+	~	Household/Month
+	~	
+	|
+
+leakage=
+	replacement + lease end - repeat to store
+	~	Household/Month
+	~	
+	|
+
+marketing starts=
+	maximum marketing starts * (1 - EXP(-marketing spend / marketing spend scale))
+	~	Household/Month
+	~	
+	|
+
+market entries=
+	market entry rate
+	~	Household/Month
+	~	
+	|
+
+trade ins=
+	replacement * trade in share * vehicles per household purchase
+	~	Vehicle/Month
+	~	
+	|
+
+off lease returns=
+	lease end * off lease return share * vehicles per household purchase
+	~	Vehicle/Month
+	~	
+	|
+
+target used inventory=
+	used sales * vehicles per household purchase * (target used days supply / days per month + reconditioning time)
+	~	Vehicle
+	~	
+	|
+
+auction buys=
+	MAX(0, used sales * vehicles per household purchase + (target used inventory - Used Frontline Inventory - Reconditioning Pipeline) / used inventory adjustment time - trade ins - off lease returns)
+	~	Vehicle/Month
+	~	
+	|
+
+used acquisitions=
+	trade ins + off lease returns + auction buys
+	~	Vehicle/Month
+	~	
+	|
+
+recon done=
+	Reconditioning Pipeline / reconditioning time
+	~	Vehicle/Month
+	~	
+	|
+
+trailing used change=
+	(used sales - Trailing Used Sales) / used sales memory
+	~	Household/Month/Month
+	~	
+	|
+
+used days supply=
+	Used Frontline Inventory / MAX(Trailing Used Sales * vehicles per household purchase, minimum used sales rate) * days per month
+	~	Day
+	~	
+	|
+
+used price discount=
+	MIN(maximum price discount, discount sensitivity * (used days supply - target used days supply) / target used days supply)
+	~	Dmnl
+	~	
+	|
+
+wholesale exits=
+	Used Frontline Inventory * wholesale exit rate monthly * used days supply / target used days supply
+	~	Vehicle/Month
+	~	
+	|
+
+target new inventory=
+	new sales * vehicles per household purchase * (target new days supply / days per month + order lead time)
+	~	Vehicle
+	~	
+	|
+
+allocation response=
+	allocation response strength * (Trailing New Sales / reference new sales - 1)
+	~	Dmnl
+	~	
+	|
+
+new orders=
+	MIN(manufacturer allocation, MAX(0, (new sales * vehicles per household purchase + (target new inventory - New Inventory - New Vehicles On Order) / new inventory adjustment time) * (1 + allocation response)))
+	~	Vehicle/Month
+	~	
+	|
+
+deliveries=
+	New Vehicles On Order / order lead time
+	~	Vehicle/Month
+	~	
+	|
+
+trailing change=
+	(new sales - Trailing New Sales) / allocation memory
+	~	Household/Month/Month
+	~	
+	|
+
+service capture=
+	(new sales + used sales) * service capture share
+	~	Household/Month
+	~	
+	|
+
+capacity=
+	Technicians * repairs per technician
+	~	RO/Month
+	~	
+	|
+
+ro demand=
+	Service Customers * visits per customer monthly
+	~	RO/Month
+	~	
+	|
+
+utilisation=
+	ro demand / capacity
+	~	Dmnl
+	~	
+	|
+
+defection=
+	Service Customers * base defection rate monthly * (1 + retention loss when overloaded * (utilisation - 1))
+	~	Household/Month
+	~	
+	|
+
+ro done=
+	MIN(ro demand, capacity)
+	~	RO/Month
+	~	
+	|
+
+hiring=
+	(technician target - Technicians) / hire time
+	~	Technician/Month
+	~	
+	|
+
+attrition=
+	Technicians * attrition rate monthly
+	~	Technician/Month
+	~	
+	|
+
+inventory cost released=
+	new sales * vehicles per household purchase * new vehicle unit cost + (used sales * vehicles per household purchase + wholesale exits) * used vehicle unit cost
+	~	USD/Month
+	~	
+	|
+
+floorplan payoff=
+	advance rate * inventory cost released
+	~	USD/Month
+	~	
+	|
+
+margin shock factor=
+	1 - margin shock size * shock active
+	~	Dmnl
+	~	
+	|
+
+new gross=
+	new sales * vehicles per household purchase * new gross per vehicle * margin shock factor
+	~	USD/Month
+	~	
+	|
+
+used gross=
+	used sales * vehicles per household purchase * (used gross per vehicle - used price discount * used retail price)
+	~	USD/Month
+	~	
+	|
+
+lease remarketing gain=
+	0 - off lease returns * lease remarketing loss per vehicle
+	~	USD/Month
+	~	
+	|
+
+F and I penetration=
+	F and I base penetration + F and I maximum penetration uplift * (1 - EXP(-F and I programme spend / F and I spend scale))
+	~	Dmnl
+	~	
+	|
+
+F and I income=
+	(new sales + used sales) * F and I penetration * F and I gross per contract * (1 - chargeback rate)
+	~	USD/Month
+	~	
+	|
+
+service gross=
+	ro done * gross per repair order
+	~	USD/Month
+	~	
+	|
+
+parts gross=
+	ro done * parts gross per repair order
+	~	USD/Month
+	~	
+	|
+
+total gross=
+	new gross + used gross + lease remarketing gain + F and I income + service gross + parts gross
+	~	USD/Month
+	~	
+	|
+
+commissions=
+	commission rate * (new gross + used gross + F and I income)
+	~	USD/Month
+	~	
+	|
+
+technician payroll=
+	Technicians * technician cost monthly
+	~	USD/Month
+	~	
+	|
+
+wholesale loss=
+	wholesale exits * wholesale loss per vehicle
+	~	USD/Month
+	~	
+	|
+
+floorplan rate effective=
+	floorplan rate monthly + rate shock size / months per year * shock active
+	~	1/Month
+	~	
+	|
+
+floorplan interest=
+	Floorplan Debt * floorplan rate effective
+	~	USD/Month
+	~	
+	|
+
+net profit=
+	total gross - commissions - marketing spend - F and I programme spend - technician payroll - wholesale loss - fixed overhead - floorplan interest
+	~	USD/Month
+	~	
+	|
+
+net cash flow=
+	net profit - (1 - advance rate) * (deliveries * new vehicle unit cost + used acquisitions * used vehicle unit cost - inventory cost released)
+	~	USD/Month
+	~	
+	|
+
+Cash=
+	initial cash + Cash Received - Cash Paid Out
+	~	USD
+	~	
+	|
+
+Cumulative Net Profit=
+	Cumulative Profit Earned - Cumulative Loss Incurred
+	~	USD
+	~	
+	|
+
+Cumulative Discounted Cash Flow=
+	Cumulative Discounted Cash Received - Cumulative Discounted Cash Paid
+	~	USD
+	~	
+	|
+
+discount factor=
+	EXP(-discount rate monthly * Time)
+	~	Dmnl
+	~	
+	|
+
+discounted net cash flow=
+	net cash flow * discount factor
+	~	USD/Month
+	~	
+	|
+
+absorption rate=
+	(service gross + parts gross - technician payroll) / fixed overhead
+	~	Dmnl
+	~	
+	|
+
+floorplan rate monthly=
+	floorplan rate / months per year
+	~	1/Month
+	~	
+	|
+
+discount rate monthly=
+	discount rate / months per year
+	~	1/Month
+	~	
+	|
+
+shopping rate monthly=
+	shopping rate / months per year
+	~	1/Month
+	~	
+	|
+
+base defection rate monthly=
+	base defection rate / months per year
+	~	1/Month
+	~	
+	|
+
+attrition rate monthly=
+	attrition rate / months per year
+	~	1/Month
+	~	
+	|
+
+wholesale exit rate monthly=
+	wholesale exit rate / months per year
+	~	1/Month
+	~	
+	|
+
+visits per customer monthly=
+	visits per customer / months per year
+	~	RO/(Household*Month)
+	~	
+	|
+
+technician cost monthly=
+	technician cost / months per year
+	~	USD/(Technician*Month)
+	~	
+	|
+
+shopping rate=
+	6
+	~	1/Year [0,24]
+	~	Range 3 to 10, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+new share of shoppers=
+	0.55
+	~	Dmnl [0.05,0.95]
+	~	fixed in the Monte Carlo (a store policy or scenario input); lever range 0.35 to 0.75 for exploration. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+market entry rate=
+	70
+	~	Household/Month [0,1000]
+	~	Range 45 to 95, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+maximum marketing starts=
+	30
+	~	Household/Month [0,500]
+	~	Range 15 to 50, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+marketing spend scale=
+	20000
+	~	USD/Month [100,10000000]
+	~	Range 10000 to 50000, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+marketing spend=
+	25000
+	~	USD/Month [0,10000000]
+	~	fixed in the Monte Carlo (a store policy or scenario input); lever range 0 to 60000 for exploration. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+availability constant new=
+	8
+	~	Vehicle [0.5,200]
+	~	Range 4 to 16, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+target new days supply=
+	60
+	~	Day [5,200]
+	~	fixed in the Monte Carlo (a store policy or scenario input); lever range 60 to 60 for exploration. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+new inventory adjustment time=
+	1.5
+	~	Month [0.1,24]
+	~	Range 1 to 3, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+order lead time=
+	1
+	~	Month [0.1,12]
+	~	Range 0.5 to 2, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+manufacturer allocation=
+	160
+	~	Vehicle/Month [0,2000]
+	~	Range 120 to 220, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+allocation response strength=
+	0
+	~	Dmnl [0,1]
+	~	Range 0 to 0.8, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+allocation memory=
+	6
+	~	Month [0.5,36]
+	~	Range 3 to 12, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+availability constant used=
+	8
+	~	Vehicle [0.5,200]
+	~	Range 4 to 16, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+discount demand sensitivity=
+	1.5
+	~	Dmnl [0,3]
+	~	Range 0.5 to 3, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+discount sensitivity=
+	0.15
+	~	Dmnl [0,0.3]
+	~	Range 0.05 to 0.3, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+maximum price discount=
+	0.25
+	~	Dmnl [0.05,0.5]
+	~	Range 0.15 to 0.35, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+target used days supply=
+	45
+	~	Day [5,150]
+	~	fixed in the Monte Carlo (a store policy or scenario input); lever range 30 to 80 for exploration. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+used sales memory=
+	2
+	~	Month [0.5,24]
+	~	Range 1 to 4, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+used inventory adjustment time=
+	1.5
+	~	Month [0.1,24]
+	~	Range 1 to 3, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+reconditioning time=
+	0.5
+	~	Month [0.1,6]
+	~	Range 0.25 to 1, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+wholesale exit rate=
+	0.5
+	~	1/Year [0,5]
+	~	Range 0.25 to 1, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+trade in share=
+	0.25
+	~	Dmnl [0,1]
+	~	Range 0.15 to 0.4, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+off lease return share=
+	0.8
+	~	Dmnl [0,1]
+	~	Range 0.6 to 0.95, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+lease remarketing loss per vehicle=
+	200
+	~	USD/Vehicle [-5000,5000]
+	~	Range -1000 to 1500, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+used retail price=
+	28000
+	~	USD/Vehicle [5000,100000]
+	~	Range 24000 to 32000, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+used vehicle unit cost=
+	26500
+	~	USD/Vehicle [5000,100000]
+	~	Range 22000 to 30000, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+lease share=
+	0.25
+	~	Dmnl [0,0.9]
+	~	fixed in the Monte Carlo (a store policy or scenario input); lever range 0.1 to 0.5 for exploration. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+lease term=
+	36
+	~	Month [12,60]
+	~	Range 24 to 48, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+ownership period=
+	66
+	~	Month [12,240]
+	~	Range 48 to 96, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+loyalty floor=
+	0.1
+	~	Dmnl [0,0.3]
+	~	Range 0.05 to 0.2, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+loyalty ceiling=
+	0.6
+	~	Dmnl [0.3,1]
+	~	Range 0.4 to 0.75, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+loyalty half saturation=
+	1.5
+	~	Dmnl [0.1,10]
+	~	Range 0.5 to 3, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+service capture share=
+	2.2
+	~	Dmnl [0,6]
+	~	fixed in the Monte Carlo (a store policy or scenario input); lever range 1.6 to 3.2 for exploration. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+base defection rate=
+	0.25
+	~	1/Year [0,2]
+	~	Range 0.15 to 0.4, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+visits per customer=
+	1.5
+	~	RO/(Household*Year) [0.1,6]
+	~	Range 1 to 2.2, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+repairs per technician=
+	80
+	~	RO/(Technician*Month) [10,300]
+	~	Range 60 to 100, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+retention loss when overloaded=
+	0
+	~	Dmnl [0,1]
+	~	Range 0 to 0.6, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+technician target=
+	28
+	~	Technician [0,200]
+	~	fixed in the Monte Carlo (a store policy or scenario input); lever range 20 to 34 for exploration. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+hire time=
+	3
+	~	Month [0.5,24]
+	~	Range 1.5 to 6, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+attrition rate=
+	0.25
+	~	1/Year [0,2]
+	~	Range 0.15 to 0.4, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+gross per repair order=
+	165
+	~	USD/RO [0,2000]
+	~	Range 120 to 220, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+parts gross per repair order=
+	103
+	~	USD/RO [0,2000]
+	~	Range 70 to 140, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+technician cost=
+	70000
+	~	USD/(Technician*Year) [10000,300000]
+	~	Range 55000 to 90000, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+F and I base penetration=
+	0.85
+	~	Dmnl [0,0.92]
+	~	Range 0.7 to 0.92, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+F and I maximum penetration uplift=
+	0.05
+	~	Dmnl [0,0.08]
+	~	Range 0 to 0.08, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+F and I spend scale=
+	10000
+	~	USD/Month [100,10000000]
+	~	Range 5000 to 30000, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+F and I programme spend=
+	0
+	~	USD/Month [0,10000000]
+	~	fixed in the Monte Carlo (a store policy or scenario input); lever range 0 to 20000 for exploration. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+F and I gross per contract=
+	2050
+	~	USD/Household [0,20000]
+	~	Range 1500 to 2600, triangular. Confidence: reported. Source: assumptions_register.md.
+	|
+
+chargeback rate=
+	0.1
+	~	Dmnl [0,1]
+	~	Range 0.05 to 0.2, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+new gross per vehicle=
+	2250
+	~	USD/Vehicle [-5000,20000]
+	~	Range 1200 to 3200, triangular. Confidence: reported. Source: assumptions_register.md.
+	|
+
+used gross per vehicle=
+	1400
+	~	USD/Vehicle [-5000,20000]
+	~	Range 900 to 1900, triangular. Confidence: reported. Source: assumptions_register.md.
+	|
+
+fixed overhead=
+	530000
+	~	USD/Month [1000,100000000]
+	~	Range 400000 to 650000, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+commission rate=
+	0.25
+	~	Dmnl [0,1]
+	~	Range 0.15 to 0.3, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+wholesale loss per vehicle=
+	1200
+	~	USD/Vehicle [0,20000]
+	~	Range 600 to 2000, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+new vehicle unit cost=
+	45000
+	~	USD/Vehicle [5000,150000]
+	~	Range 40000 to 50000, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+advance rate=
+	0.9
+	~	Dmnl [0,1]
+	~	Range 0.8 to 1, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+floorplan rate=
+	0.07
+	~	1/Year [0,0.5]
+	~	Range 0.05 to 0.1, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+discount rate=
+	0.1
+	~	1/Year [0,1]
+	~	Range 0.07 to 0.15, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+margin shock size=
+	0
+	~	Dmnl [0,1]
+	~	fixed in the Monte Carlo (a store policy or scenario input); lever range 0 to 0.5 for exploration. Confidence: verified. Source: assumptions_register.md.
+	|
+
+rate shock size=
+	0
+	~	1/Year [0,0.2]
+	~	fixed in the Monte Carlo (a store policy or scenario input); lever range 0 to 0.08 for exploration. Confidence: verified. Source: assumptions_register.md.
+	|
+
+demand shock size=
+	0
+	~	Dmnl [0,1]
+	~	fixed in the Monte Carlo (a store policy or scenario input); lever range 0 to 0.4 for exploration. Confidence: verified. Source: assumptions_register.md.
+	|
+
+shock start month=
+	24
+	~	Month [0,180]
+	~	fixed in the Monte Carlo (a store policy or scenario input); lever range 0 to 60 for exploration. Confidence: verified. Source: assumptions_register.md.
+	|
+
+shock duration=
+	12
+	~	Month [0,180]
+	~	fixed in the Monte Carlo (a store policy or scenario input); lever range 0 to 36 for exploration. Confidence: verified. Source: assumptions_register.md.
+	|
+
+months per year=
+	12
+	~	Month/Year
+	~	Unit conversion.
+	|
+
+days per month=
+	30.4
+	~	Day/Month
+	~	Unit conversion (365/12 rounded).
+	|
+
+vehicles per household purchase=
+	1
+	~	Vehicle/Household
+	~	One vehicle per household purchase; unit conversion.
+	|
+
+number of lease stages=
+	3
+	~	Dmnl
+	~	Three-stage chain gives the lease term a spread of lease lengths.
+	|
+
+simulation horizon=
+	180
+	~	Month
+	~	Gate 1: 180 months; sizes the source stocks so they never go negative.
+	|
+
+minimum owner base=
+	1
+	~	Household
+	~	Guard against dividing by zero; inactive at base.
+	|
+
+minimum used sales rate=
+	1
+	~	Vehicle/Month
+	~	Guard against dividing by zero; inactive at base.
+	|
+
+minimum sellout time=
+	0.25
+	~	Month
+	~	Physical limit: sales cannot empty the lot faster than this (about a week); inactive at base.
+	|
+
+initial prospects=
+	315.4554853
+	~	Household [0,?]
+	~	Fixed. Base-parameter steady state from settle.py (assumptions_register.md); not sampled.
+	|
+
+initial owners=
+	8318.053174
+	~	Household [0,?]
+	~	Fixed. Base-parameter steady state from settle.py (assumptions_register.md); not sampled.
+	|
+
+initial lessees per stage=
+	248.0907754
+	~	Household [0,?]
+	~	Fixed. Base-parameter steady state from settle.py (assumptions_register.md); not sampled.
+	|
+
+initial new inventory=
+	163.2176154
+	~	Vehicle [0,?]
+	~	Fixed. Base-parameter steady state from settle.py (assumptions_register.md); not sampled.
+	|
+
+initial new vehicles on order=
+	82.69692513
+	~	Vehicle [0,?]
+	~	Fixed. Base-parameter steady state from settle.py (assumptions_register.md); not sampled.
+	|
+
+initial used frontline inventory=
+	87.94660474
+	~	Vehicle [0,?]
+	~	Fixed. Base-parameter steady state from settle.py (assumptions_register.md); not sampled.
+	|
+
+initial reconditioning pipeline=
+	33.70488081
+	~	Vehicle [0,?]
+	~	Fixed. Base-parameter steady state from settle.py (assumptions_register.md); not sampled.
+	|
+
+initial service customers=
+	15492.0839
+	~	Household [0,?]
+	~	Fixed. Base-parameter steady state from settle.py (assumptions_register.md); not sampled.
+	|
+
+initial technicians=
+	26.35294118
+	~	Technician [0,?]
+	~	Fixed. Base-parameter steady state from settle.py (assumptions_register.md); not sampled.
+	|
+
+initial inventory at cost=
+	10568557.06
+	~	USD [0,?]
+	~	Fixed. Base-parameter steady state from settle.py (assumptions_register.md); not sampled.
+	|
+
+initial floorplan debt=
+	9511701.353
+	~	USD [0,?]
+	~	Fixed. Base-parameter steady state from settle.py (assumptions_register.md); not sampled.
+	|
+
+initial cash=
+	1500000
+	~	USD [0,?]
+	~	Fixed. Base-parameter steady state from settle.py (assumptions_register.md); not sampled.
+	|
+
+reference new sales=
+	82.69692513
+	~	Household/Month [0,?]
+	~	Fixed. Base-parameter steady state from settle.py (assumptions_register.md); not sampled.
+	|
+
+reference used sales=
+	64.00841485
+	~	Household/Month [0,?]
+	~	Fixed. Base-parameter steady state from settle.py (assumptions_register.md); not sampled.
+	|
+
+initial used supply outside=
+	1000000
+	~	Vehicle [0,?]
+	~	Fixed. Base-parameter steady state from settle.py (assumptions_register.md); not sampled.
+	|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+FINAL TIME  = 180
+	~	Month
+	~	15 years: >= 3x the longest delay (replacement cycle, up to 60-72 months); decision horizon 60 months, valuation 120.
+	|
+
+INITIAL TIME  = 0
+	~	Month
+	~		|
+
+SAVEPER  = 1
+	~	Month [0,?]
+	~		|
+
+TIME STEP  = 0.0625
+	~	Month [0,?]
+	~	At most 1/4 of the shortest time constant in the ranges (reconditioning time, 0.25 month); divides 60, 120 and 180.
+	|

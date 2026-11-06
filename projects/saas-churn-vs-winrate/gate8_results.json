@@ -1,0 +1,774 @@
+{
+ "n": 1000,
+ "seed": 20261029,
+ "consistency_with_policy_results_max_rel": {
+  "no programme": 1.8230941837250906e-06,
+  "churn first (months 0-24 churn, 24-60 win rate)": 3.3781220660947174e-06
+ },
+ "scenarios": {
+  "churn first (months 0-24 churn, 24-60 win rate)": {
+   "arr_m60": {
+    "P5": 14184247.91595901,
+    "P25": 20686971.575364012,
+    "P50": 28665697.88659562,
+    "P75": 38409737.75647494,
+    "P95": 56150408.34741754
+   },
+   "arr_gain_vs_none_m60": {
+    "P5": 1676741.2342106078,
+    "P25": 2790875.665522478,
+    "P50": 4009517.5818523597,
+    "P75": 5502918.24155466,
+    "P95": 8533335.415725686
+   },
+   "arr_lift_per_dollar": {
+    "P5": 0.4830628604611247,
+    "P25": 0.8021192925720704,
+    "P50": 1.1647722065879549,
+    "P75": 1.6623219049199738,
+    "P95": 2.6518021978930286
+   },
+   "net_cum_gain_vs_none_m60": {
+    "P5": -912386.5741447735,
+    "P25": 733949.6021602582,
+    "P50": 2413581.665307123,
+    "P75": 4368775.581332326,
+    "P95": 8563329.085552378
+   },
+   "p_net_cum_gain_positive": 0.864,
+   "capacity_bound_share_m0_60": {
+    "P5": 0.0,
+    "P25": 0.0,
+    "P50": 0.3524590163934426,
+    "P75": 0.8688524590163934,
+    "P95": 0.9508196721311475
+   },
+   "p_capacity_binds_before_m60": 0.539
+  },
+  "win rate first (months 0-24 win rate, 24-60 churn)": {
+   "arr_m60": {
+    "P5": 14092458.094415372,
+    "P25": 20426734.424527742,
+    "P50": 28244818.197099563,
+    "P75": 37548164.24000842,
+    "P95": 53945635.03109758
+   },
+   "arr_gain_vs_none_m60": {
+    "P5": 1562721.995587574,
+    "P25": 2569715.700558887,
+    "P50": 3607327.711335076,
+    "P75": 4812067.317576642,
+    "P95": 7263595.050597616
+   },
+   "arr_lift_per_dollar": {
+    "P5": 0.4882271785067319,
+    "P25": 0.7360843673296557,
+    "P50": 1.0430632633812915,
+    "P75": 1.4338006758676154,
+    "P95": 2.2590860965696957
+   },
+   "net_cum_gain_vs_none_m60": {
+    "P5": 643087.5301531323,
+    "P25": 3013973.077355493,
+    "P50": 5514782.232656896,
+    "P75": 8606139.578733375,
+    "P95": 15158263.277417578
+   },
+   "p_net_cum_gain_positive": 0.979,
+   "capacity_bound_share_m0_60": {
+    "P5": 0.0,
+    "P25": 0.0,
+    "P50": 0.47540983606557374,
+    "P75": 0.8688524590163934,
+    "P95": 0.9508196721311475
+   },
+   "p_capacity_binds_before_m60": 0.549
+  },
+  "50/50 split": {
+   "arr_m60": {
+    "P5": 14989064.324484743,
+    "P25": 21878811.99184301,
+    "P50": 30184610.442179713,
+    "P75": 40088969.63168625,
+    "P95": 57785031.35624098
+   },
+   "arr_gain_vs_none_m60": {
+    "P5": 2212974.174214146,
+    "P25": 3688902.487274037,
+    "P50": 5457576.611906266,
+    "P75": 7377326.647439612,
+    "P95": 11925080.349994881
+   },
+   "arr_lift_per_dollar": {
+    "P5": 0.6819009895123358,
+    "P25": 1.1100854863202239,
+    "P50": 1.5928649651067832,
+    "P75": 2.190131444446714,
+    "P95": 3.4047966320765117
+   },
+   "net_cum_gain_vs_none_m60": {
+    "P5": 1452111.220435413,
+    "P25": 4199153.250340093,
+    "P50": 7280497.427726693,
+    "P75": 11246157.70898826,
+    "P95": 19551118.16593903
+   },
+   "p_net_cum_gain_positive": 0.992,
+   "capacity_bound_share_m0_60": {
+    "P5": 0.0,
+    "P25": 0.0,
+    "P50": 0.48360655737704916,
+    "P75": 0.8688524590163934,
+    "P95": 0.9508196721311475
+   },
+   "p_capacity_binds_before_m60": 0.555
+  },
+  "churn only": {
+   "arr_m60": {
+    "P5": 13078997.286086576,
+    "P25": 18907100.85841637,
+    "P50": 26091516.136987545,
+    "P75": 34868213.25982521,
+    "P95": 50401273.7905366
+   },
+   "arr_gain_vs_none_m60": {
+    "P5": 556551.2876751099,
+    "P25": 1013592.8137208242,
+    "P50": 1538825.949676211,
+    "P75": 2244150.154764821,
+    "P95": 3541140.5766023197
+   },
+   "arr_lift_per_dollar": {
+    "P5": 0.17226647833636582,
+    "P25": 0.3008686284318207,
+    "P50": 0.4399103405746895,
+    "P75": 0.6462448797120304,
+    "P95": 1.0919014501912037
+   },
+   "net_cum_gain_vs_none_m60": {
+    "P5": -2846565.2688804786,
+    "P25": -1628553.6266975105,
+    "P50": -645836.1244943272,
+    "P75": 539524.6925810557,
+    "P95": 2969554.6544892965
+   },
+   "p_net_cum_gain_positive": 0.353,
+   "capacity_bound_share_m0_60": {
+    "P5": 0.0,
+    "P25": 0.0,
+    "P50": 0.29508196721311475,
+    "P75": 0.8688524590163934,
+    "P95": 0.9508196721311475
+   },
+   "p_capacity_binds_before_m60": 0.525
+  },
+  "win rate only": {
+   "arr_m60": {
+    "P5": 14842766.035398949,
+    "P25": 22072989.180263456,
+    "P50": 30521288.729579248,
+    "P75": 41081000.04515105,
+    "P95": 59406705.91924779
+   },
+   "arr_gain_vs_none_m60": {
+    "P5": 2235180.0695897127,
+    "P25": 3914480.383504373,
+    "P50": 5747604.732605031,
+    "P75": 8096214.848956504,
+    "P95": 13183772.19540645
+   },
+   "arr_lift_per_dollar": {
+    "P5": 0.6286051501506645,
+    "P25": 1.1425555608108748,
+    "P50": 1.6726071097425224,
+    "P75": 2.425938085410551,
+    "P95": 4.093621753230826
+   },
+   "net_cum_gain_vs_none_m60": {
+    "P5": 1362369.278105505,
+    "P25": 4537019.357973152,
+    "P50": 7930332.412972067,
+    "P75": 12603350.714674305,
+    "P95": 22382761.388210643
+   },
+   "p_net_cum_gain_positive": 0.987,
+   "capacity_bound_share_m0_60": {
+    "P5": 0.0,
+    "P25": 0.0,
+    "P50": 0.4918032786885246,
+    "P75": 0.8688524590163934,
+    "P95": 0.9508196721311475
+   },
+   "p_capacity_binds_before_m60": 0.564
+  }
+ },
+ "p_best_arr_m60": {
+  "churn first (months 0-24 churn, 24-60 win rate)": 0.0,
+  "win rate first (months 0-24 win rate, 24-60 churn)": 0.0,
+  "50/50 split": 0.325,
+  "churn only": 0.0,
+  "win rate only": 0.675
+ },
+ "pairwise_p_row_beats_col_arr_m60": {
+  "churn first (months 0-24 churn, 24-60 win rate)": {
+   "win rate first (months 0-24 win rate, 24-60 churn)": 0.724,
+   "50/50 split": 0.005,
+   "churn only": 0.979,
+   "win rate only": 0.008
+  },
+  "win rate first (months 0-24 win rate, 24-60 churn)": {
+   "churn first (months 0-24 churn, 24-60 win rate)": 0.276,
+   "50/50 split": 0.0,
+   "churn only": 0.998,
+   "win rate only": 0.042
+  },
+  "50/50 split": {
+   "churn first (months 0-24 churn, 24-60 win rate)": 0.995,
+   "win rate first (months 0-24 win rate, 24-60 churn)": 1.0,
+   "churn only": 1.0,
+   "win rate only": 0.325
+  },
+  "churn only": {
+   "churn first (months 0-24 churn, 24-60 win rate)": 0.021,
+   "win rate first (months 0-24 win rate, 24-60 churn)": 0.002,
+   "50/50 split": 0.0,
+   "win rate only": 0.015
+  },
+  "win rate only": {
+   "churn first (months 0-24 churn, 24-60 win rate)": 0.992,
+   "win rate first (months 0-24 win rate, 24-60 churn)": 0.958,
+   "50/50 split": 0.675,
+   "churn only": 0.985
+  }
+ },
+ "p_churn_first_beats_win_first": {
+  "arr_m60": 0.724,
+  "arr_m120": 0.911,
+  "net_cum_m60": 0.0,
+  "customers_m60": 0.963
+ },
+ "cf_minus_wf_arr_m60": {
+  "P5": -612080.6975710157,
+  "P25": -62275.208707397804,
+  "P50": 372202.5094509758,
+  "P75": 962376.5709662419,
+  "P95": 2088278.979480916
+ },
+ "drivers_spearman": {
+  "cf_minus_wf_arr_m60": {
+   "marketing reach rate": 0.06016304416304417,
+   "word of mouth rate": 0.052434604434604445,
+   "sales cycle time": 0.009768105768105767,
+   "base win rate": 0.06584921384921386,
+   "base annual churn rate": -0.08145537345537347,
+   "cool off time": -0.038854262854262855,
+   "initial total market": 0.1614906774906775,
+   "initial customers": 0.024165084165084165,
+   "new customer ACV": 0.09382660582660583,
+   "base net expansion rate": -0.09388277788277789,
+   "expansion ceiling multiple": -0.11846014646014646,
+   "initial sales capacity": 0.09507164307164308,
+   "total programme budget": -0.07354674154674155,
+   "CS cost per covered firm": 0.23711338511338514,
+   "CS ramp up time": 0.14598838998839,
+   "coverage scale": 0.28781869181869185,
+   "maximum churn reduction": -0.25999165999165996,
+   "win spend scale": -0.12294895494895496,
+   "enablement ramp up time": -0.3228508068508068,
+   "maximum win rate uplift": 0.43035365835365835,
+   "expansion lift at full CS effect": -0.2697949617949618,
+   "sales capacity growth rate": 0.2886925686925687,
+   "negative word of mouth multiplier": -0.03730699330699331,
+   "market growth rate": 0.06191407391407392,
+   "detractor memory time": -0.011446343446343446
+  },
+  "winonly_minus_5050_arr_m60": {
+   "marketing reach rate": 0.041742053742053746,
+   "word of mouth rate": 0.030759462759462758,
+   "sales cycle time": -0.02993627393627394,
+   "base win rate": 0.012175668175668177,
+   "base annual churn rate": -0.2633805473805474,
+   "cool off time": -0.010685074685074685,
+   "initial total market": 0.08931569331569332,
+   "initial customers": -0.018474618474618478,
+   "new customer ACV": 0.050638934638934645,
+   "base net expansion rate": -0.014253110253110254,
+   "expansion ceiling multiple": -0.04911480111480112,
+   "initial sales capacity": 0.26719459519459526,
+   "total programme budget": -0.34463242463242466,
+   "CS cost per covered firm": 0.22306170706170705,
+   "CS ramp up time": 0.03279033279033279,
+   "coverage scale": 0.23778906978906983,
+   "maximum churn reduction": -0.2893082413082413,
+   "win spend scale": 0.21792843792843794,
+   "enablement ramp up time": -0.040147192147192146,
+   "maximum win rate uplift": 0.4485818445818445,
+   "expansion lift at full CS effect": -0.2784133104133104,
+   "sales capacity growth rate": 0.2500845220845221,
+   "negative word of mouth multiplier": -0.060267168267168277,
+   "market growth rate": -0.02121878121878122,
+   "detractor memory time": -0.020086820086820088
+  },
+  "winonly_minus_churnonly_arr_m60": {
+   "marketing reach rate": 0.028349980349980358,
+   "word of mouth rate": 0.03421701421701422,
+   "sales cycle time": -0.06619566619566619,
+   "base win rate": 0.016243756243756246,
+   "base annual churn rate": -0.2258907218907219,
+   "cool off time": 0.004696000696000696,
+   "initial total market": 0.08106161706161706,
+   "initial customers": -0.027489927489927492,
+   "new customer ACV": 0.29057291057291057,
+   "base net expansion rate": 0.037102105102105105,
+   "expansion ceiling multiple": 0.04385574785574786,
+   "initial sales capacity": 0.3817046977046977,
+   "total programme budget": 0.10377133977133979,
+   "CS cost per covered firm": 0.11001685401685402,
+   "CS ramp up time": 0.059281415281415284,
+   "coverage scale": 0.13453301053301053,
+   "maximum churn reduction": -0.17225560025560027,
+   "win spend scale": -0.20553241353241353,
+   "enablement ramp up time": -0.046283650283650286,
+   "maximum win rate uplift": 0.5323709083709084,
+   "expansion lift at full CS effect": -0.15165387165387167,
+   "sales capacity growth rate": 0.30647657447657445,
+   "negative word of mouth multiplier": -0.032109884109884114,
+   "market growth rate": -0.022846738846738848,
+   "detractor memory time": -0.022281526281526284
+  }
+ },
+ "top_drivers_cf_vs_wf": [
+  "maximum win rate uplift",
+  "enablement ramp up time",
+  "sales capacity growth rate",
+  "coverage scale"
+ ],
+ "p_cf_ahead_by_tercile": {
+  "maximum win rate uplift": {
+   "T1 (0.02121-0.05264)": 0.5285285285285285,
+   "T2 (0.05267-0.06729)": 0.7717717717717718,
+   "T3 (0.06733-0.09868)": 0.8712574850299402
+  },
+  "enablement ramp up time": {
+   "T1 (3.134-5.997)": 0.7957957957957958,
+   "T2 (5.999-7.758)": 0.7724550898203593,
+   "T3 (7.764-11.88)": 0.6036036036036037
+  },
+  "sales capacity growth rate": {
+   "T1 (9.385e-05-0.09185)": 0.6227544910179641,
+   "T2 (0.09198-0.2113)": 0.7477477477477478,
+   "T3 (0.2115-0.4973)": 0.8018018018018018
+  },
+  "coverage scale": {
+   "T1 (0.2597-0.4998)": 0.5945945945945946,
+   "T2 (0.4999-0.6465)": 0.7275449101796407,
+   "T3 (0.6471-0.9927)": 0.8498498498498499
+  }
+ },
+ "breakeven": {
+  "definition": "k multiplies the win-rate programme's effect per dollar (its win spend scale is divided by k) while the churn programme keeps its assumed effect per dollar. So k is the win-rate programme's cost-effectiveness relative to the churn programme's, measured against the assumptions: k = 1 is exactly as assumed, k = 2 means win-rate dollars work twice as well as assumed, k = 0.5 half as well. k* is the k at which churn first and win rate first give equal ARR at month 60; k* = 1 would mean the two orders tie at the assumed effectiveness.",
+  "grid": [
+   0.125,
+   0.1767766952966369,
+   0.25,
+   0.3535533905932738,
+   0.5,
+   0.7071067811865476,
+   1.0,
+   1.4142135623730951,
+   2.0,
+   2.8284271247461903,
+   4.0,
+   5.656854249492381,
+   8.0
+  ],
+  "primary_30_30": {
+   "split": "30_30",
+   "switch_month": 30,
+   "share_difference_nondecreasing_in_k": 0.335,
+   "share_difference_nonincreasing_in_k": 0.629,
+   "count_churn_first_ahead_whole_grid": 34,
+   "count_win_first_ahead_whole_grid": 841,
+   "count_crossing": 125,
+   "count_crossing_win_first_below_churn_first_above": 122,
+   "count_crossing_churn_first_below_win_first_above": 3,
+   "kstar_crossing_percentiles": {
+    "P5": 0.15016710247767023,
+    "P25": 0.3049890575846212,
+    "P50": 0.5268233734966851,
+    "P75": 0.824936873027163,
+    "P95": 1.6806689605958156
+   },
+   "count_kstar_between_0.5_and_2": 60,
+   "p_churn_first_ahead_by_k": {
+    "0.125": 0.037,
+    "0.177": 0.045,
+    "0.25": 0.058,
+    "0.354": 0.08,
+    "0.5": 0.094,
+    "0.707": 0.121,
+    "1": 0.137,
+    "1.41": 0.147,
+    "2": 0.152,
+    "2.83": 0.153,
+    "4": 0.155,
+    "5.66": 0.155,
+    "8": 0.156
+   },
+   "count_churn_first_ahead_by_k": {
+    "0.125": 37,
+    "0.177": 45,
+    "0.25": 58,
+    "0.354": 80,
+    "0.5": 94,
+    "0.707": 121,
+    "1": 137,
+    "1.41": 147,
+    "2": 152,
+    "2.83": 153,
+    "4": 155,
+    "5.66": 155,
+    "8": 156
+   },
+   "count_multiple_crossings": 0,
+   "kstar_spearman": {
+    "marketing reach rate": -0.09557603686635943,
+    "word of mouth rate": -0.002709677419354838,
+    "sales cycle time": 0.1301689708141321,
+    "base win rate": -0.08031336405529953,
+    "base annual churn rate": -0.05091858678955452,
+    "cool off time": 0.08341013824884791,
+    "initial total market": -0.06635330261136713,
+    "initial customers": -0.07333947772657448,
+    "new customer ACV": 0.035502304147465434,
+    "base net expansion rate": 0.08792626728110599,
+    "expansion ceiling multiple": -0.026107526881720428,
+    "initial sales capacity": 0.26764362519201224,
+    "total programme budget": -0.14549308755760368,
+    "CS cost per covered firm": -0.08665437788018432,
+    "CS ramp up time": -0.16399999999999998,
+    "coverage scale": -0.26994777265745007,
+    "maximum churn reduction": 0.16700460829493086,
+    "win spend scale": 0.18688786482334868,
+    "enablement ramp up time": -0.14044239631336403,
+    "maximum win rate uplift": -0.03866666666666666,
+    "expansion lift at full CS effect": 0.11269431643625191,
+    "sales capacity growth rate": -0.3319877112135176,
+    "negative word of mouth multiplier": -0.06282027649769584,
+    "market growth rate": 0.10864516129032256,
+    "detractor memory time": 0.0685652841781874
+   }
+  },
+  "variant_24_36": {
+   "split": "24_36",
+   "switch_month": 24,
+   "share_difference_nondecreasing_in_k": 0.999,
+   "share_difference_nonincreasing_in_k": 0.001,
+   "count_churn_first_ahead_whole_grid": 139,
+   "count_win_first_ahead_whole_grid": 201,
+   "count_crossing": 660,
+   "count_crossing_win_first_below_churn_first_above": 660,
+   "count_crossing_churn_first_below_win_first_above": 0,
+   "kstar_crossing_percentiles": {
+    "P5": 0.14055527279490326,
+    "P25": 0.2093507949593559,
+    "P50": 0.36721673133004495,
+    "P75": 0.6435866657864056,
+    "P95": 1.6091098558532713
+   },
+   "count_kstar_between_0.5_and_2": 210,
+   "p_churn_first_ahead_by_k": {
+    "0.125": 0.139,
+    "0.177": 0.246,
+    "0.25": 0.351,
+    "0.354": 0.453,
+    "0.5": 0.573,
+    "0.707": 0.663,
+    "1": 0.724,
+    "1.41": 0.756,
+    "2": 0.783,
+    "2.83": 0.795,
+    "4": 0.799,
+    "5.66": 0.799,
+    "8": 0.799
+   },
+   "count_churn_first_ahead_by_k": {
+    "0.125": 139,
+    "0.177": 246,
+    "0.25": 351,
+    "0.354": 453,
+    "0.5": 573,
+    "0.707": 663,
+    "1": 724,
+    "1.41": 756,
+    "2": 783,
+    "2.83": 795,
+    "4": 799,
+    "5.66": 799,
+    "8": 799
+   },
+   "count_multiple_crossings": 0,
+   "kstar_spearman": {
+    "marketing reach rate": 0.02716664555328097,
+    "word of mouth rate": -0.05524952160963722,
+    "sales cycle time": 0.008149238175477906,
+    "base win rate": 0.03476779832327022,
+    "base annual churn rate": 0.09910248980035644,
+    "cool off time": 0.01727535479357683,
+    "initial total market": -0.05226186970543593,
+    "initial customers": 0.058367944329115046,
+    "new customer ACV": 0.037857504055544,
+    "base net expansion rate": 0.015579007297996555,
+    "expansion ceiling multiple": 0.06966803705409626,
+    "initial sales capacity": -0.01804244896630325,
+    "total programme budget": -0.1029634636860549,
+    "CS cost per covered firm": -0.21619120504701053,
+    "CS ramp up time": -0.07021365981097294,
+    "coverage scale": -0.18911776448272172,
+    "maximum churn reduction": 0.2300263232092736,
+    "win spend scale": 0.2907570327922533,
+    "enablement ramp up time": 0.15033589066174083,
+    "maximum win rate uplift": -0.17422842401549885,
+    "expansion lift at full CS effect": 0.19199818682278466,
+    "sales capacity growth rate": -0.16765599052840302,
+    "negative word of mouth multiplier": 0.008406063207841909,
+    "market growth rate": 0.031640860683167946,
+    "detractor memory time": -0.043824793821005945
+   }
+  }
+ },
+ "no_programme": {
+  "arr_m60": {
+   "P5": 12042190.240370927,
+   "P25": 17438189.331834752,
+   "P50": 24435844.548764855,
+   "P75": 33227621.60860194,
+   "P95": 47997920.103783265
+  },
+  "capacity_bound_share_m0_60": {
+   "P5": 0.0,
+   "P25": 0.0,
+   "P50": 0.2459016393442623,
+   "P75": 0.8688524590163934,
+   "P95": 0.9508196721311475
+  },
+  "p_capacity_binds_before_m60": 0.515
+ },
+ "count_churn_first_beats_win_first_24_36": {
+  "arr_m60": 724,
+  "arr_m120": 911,
+  "net_cum_m60": 0,
+  "customers_m60": 963
+ },
+ "dominance_model_wide_base_run": [
+  {
+   "start": 0.0,
+   "end": 0.5,
+   "loop": "B8 enablement adjustment",
+   "mean_relative_score": -0.24127911005579866
+  },
+  {
+   "start": 0.5,
+   "end": 1.0,
+   "loop": "B9 detractor fade",
+   "mean_relative_score": -0.37560196960496495
+  },
+  {
+   "start": 1.0,
+   "end": 6.25,
+   "loop": "B8 enablement adjustment",
+   "mean_relative_score": -0.19701670303357288
+  },
+  {
+   "start": 6.25,
+   "end": 8.25,
+   "loop": "B6 cool-off drain",
+   "mean_relative_score": -0.19041572030569806
+  },
+  {
+   "start": 8.25,
+   "end": 8.5,
+   "loop": "R1 word of mouth",
+   "mean_relative_score": 0.3283080430407508
+  },
+  {
+   "start": 8.5,
+   "end": 12.0,
+   "loop": "B3 churn",
+   "mean_relative_score": -0.45149762413608857
+  },
+  {
+   "start": 12.0,
+   "end": 21.5,
+   "loop": "B10 ARR churn",
+   "mean_relative_score": -0.2671059075217998
+  },
+  {
+   "start": 21.5,
+   "end": 60.0,
+   "loop": "B9 detractor fade",
+   "mean_relative_score": -0.626039257162131
+  },
+  {
+   "start": 60.0,
+   "end": 60.75,
+   "loop": "B1 saturation via word of mouth",
+   "mean_relative_score": -0.19163762502762147
+  },
+  {
+   "start": 60.75,
+   "end": 65.75,
+   "loop": "B9 detractor fade",
+   "mean_relative_score": -0.39919114102158665
+  },
+  {
+   "start": 65.75,
+   "end": 67.0,
+   "loop": "B6 cool-off drain",
+   "mean_relative_score": -0.5520181227090948
+  },
+  {
+   "start": 67.0,
+   "end": 120.0,
+   "loop": "B9 detractor fade",
+   "mean_relative_score": -0.3829654832511268
+  }
+ ],
+ "dominance_customer_loops_base_run": [
+  {
+   "start": 0.25,
+   "end": 8.5,
+   "loop": "R1 word of mouth",
+   "mean_share": 0.8566356485773459
+  },
+  {
+   "start": 8.75,
+   "end": 120.0,
+   "loop": "B3 churn",
+   "mean_share": 0.9571794716985552
+  }
+ ],
+ "order_only": {
+  "split": "30 months each, switch at month 30",
+  "p_churn_first_beats_win_first": {
+   "arr_m60": 0.137,
+   "arr_m120": 0.724,
+   "net_cum_m60": 0.002
+  },
+  "count_churn_first_beats_win_first": {
+   "arr_m60": 137,
+   "arr_m120": 724,
+   "net_cum_m60": 2
+  },
+  "cf_minus_wf_arr_m60": {
+   "P5": -1841526.4473973606,
+   "P25": -908946.4339496177,
+   "P50": -522203.2973764716,
+   "P75": -209143.34869354218,
+   "P95": 326235.2916432008
+  },
+  "drivers_spearman": {
+   "marketing reach rate": 0.08517716517716517,
+   "word of mouth rate": 0.04128596928596929,
+   "sales cycle time": 0.04526009726009726,
+   "base win rate": 0.04807537207537208,
+   "base annual churn rate": 0.17034795834795835,
+   "cool off time": -0.07373311373311374,
+   "initial total market": 0.09956756756756757,
+   "initial customers": 0.03856199056199056,
+   "new customer ACV": -0.19649441249441252,
+   "base net expansion rate": -0.1823946623946624,
+   "expansion ceiling multiple": -0.19928461928461932,
+   "initial sales capacity": -0.32412535212535215,
+   "total programme budget": -0.22533346533346535,
+   "CS cost per covered firm": 0.21253480453480456,
+   "CS ramp up time": 0.1466888786888787,
+   "coverage scale": 0.2108854988854989,
+   "maximum churn reduction": -0.13099994299994303,
+   "win spend scale": 0.048045312045312046,
+   "enablement ramp up time": -0.42143281343281347,
+   "maximum win rate uplift": 0.02203100203100203,
+   "expansion lift at full CS effect": -0.17100993900993902,
+   "sales capacity growth rate": 0.012817500817500816,
+   "negative word of mouth multiplier": -0.005367089367089367,
+   "market growth rate": 0.12074569274569276,
+   "detractor memory time": 0.00018223218223218222
+  },
+  "cf_ahead_by_tercile_counts": {
+   "enablement ramp up time": {
+    "T1 (3.134-5.997)": [
+     78,
+     333
+    ],
+    "T2 (5.999-7.758)": [
+     48,
+     334
+    ],
+    "T3 (7.764-11.88)": [
+     11,
+     333
+    ]
+   },
+   "initial sales capacity": {
+    "T1 (20.92-49.27)": [
+     71,
+     333
+    ],
+    "T2 (49.32-69.95)": [
+     42,
+     334
+    ],
+    "T3 (70.08-119.6)": [
+     24,
+     333
+    ]
+   },
+   "total programme budget": {
+    "T1 (1.572e+06-2.998e+06)": [
+     46,
+     333
+    ],
+    "T2 (3e+06-3.879e+06)": [
+     56,
+     334
+    ],
+    "T3 (3.881e+06-5.925e+06)": [
+     35,
+     333
+    ]
+   },
+   "CS cost per covered firm": {
+    "T1 (104.1-189.2)": [
+     25,
+     334
+    ],
+    "T2 (189.4-245)": [
+     40,
+     333
+    ],
+    "T3 (245.3-376)": [
+     72,
+     333
+    ]
+   }
+  }
+ },
+ "capacity_onset_base_runs": {
+  "50/50 base parameters": 8.5,
+  "no programme, base parameters": 8.5
+ },
+ "output_files": {
+  "scenario_bands.csv": "47fad49667154b90e0547dfe877b596b27d0cb1eb374119554c92f33fca0d5e9",
+  "breakeven_30_30.csv": "891a1225a8669e7901e2970f923c7a9f005ef82ffda923d17823c880b1819387",
+  "breakeven_24_36.csv": "66ebbf0964c660141f4ad1e48dc7f52c785a1fa8460f00a0a0d57f206ad6b855",
+  "order_difference_bands.csv": "09003be35eb62afa371fc6bb5e4c4dea69ffdfff4bcc5687000b75abe926ff1f"
+ },
+ "inputs": {
+  "gate8_analysis.py": "ed3f9597d0abef649188947d25421858ecb9d4202362c4d5a7cdaa9216008f6a",
+  "validation.toml": "e71b0e798a7c10033c201f41627464af7ab14d059adb21ed11ae6436ce9b2bd5",
+  "model/saas_churn_vs_winrate.mdl": "b7093b167ed9cedaf6be76e014b805a8995c0750d19d48444e20ff68759a0d04",
+  "model/saas_churn_vs_winrate.py": "7ed67ad6d4a2bd40a5b82ceecc34783b3c2c34c4f344b4d9b53ddd0db482516c",
+  "policy_results.csv": "de32179db4c28449141cdd15adf14669a6eaacaef83a18013fc4526ab5dd9aa8",
+  "loop_dominance.json": "d6fac25a3c594d458683ec77bb10f425c6958bbd1d0ccb68e3799d416b72c55d"
+ }
+}

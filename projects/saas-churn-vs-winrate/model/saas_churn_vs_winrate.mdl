@@ -1,0 +1,564 @@
+{UTF-8}
+Potential Customers=
+	INTEG (re entry + market entries - evaluation starts, initial total market - initial customers)
+	~	Firm
+	~	Target firms that are neither customers, in an evaluation, nor cooling off. Original model for sd-forge; customer engine as in projects/bass-b2b-adoption.
+	|
+
+Firms in Evaluation=
+	INTEG (evaluation starts - deals won - deals lost, initial firms in evaluation)
+	~	Firm
+	~	Open sales opportunities; first-order sales-cycle delay.
+	|
+
+Customers=
+	INTEG (deals won - churn, initial customers)
+	~	Firm
+	~	Paying customer firms (logos).
+	|
+
+Cooling Off Firms=
+	INTEG (deals lost + churn - re entry, initial cooling off firms)
+	~	Firm
+	~	Firms that lost a deal or churned; return to the pool after the cool-off time.
+	|
+
+Firms Yet To Enter=
+	INTEG (-market entries, initial firms yet to enter)
+	~	Firm
+	~	Source stock for linear market growth; empties exactly at the market growth horizon (keeps the firm total conserved).
+	|
+
+Recently Churned Firms=
+	INTEG (churn - detractor fade, 0)
+	~	Firm
+	~	Information co-flow: count of recent churners (detractors). Not part of the firm conservation group.
+	|
+
+CS Capacity=
+	INTEG (CS capacity change, 0)
+	~	Firm
+	~	Customers the churn programme can cover, additional to today's CS; goal-seeks to funded capacity with a ramp-up delay.
+	|
+
+Win Rate Capability=
+	INTEG (capability change, 0)
+	~	Dmnl
+	~	Enablement level 0-1, additional to today's; goal-seeks to the target funded by spend with a ramp-up delay.
+	|
+
+ARR=
+	INTEG (new ARR + expansion ARR - churned ARR, initial customers * new customer ACV)
+	~	USD/Year
+	~	Annual recurring revenue (objective at month 60).
+	|
+
+Cumulative Revenue=
+	INTEG (revenue recognition, 0)
+	~	USD
+	~	Revenue recognised since month 0.
+	|
+
+Cumulative Programme Spend=
+	INTEG (total programme spend, 0)
+	~	USD
+	~	Programme dollars spent since month 0.
+	|
+
+evaluation starts=
+	marketing driven starts + word of mouth starts
+	~	Firm/Month
+	~	Bass adoption flow into evaluation.
+	|
+
+marketing driven starts=
+	marketing reach rate monthly * Potential Customers
+	~	Firm/Month
+	~	Bass innovation term.
+	|
+
+word of mouth starts=
+	word of mouth rate monthly * Potential Customers * MAX(0, customer share - negative word of mouth multiplier * detractor share)
+	~	Firm/Month
+	~	Bass imitation term, reduced by recent churners when the multiplier (parameter C) > 0; never negative.
+	|
+
+customer share=
+	Customers / total market
+	~	Dmnl
+	~	Share of the target market that are customers.
+	|
+
+detractor share=
+	Recently Churned Firms / total market
+	~	Dmnl
+	~	Share of the market that churned recently.
+	|
+
+marketing reach rate monthly=
+	marketing reach rate / months per year
+	~	1/Month
+	~	
+	|
+
+word of mouth rate monthly=
+	word of mouth rate / months per year
+	~	1/Month
+	~	
+	|
+
+re entry=
+	Cooling Off Firms / cool off time
+	~	Firm/Month
+	~	First-order return to the potential pool.
+	|
+
+market entries=
+	market growth rate monthly * initial total market * market growth active
+	~	Firm/Month
+	~	Linear market growth; stops at the market growth horizon.
+	|
+
+market growth active=
+	IF THEN ELSE(Time < market growth horizon, 1, 0)
+	~	Dmnl
+	~	
+	|
+
+market growth rate monthly=
+	market growth rate / months per year
+	~	1/Month
+	~	
+	|
+
+initial firms yet to enter=
+	market growth rate * initial total market * market growth horizon / months per year
+	~	Firm
+	~	All firms that enter within the horizon.
+	|
+
+total market=
+	initial total market + initial firms yet to enter - Firms Yet To Enter
+	~	Firm
+	~	Current market size.
+	|
+
+deal closings=
+	MIN(Firms in Evaluation / sales cycle time, sales capacity)
+	~	Firm/Month
+	~	Opportunities closed (won or lost); limited by sales capacity, excess stays in the pipeline.
+	|
+
+sales capacity=
+	initial sales capacity * (1 + sales capacity growth rate * Time / months per year)
+	~	Firm/Month
+	~	Closings the sales team can handle; grows linearly with time when parameter B > 0 (not driven by revenue).
+	|
+
+deals won=
+	deal closings * effective win rate
+	~	Firm/Month
+	~	
+	|
+
+deals lost=
+	deal closings * (1 - effective win rate)
+	~	Firm/Month
+	~	
+	|
+
+effective win rate=
+	base win rate + maximum win rate uplift * Win Rate Capability
+	~	Dmnl
+	~	At most 1: base win rate domain <= 0.9, uplift domain <= 0.1.
+	|
+
+churn=
+	Customers * effective churn fraction
+	~	Firm/Month
+	~	Logo churn.
+	|
+
+effective churn fraction=
+	base churn rate monthly * (1 - churn reduction)
+	~	1/Month
+	~	
+	|
+
+base churn rate monthly=
+	base annual churn rate / months per year
+	~	1/Month
+	~	
+	|
+
+detractor fade=
+	Recently Churned Firms / detractor memory time
+	~	Firm/Month
+	~	
+	|
+
+churn programme spend=
+	monthly programme budget * programme active * churn share now
+	~	USD/Month
+	~	
+	|
+
+funded CS capacity=
+	churn programme spend / CS cost per covered firm
+	~	Firm
+	~	Customers the current spend pays to cover.
+	|
+
+CS capacity change=
+	(funded CS capacity - CS Capacity) / CS ramp up time
+	~	Firm/Month
+	~	Goal seeking (loop B7).
+	|
+
+CS coverage=
+	CS Capacity / MAX(Customers, minimum customer base)
+	~	Dmnl
+	~	Diluted as Customers grow (loop B11).
+	|
+
+CS effect=
+	1 - EXP(-CS coverage / coverage scale)
+	~	Dmnl
+	~	Diminishing returns in coverage.
+	|
+
+churn reduction=
+	maximum churn reduction * CS effect
+	~	Dmnl
+	~	
+	|
+
+win rate programme spend=
+	monthly programme budget * programme active * (1 - churn share now)
+	~	USD/Month
+	~	
+	|
+
+target capability=
+	1 - EXP(-win rate programme spend / win spend scale)
+	~	Dmnl
+	~	Diminishing returns in spend.
+	|
+
+capability change=
+	(target capability - Win Rate Capability) / enablement ramp up time
+	~	1/Month
+	~	Goal seeking (loop B8).
+	|
+
+new ARR=
+	deals won * new customer ACV
+	~	USD/(Year*Month)
+	~	
+	|
+
+expansion ARR=
+	ARR * effective expansion rate monthly * expansion headroom
+	~	USD/(Year*Month)
+	~	Net expansion, slowing as average ARR per customer nears the ceiling (loop B14).
+	|
+
+churned ARR=
+	ARR * effective churn fraction
+	~	USD/(Year*Month)
+	~	Churners carry average ARR (assumption S9).
+	|
+
+ARR per customer=
+	ARR / MAX(Customers, minimum customer base)
+	~	USD/(Firm*Year)
+	~	
+	|
+
+expansion headroom=
+	1 - ARR per customer / (new customer ACV * expansion ceiling multiple)
+	~	Dmnl
+	~	
+	|
+
+expansion lift=
+	expansion lift at full CS effect * CS effect
+	~	1/Year
+	~	Parameter A; 0 at base.
+	|
+
+effective expansion rate=
+	base net expansion rate + expansion lift
+	~	1/Year
+	~	
+	|
+
+effective expansion rate monthly=
+	effective expansion rate / months per year
+	~	1/Month
+	~	
+	|
+
+revenue recognition=
+	ARR / months per year
+	~	USD/Month
+	~	ARR (USD/Year) per Month: the /12 conversion (gate 1).
+	|
+
+cumulative revenue net of programme spend=
+	Cumulative Revenue - Cumulative Programme Spend
+	~	USD
+	~	
+	|
+
+monthly programme budget=
+	total programme budget / programme months
+	~	USD/Month
+	~	
+	|
+
+programme active=
+	IF THEN ELSE(Time < programme months, 1, 0)
+	~	Dmnl
+	~	
+	|
+
+churn share now=
+	IF THEN ELSE(Time < phase switch month, churn share phase 1, churn share phase 2)
+	~	Dmnl
+	~	
+	|
+
+total programme spend=
+	churn programme spend + win rate programme spend
+	~	USD/Month
+	~	
+	|
+
+marketing reach rate=
+	0.14
+	~	1/Year [0,?]
+	~	Bass p for entry into evaluation. Range 0.05-0.25, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+word of mouth rate=
+	1.8
+	~	1/Year [0,?]
+	~	Bass q for entry into evaluation. Range 1-2.9, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+negative word of mouth multiplier=
+	0
+	~	Dmnl [0,10]
+	~	Parameter C (optional, default 0). Range 0-2, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+cool off time=
+	18
+	~	Month [0.5,?]
+	~	Time before a lost or churned firm re-evaluates. Range 12-36, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+market growth rate=
+	0
+	~	1/Year [0,1]
+	~	Linear market growth (optional, default 0). Range 0-0.1, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+initial total market=
+	5000
+	~	Firm [100,?]
+	~	Illustrative; replace with your own market sizing. Range 3000-8000, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+sales cycle time=
+	6
+	~	Month [0.5,?]
+	~	Average time in evaluation. Range 3-9, triangular. Confidence: reported. Source: assumptions_register.md.
+	|
+
+initial sales capacity=
+	45
+	~	Firm/Month [1,?]
+	~	Closings per month (won + lost). Range 20-120, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+sales capacity growth rate=
+	0
+	~	1/Year [0,2]
+	~	Parameter B (optional, default 0). Range 0-0.5, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+base win rate=
+	0.21
+	~	Dmnl [0,0.9]
+	~	Win rate without the programme. Range 0.15-0.3, triangular. Confidence: reported. Source: assumptions_register.md.
+	|
+
+base annual churn rate=
+	0.08
+	~	1/Year [0,?]
+	~	Logo churn without the programme. Range 0.05-0.2, triangular. Confidence: reported. Source: assumptions_register.md.
+	|
+
+detractor memory time=
+	12
+	~	Month [0.5,?]
+	~	How long a churner affects referrals. Range 6-24, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+initial customers=
+	10
+	~	Firm [0,100]
+	~	Design partners at launch. Range 5-25, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+CS cost per covered firm=
+	185
+	~	USD/(Firm*Month) [1,?]
+	~	Fully loaded CSM cost per account per month. Range 100-380, triangular. Confidence: reported. Source: assumptions_register.md.
+	|
+
+CS ramp up time=
+	4
+	~	Month [0.5,?]
+	~	Hiring and onboarding delay. Range 2-9, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+coverage scale=
+	0.5
+	~	Dmnl [0.01,?]
+	~	Coverage giving 63% of the maximum churn effect. Range 0.25-1, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+maximum churn reduction=
+	0.25
+	~	Dmnl [0,1]
+	~	Churn cut at full CS effect. Range 0.05-0.45, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+win spend scale=
+	25000
+	~	USD/Month [100,?]
+	~	Spend giving 63% of full enablement capability. Range 10000-60000, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+enablement ramp up time=
+	6
+	~	Month [0.5,?]
+	~	Adoption delay of enablement. Range 3-12, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+maximum win rate uplift=
+	0.06
+	~	Dmnl [0,0.1]
+	~	Win-rate points at full capability. Range 0.02-0.1, triangular. Confidence: reported. Source: assumptions_register.md.
+	|
+
+new customer ACV=
+	30000
+	~	USD/(Firm*Year) [1,?]
+	~	Annual contract value of a new customer. Range 15000-60000, triangular. Confidence: reported. Source: assumptions_register.md.
+	|
+
+base net expansion rate=
+	0.09
+	~	1/Year [-0.5,1]
+	~	Expansion net of contraction on retained ARR. Range 0.02-0.2, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+expansion lift at full CS effect=
+	0
+	~	1/Year [0,1]
+	~	Parameter A (optional, default 0). Range 0-0.1, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+expansion ceiling multiple=
+	2
+	~	Dmnl [1,20]
+	~	Ceiling on average ARR per customer as a multiple of ACV. Range 1.3-4, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+total programme budget=
+	3e+06
+	~	USD [0,?]
+	~	Same total in every scenario; illustrative. Range 1.5e+06-6e+06, triangular. Confidence: estimated. Source: assumptions_register.md.
+	|
+
+phase switch month=
+	24
+	~	Month [0,60]
+	~	End of phase 1 (scenario lever, fixed). Range 24-24, fixed. Confidence: verified. Source: assumptions_register.md.
+	|
+
+churn share phase 1=
+	0.5
+	~	Dmnl [0,1]
+	~	Share of spend on churn before the switch (scenario lever). Range 0.5-0.5, fixed. Confidence: verified. Source: assumptions_register.md.
+	|
+
+churn share phase 2=
+	0.5
+	~	Dmnl [0,1]
+	~	Share of spend on churn after the switch (scenario lever). Range 0.5-0.5, fixed. Confidence: verified. Source: assumptions_register.md.
+	|
+
+market growth horizon=
+	120
+	~	Month
+	~	Market entries stop here (end of the 120-month run).
+	|
+
+programme months=
+	60
+	~	Month
+	~	Budget is spent evenly over the 5-year decision horizon.
+	|
+
+minimum customer base=
+	1
+	~	Firm
+	~	Keeps ratios per customer finite when Customers = 0.
+	|
+
+initial firms in evaluation=
+	0
+	~	Firm [0,?]
+	~	Launch starts with an empty pipeline.
+	|
+
+initial cooling off firms=
+	0
+	~	Firm [0,?]
+	~	
+	|
+
+months per year=
+	12
+	~	Month/Year
+	~	Unit conversion.
+	|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+FINAL TIME  = 120
+	~	Month
+	~	Ten years: >= 3x the longest delay (36-month cool-off); decision horizon 60 months.
+	|
+
+INITIAL TIME  = 0
+	~	Month
+	~		|
+
+SAVEPER  = 1
+	~	Month [0,?]
+	~		|
+
+TIME STEP  = 0.25
+	~	Month [0,?]
+	~	At most 1/8 of the shortest time constant in the ranges (CS ramp-up 2 months); divides 24, 60 and 120.
+	|

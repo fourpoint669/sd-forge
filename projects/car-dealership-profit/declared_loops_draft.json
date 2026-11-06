@@ -1,0 +1,1123 @@
+[
+ {
+  "id": "B1",
+  "polarity": "B",
+  "variables": [
+   "Lessees Late",
+   "lease end"
+  ]
+ },
+ {
+  "id": "B2",
+  "polarity": "B",
+  "variables": [
+   "Lessees Mid",
+   "lease advance 2"
+  ]
+ },
+ {
+  "id": "B3",
+  "polarity": "B",
+  "variables": [
+   "Owners",
+   "replacement"
+  ]
+ },
+ {
+  "id": "B4",
+  "polarity": "B",
+  "variables": [
+   "Service Customers",
+   "defection"
+  ]
+ },
+ {
+  "id": "B5",
+  "polarity": "B",
+  "variables": [
+   "Trailing New Sales",
+   "trailing change"
+  ]
+ },
+ {
+  "id": "B6",
+  "polarity": "B",
+  "variables": [
+   "Used Frontline Inventory",
+   "used sales"
+  ]
+ },
+ {
+  "id": "B7",
+  "polarity": "B",
+  "variables": [
+   "Lessees Early",
+   "lease advance 1"
+  ]
+ },
+ {
+  "id": "B8",
+  "polarity": "B",
+  "variables": [
+   "New Inventory",
+   "new sales"
+  ]
+ },
+ {
+  "id": "B9",
+  "polarity": "B",
+  "variables": [
+   "New Vehicles On Order",
+   "deliveries"
+  ]
+ },
+ {
+  "id": "B10",
+  "polarity": "B",
+  "variables": [
+   "New Vehicles On Order",
+   "new orders"
+  ]
+ },
+ {
+  "id": "B11",
+  "polarity": "B",
+  "variables": [
+   "Technicians",
+   "attrition"
+  ]
+ },
+ {
+  "id": "B12",
+  "polarity": "B",
+  "variables": [
+   "Technicians",
+   "hiring"
+  ]
+ },
+ {
+  "id": "B13",
+  "polarity": "B",
+  "variables": [
+   "Reconditioning Pipeline",
+   "recon done"
+  ]
+ },
+ {
+  "id": "B14",
+  "polarity": "B",
+  "variables": [
+   "Reconditioning Pipeline",
+   "auction buys",
+   "used acquisitions"
+  ]
+ },
+ {
+  "id": "B15",
+  "polarity": "B",
+  "variables": [
+   "Used Frontline Inventory",
+   "used days supply",
+   "wholesale exits"
+  ]
+ },
+ {
+  "id": "B16",
+  "polarity": "B",
+  "variables": [
+   "New Inventory",
+   "new orders",
+   "New Vehicles On Order",
+   "deliveries"
+  ]
+ },
+ {
+  "id": "B17",
+  "polarity": "B",
+  "variables": [
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales"
+  ]
+ },
+ {
+  "id": "B18",
+  "polarity": "B",
+  "variables": [
+   "Prospects",
+   "shoppers",
+   "used demand",
+   "used sales"
+  ]
+ },
+ {
+  "id": "B19",
+  "polarity": "B",
+  "variables": [
+   "Service Customers",
+   "ro demand",
+   "utilisation",
+   "defection"
+  ]
+ },
+ {
+  "id": "B21",
+  "polarity": "B",
+  "variables": [
+   "Used Frontline Inventory",
+   "used days supply",
+   "used price discount",
+   "used demand",
+   "used sales"
+  ]
+ },
+ {
+  "id": "B22",
+  "polarity": "B",
+  "variables": [
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "auction buys",
+   "used acquisitions"
+  ]
+ },
+ {
+  "id": "B23",
+  "polarity": "B",
+  "variables": [
+   "Owners",
+   "service ratio",
+   "store loyalty",
+   "repeat to store",
+   "Prospects",
+   "shoppers",
+   "used demand",
+   "used sales"
+  ]
+ },
+ {
+  "id": "B24",
+  "polarity": "B",
+  "variables": [
+   "Owners",
+   "service ratio",
+   "store loyalty",
+   "repeat to store",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "retail new buys"
+  ]
+ },
+ {
+  "id": "B25",
+  "polarity": "B",
+  "variables": [
+   "Owners",
+   "replacement",
+   "trade ins",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used sales",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "retail new buys"
+  ]
+ },
+ {
+  "id": "B26",
+  "polarity": "B",
+  "variables": [
+   "Owners",
+   "replacement",
+   "trade ins",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used days supply",
+   "used price discount",
+   "used demand",
+   "used sales",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "retail new buys"
+  ]
+ },
+ {
+  "id": "B27",
+  "polarity": "B",
+  "variables": [
+   "Lessees Early",
+   "lease advance 1",
+   "Lessees Mid",
+   "lease advance 2",
+   "Lessees Late",
+   "lease end",
+   "off lease returns",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used sales",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "lease starts"
+  ]
+ },
+ {
+  "id": "B28",
+  "polarity": "B",
+  "variables": [
+   "Lessees Early",
+   "lease advance 1",
+   "Lessees Mid",
+   "lease advance 2",
+   "Lessees Late",
+   "lease end",
+   "off lease returns",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used days supply",
+   "used price discount",
+   "used demand",
+   "used sales",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "lease starts"
+  ]
+ },
+ {
+  "id": "B29",
+  "polarity": "B",
+  "variables": [
+   "Lessees Early",
+   "lease advance 1",
+   "Lessees Mid",
+   "lease advance 2",
+   "Lessees Late",
+   "lease end",
+   "off lease returns",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used sales",
+   "Owners",
+   "service ratio",
+   "store loyalty",
+   "repeat to store",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "lease starts"
+  ]
+ },
+ {
+  "id": "B30",
+  "polarity": "B",
+  "variables": [
+   "Lessees Early",
+   "lease advance 1",
+   "Lessees Mid",
+   "lease advance 2",
+   "Lessees Late",
+   "lease end",
+   "off lease returns",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used days supply",
+   "used price discount",
+   "used demand",
+   "used sales",
+   "Owners",
+   "service ratio",
+   "store loyalty",
+   "repeat to store",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "lease starts"
+  ]
+ },
+ {
+  "id": "B31",
+  "polarity": "B",
+  "variables": [
+   "Used Frontline Inventory",
+   "wholesale exits"
+  ]
+ },
+ {
+  "id": "B32",
+  "polarity": "B",
+  "variables": [
+   "Owners",
+   "replacement",
+   "trade ins",
+   "auction buys",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used sales"
+  ]
+ },
+ {
+  "id": "B33",
+  "polarity": "B",
+  "variables": [
+   "Owners",
+   "replacement",
+   "trade ins",
+   "auction buys",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used days supply",
+   "used price discount",
+   "used demand",
+   "used sales"
+  ]
+ },
+ {
+  "id": "B34",
+  "polarity": "B",
+  "variables": [
+   "Owners",
+   "replacement",
+   "trade ins",
+   "auction buys",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used sales",
+   "service capture",
+   "Service Customers",
+   "service ratio",
+   "store loyalty",
+   "repeat to store",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "retail new buys"
+  ]
+ },
+ {
+  "id": "B35",
+  "polarity": "B",
+  "variables": [
+   "Lessees Early",
+   "lease advance 1",
+   "Lessees Mid",
+   "lease advance 2",
+   "Lessees Late",
+   "lease end",
+   "off lease returns",
+   "auction buys",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used sales",
+   "Owners",
+   "replacement",
+   "repeat to store",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "lease starts"
+  ]
+ },
+ {
+  "id": "B36",
+  "polarity": "B",
+  "variables": [
+   "Owners",
+   "replacement",
+   "trade ins",
+   "auction buys",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used days supply",
+   "used price discount",
+   "used demand",
+   "used sales",
+   "service capture",
+   "Service Customers",
+   "service ratio",
+   "store loyalty",
+   "repeat to store",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "retail new buys"
+  ]
+ },
+ {
+  "id": "B37",
+  "polarity": "B",
+  "variables": [
+   "Lessees Early",
+   "lease advance 1",
+   "Lessees Mid",
+   "lease advance 2",
+   "Lessees Late",
+   "lease end",
+   "off lease returns",
+   "auction buys",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used sales",
+   "service capture",
+   "Service Customers",
+   "service ratio",
+   "store loyalty",
+   "repeat to store",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "lease starts"
+  ]
+ },
+ {
+  "id": "B38",
+  "polarity": "B",
+  "variables": [
+   "Lessees Early",
+   "lease advance 1",
+   "Lessees Mid",
+   "lease advance 2",
+   "Lessees Late",
+   "lease end",
+   "off lease returns",
+   "auction buys",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used days supply",
+   "used price discount",
+   "used demand",
+   "used sales",
+   "Owners",
+   "replacement",
+   "repeat to store",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "lease starts"
+  ]
+ },
+ {
+  "id": "B39",
+  "polarity": "B",
+  "variables": [
+   "Lessees Early",
+   "lease advance 1",
+   "Lessees Mid",
+   "lease advance 2",
+   "Lessees Late",
+   "lease end",
+   "off lease returns",
+   "auction buys",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used days supply",
+   "used price discount",
+   "used demand",
+   "used sales",
+   "service capture",
+   "Service Customers",
+   "service ratio",
+   "store loyalty",
+   "repeat to store",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "lease starts"
+  ]
+ },
+ {
+  "id": "B40",
+  "polarity": "B",
+  "variables": [
+   "Trailing Used Sales",
+   "trailing used change"
+  ]
+ },
+ {
+  "id": "B41",
+  "polarity": "B",
+  "variables": [
+   "Trailing Used Sales",
+   "used days supply",
+   "used price discount",
+   "used demand",
+   "used sales",
+   "trailing used change"
+  ]
+ },
+ {
+  "id": "R2",
+  "polarity": "R",
+  "variables": [
+   "New Inventory",
+   "new sales",
+   "new orders",
+   "New Vehicles On Order",
+   "deliveries"
+  ]
+ },
+ {
+  "id": "R3",
+  "polarity": "R",
+  "variables": [
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used sales",
+   "auction buys",
+   "used acquisitions"
+  ]
+ },
+ {
+  "id": "R4",
+  "polarity": "R",
+  "variables": [
+   "Owners",
+   "replacement",
+   "repeat to store",
+   "Prospects",
+   "shoppers",
+   "used demand",
+   "used sales"
+  ]
+ },
+ {
+  "id": "R5",
+  "polarity": "R",
+  "variables": [
+   "New Inventory",
+   "new sales",
+   "trailing change",
+   "Trailing New Sales",
+   "allocation response",
+   "new orders",
+   "New Vehicles On Order",
+   "deliveries"
+  ]
+ },
+ {
+  "id": "R6",
+  "polarity": "R",
+  "variables": [
+   "Owners",
+   "replacement",
+   "repeat to store",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "retail new buys"
+  ]
+ },
+ {
+  "id": "R7",
+  "polarity": "R",
+  "variables": [
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "service capture",
+   "Service Customers",
+   "service ratio",
+   "store loyalty",
+   "repeat to store"
+  ]
+ },
+ {
+  "id": "R8",
+  "polarity": "R",
+  "variables": [
+   "Prospects",
+   "shoppers",
+   "used demand",
+   "used sales",
+   "service capture",
+   "Service Customers",
+   "service ratio",
+   "store loyalty",
+   "repeat to store"
+  ]
+ },
+ {
+  "id": "R9",
+  "polarity": "R",
+  "variables": [
+   "Owners",
+   "replacement",
+   "trade ins",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used sales"
+  ]
+ },
+ {
+  "id": "R10",
+  "polarity": "R",
+  "variables": [
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used days supply",
+   "used price discount",
+   "used demand",
+   "used sales",
+   "auction buys",
+   "used acquisitions"
+  ]
+ },
+ {
+  "id": "R11",
+  "polarity": "R",
+  "variables": [
+   "Owners",
+   "replacement",
+   "trade ins",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used days supply",
+   "used price discount",
+   "used demand",
+   "used sales"
+  ]
+ },
+ {
+  "id": "R12",
+  "polarity": "R",
+  "variables": [
+   "Lessees Early",
+   "lease advance 1",
+   "Lessees Mid",
+   "lease advance 2",
+   "Lessees Late",
+   "lease end",
+   "repeat to store",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "lease starts"
+  ]
+ },
+ {
+  "id": "R13",
+  "polarity": "R",
+  "variables": [
+   "Owners",
+   "replacement",
+   "trade ins",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used sales",
+   "service capture",
+   "Service Customers",
+   "service ratio",
+   "store loyalty",
+   "repeat to store",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "retail new buys"
+  ]
+ },
+ {
+  "id": "R14",
+  "polarity": "R",
+  "variables": [
+   "Lessees Early",
+   "lease advance 1",
+   "Lessees Mid",
+   "lease advance 2",
+   "Lessees Late",
+   "lease end",
+   "off lease returns",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used sales",
+   "Owners",
+   "replacement",
+   "repeat to store",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "lease starts"
+  ]
+ },
+ {
+  "id": "R15",
+  "polarity": "R",
+  "variables": [
+   "Owners",
+   "replacement",
+   "trade ins",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used days supply",
+   "used price discount",
+   "used demand",
+   "used sales",
+   "service capture",
+   "Service Customers",
+   "service ratio",
+   "store loyalty",
+   "repeat to store",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "retail new buys"
+  ]
+ },
+ {
+  "id": "R16",
+  "polarity": "R",
+  "variables": [
+   "Lessees Early",
+   "lease advance 1",
+   "Lessees Mid",
+   "lease advance 2",
+   "Lessees Late",
+   "lease end",
+   "off lease returns",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used sales",
+   "service capture",
+   "Service Customers",
+   "service ratio",
+   "store loyalty",
+   "repeat to store",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "lease starts"
+  ]
+ },
+ {
+  "id": "R17",
+  "polarity": "R",
+  "variables": [
+   "Lessees Early",
+   "lease advance 1",
+   "Lessees Mid",
+   "lease advance 2",
+   "Lessees Late",
+   "lease end",
+   "off lease returns",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used days supply",
+   "used price discount",
+   "used demand",
+   "used sales",
+   "Owners",
+   "replacement",
+   "repeat to store",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "lease starts"
+  ]
+ },
+ {
+  "id": "R18",
+  "polarity": "R",
+  "variables": [
+   "Lessees Early",
+   "lease advance 1",
+   "Lessees Mid",
+   "lease advance 2",
+   "Lessees Late",
+   "lease end",
+   "off lease returns",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used days supply",
+   "used price discount",
+   "used demand",
+   "used sales",
+   "service capture",
+   "Service Customers",
+   "service ratio",
+   "store loyalty",
+   "repeat to store",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "lease starts"
+  ]
+ },
+ {
+  "id": "R19",
+  "polarity": "R",
+  "variables": [
+   "New Inventory",
+   "new sales",
+   "target new inventory",
+   "new orders",
+   "New Vehicles On Order",
+   "deliveries"
+  ]
+ },
+ {
+  "id": "R20",
+  "polarity": "R",
+  "variables": [
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used sales",
+   "target used inventory",
+   "auction buys",
+   "used acquisitions"
+  ]
+ },
+ {
+  "id": "R21",
+  "polarity": "R",
+  "variables": [
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used days supply",
+   "used price discount",
+   "used demand",
+   "used sales",
+   "target used inventory",
+   "auction buys",
+   "used acquisitions"
+  ]
+ },
+ {
+  "id": "R22",
+  "polarity": "R",
+  "variables": [
+   "Owners",
+   "replacement",
+   "trade ins",
+   "auction buys",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used sales",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "retail new buys"
+  ]
+ },
+ {
+  "id": "R23",
+  "polarity": "R",
+  "variables": [
+   "Owners",
+   "replacement",
+   "trade ins",
+   "auction buys",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used days supply",
+   "used price discount",
+   "used demand",
+   "used sales",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "retail new buys"
+  ]
+ },
+ {
+  "id": "R24",
+  "polarity": "R",
+  "variables": [
+   "Lessees Early",
+   "lease advance 1",
+   "Lessees Mid",
+   "lease advance 2",
+   "Lessees Late",
+   "lease end",
+   "off lease returns",
+   "auction buys",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used sales",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "lease starts"
+  ]
+ },
+ {
+  "id": "R25",
+  "polarity": "R",
+  "variables": [
+   "Lessees Early",
+   "lease advance 1",
+   "Lessees Mid",
+   "lease advance 2",
+   "Lessees Late",
+   "lease end",
+   "off lease returns",
+   "auction buys",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used days supply",
+   "used price discount",
+   "used demand",
+   "used sales",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "lease starts"
+  ]
+ },
+ {
+  "id": "R26",
+  "polarity": "R",
+  "variables": [
+   "Lessees Early",
+   "lease advance 1",
+   "Lessees Mid",
+   "lease advance 2",
+   "Lessees Late",
+   "lease end",
+   "off lease returns",
+   "auction buys",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used sales",
+   "Owners",
+   "service ratio",
+   "store loyalty",
+   "repeat to store",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "lease starts"
+  ]
+ },
+ {
+  "id": "R27",
+  "polarity": "R",
+  "variables": [
+   "Lessees Early",
+   "lease advance 1",
+   "Lessees Mid",
+   "lease advance 2",
+   "Lessees Late",
+   "lease end",
+   "off lease returns",
+   "auction buys",
+   "used acquisitions",
+   "Reconditioning Pipeline",
+   "recon done",
+   "Used Frontline Inventory",
+   "used days supply",
+   "used price discount",
+   "used demand",
+   "used sales",
+   "Owners",
+   "service ratio",
+   "store loyalty",
+   "repeat to store",
+   "Prospects",
+   "shoppers",
+   "new demand",
+   "new sales",
+   "lease starts"
+  ]
+ },
+ {
+  "id": "R28",
+  "polarity": "R",
+  "variables": [
+   "Trailing Used Sales",
+   "used days supply",
+   "wholesale exits",
+   "Used Frontline Inventory",
+   "used sales",
+   "trailing used change"
+  ]
+ }
+]
