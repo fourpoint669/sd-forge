@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>@TITLE@ · explorer</title>
+<style>/*@STYLE@*/</style>
+</head>
+<body>
+<a class="skip" href="#results">Skip to results</a>
+<header class="top">
+  <div>
+    <p class="eyebrow">Validated model explorer</p>
+    <h1 id="page-title"></h1>
+  </div>
+  <div class="top-actions">
+    <button type="button" class="btn" id="btn-limits" aria-haspopup="dialog">Model limits</button>
+    <button type="button" class="btn" id="btn-theme"></button>
+  </div>
+</header>
+<p id="banner" class="banner" role="status" hidden></p>
+<div class="tabs" role="tablist" aria-label="Page sections">
+  <button type="button" role="tab" id="tab-levers" aria-controls="levers" aria-selected="false">Levers</button>
+  <button type="button" role="tab" id="tab-results" aria-controls="results" aria-selected="true">Results</button>
+  <button type="button" role="tab" id="tab-structure" aria-controls="structure" aria-selected="false">Structure</button>
+</div>
+<div class="layout">
+  <aside id="levers" class="panel levers" aria-labelledby="levers-title">
+    <div class="panel-head">
+      <h2 id="levers-title">Levers</h2>
+      <button type="button" class="btn btn-quiet" id="reset-all">Reset all to base</button>
+    </div>
+    <label class="extend"><input type="checkbox" id="extend"> <span>Allow values beyond the validated ranges (results there are not validated)</span></label>
+    <div class="sector presets" role="group" aria-labelledby="presets-title">
+      <h3 class="sector-title" id="presets-title">Presets</h3>
+      <p class="presets-sub">Scenarios defined in validation.toml (gate 8 policies)</p>
+      <div id="preset-list" class="preset-list"></div>
+    </div>
+    <div id="lever-groups"></div>
+  </aside>
+  <div class="maincol">
+  <div class="viewtabs" role="tablist" aria-label="View">
+    <button type="button" role="tab" id="view-results" aria-controls="results" aria-selected="true">Results</button>
+    <button type="button" role="tab" id="view-structure" aria-controls="structure" aria-selected="false">Structure</button>
+  </div>
+  <main id="results" class="panel results" tabindex="-1" aria-labelledby="results-title">
+    <h2 id="results-title" class="sr-only">Results</h2>
+    <div class="result-bar">
+
+      <label class="compare-against">Compare against
+        <select id="baseline-select" aria-describedby="baseline-help"></select>
+      </label>
+      <p id="baseline-help" class="sr-only">Sets the baseline run used for every delta, the dashed line and the compare table.</p>
+    </div>
+    <div class="trust-status"><a href="#provenance" id="trust-link">Validation and release details</a><span>Model limits in the top bar</span></div>
+    <div id="headline" class="headline"></div>
+    <button type="button" class="btn secondary-toggle" id="toggle-metrics" aria-controls="headline" aria-expanded="false">More headline metrics</button>
+    <section class="quick-controls" id="quick-controls" aria-label="Primary controls"></section><details class="run-context"><summary>Single run, not a forecast · How to interpret</summary><p id="runlabel" class="runlabel"></p></details>
+    <section class="card scenarios" aria-labelledby="scen-title">
+      <div class="card-head">
+        <div>
+          <h2 id="scen-title">Compare scenarios</h2>
+          <p class="card-sub">Save up to four lever settings; every chart overlays them against the baseline. Each is a single run.</p>
+        </div>
+        <button type="button" class="btn btn-primary" id="save-scenario">Save current settings</button>
+      </div>
+      <ul id="saved" class="saved" aria-label="Saved scenarios"></ul>
+      <details class="comparison-details" id="comparison-details"><summary>Inspect all baseline and scenario metrics</summary><div class="table-wrap compare-wrap"><table id="compare" class="data compare"></table></div></details>
+    </section>
+    <p id="sd-chart-help" class="sr-only">Chart: use the left and right arrow keys to read values over time in every chart at once; Home and End jump to the ends; Escape hides the readout.</p>
+    <div id="charts"></div>
+    <footer class="provenance" id="provenance"></footer>
+  </main>
+  <section id="structure" class="panel structure" aria-labelledby="structure-title" hidden>
+    <div class="st-head">
+      <h2 id="structure-title">Model structure</h2>
+      <p class="card-sub">The whole model as a stock-and-flow diagram or a causal loop diagram, drawn from the validated model file. Select a variable to follow its chain, or a loop badge to isolate the loop.</p>
+    </div>
+    <div class="st-toolbar" role="toolbar" aria-label="Diagram controls">
+      <div class="seg" role="group" aria-label="Diagram type">
+        <button type="button" class="btn" id="mode-sfd" aria-pressed="true">Stock and flow</button>
+        <button type="button" class="btn" id="mode-cld" aria-pressed="false">Causal loop</button>
+      </div>
+      <label class="check"><input type="checkbox" id="show-all"> Show all variables</label>
+      <div class="search">
+        <label for="structure-search" class="sr-only">Find a variable</label>
+        <input type="search" id="structure-search" placeholder="Find a variable" autocomplete="off">
+        <div id="search-results" class="search-results"></div>
+      </div>
+      <div class="seg" role="group" aria-label="Zoom">
+        <button type="button" class="btn" id="zoom-out" aria-label="Zoom out">−</button>
+        <button type="button" class="btn" id="zoom-fit">Fit</button>
+        <button type="button" class="btn" id="zoom-in" aria-label="Zoom in">+</button>
+      </div>
+      <div class="seg" role="group" aria-label="Sectors">
+        <button type="button" class="btn" id="collapse-all">Collapse sectors</button>
+        <button type="button" class="btn" id="expand-all">Expand</button>
+      </div>
+    </div>
+    <div class="st-timebar" role="group" aria-label="Time in the run">
+      <button type="button" class="btn" id="st-play" aria-pressed="false">Play</button>
+      <label for="st-time" class="sr-only">Time shown in the diagram</label>
+      <input type="range" id="st-time" min="0" step="1" value="0">
+      <span id="st-time-label" class="st-time-label"></span>
+      <label class="check"><input type="checkbox" id="st-values"> Show flow values</label>
+    </div>
+    <div class="st-body">
+      <div class="st-main">
+      <div id="st-canvas" class="st-canvas" tabindex="0" aria-label="Diagram canvas: arrow keys pan, plus and minus zoom, 0 fits"></div>
+      <details class="st-flows"><summary>Table of flows at the time shown (accessible alternative to the moving pipes)</summary>
+        <div class="table-wrap"><table id="flows-table" class="data flows"></table></div></details>
+      </div>
+      <aside class="st-side" aria-label="Diagram details">
+        <div class="side-tabs" role="tablist" aria-label="Side panel">
+          <button type="button" role="tab" id="side-tab-details" aria-controls="side-details" aria-selected="true">Details</button>
+          <button type="button" role="tab" id="side-tab-strength" aria-controls="dominance" aria-selected="false" tabindex="-1">Loop strength</button>
+        </div>
+        <div id="side-details" class="side-pane" role="tabpanel" aria-labelledby="side-tab-details">
+        <details class="st-map" id="minimap-wrap"><summary class="st-side-title">Overview map</summary>
+          <div id="minimap-slot" class="minimap-slot"></div></details>
+        <div class="st-detail-head"><button type="button" class="btn btn-quiet" id="structure-clear">Clear selection</button></div>
+        <div id="structure-detail" class="st-detail" aria-live="polite"></div>
+        <details class="st-pool" id="pooling" open><summary class="st-side-title">Pooling</summary>
+          <div id="pool-body"></div></details>
+        <details class="st-loops" id="st-loops" open><summary class="st-side-title">Loops</summary>
+          <ul id="loop-list" class="loop-list"></ul></details>
+        <details class="st-delays" open><summary class="st-side-title">Delays</summary><ul id="delay-list" class="delay-list"></ul></details>
+        <details class="st-legend" open><summary>How to read this diagram</summary><ul id="structure-legend"></ul></details>
+        </div>
+        <section id="dominance" class="side-pane st-dom" role="tabpanel" aria-labelledby="side-tab-strength" hidden>
+          <h3 class="st-side-title">Loop strength over time</h3>
+          <div id="dom-body"></div>
+        </section>
+      </aside>
+    </div>
+  </section>
+  </div>
+</div>
+<dialog id="limits-dialog" aria-labelledby="limits-title">
+  <div class="dialog-head">
+    <h2 id="limits-title">Model limits: what this model cannot tell you</h2>
+    <button type="button" class="btn" id="limits-close">Close</button>
+  </div>
+  <div class="dialog-body">
+    <div id="limits-body" class="md"></div>
+    <details class="verbatim"><summary>Source text, verbatim from summary.md</summary><pre id="limits-src"></pre></details>
+    <section id="limits-intake" class="limits-intake" aria-label="Page settings"></section>
+  </div>
+</dialog>
+<script id="sd-data" type="application/json">/*@DATA@*/</script>
+<script id="sd-engine">/*@ENGINE@*/</script>
+<script id="sd-metrics">/*@METRICS@*/</script>
+<script id="sd-eqs">/*@EQS@*/</script>
+<script id="sd-ltm">/*@LTM@*/</script>
+<script id="sd-charts">/*@CHARTS@*/</script>
+<script id="sd-structure">/*@STRUCTURE@*/</script>
+<script id="sd-app">/*@APP@*/</script>
+</body>
+</html>

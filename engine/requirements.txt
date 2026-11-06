@@ -1,0 +1,10 @@
+# Python 3.12.3 (venv: python3.12 -m venv .venv). Use 3.11 or 3.12: PySD 3.14.3 support for newer Python is unverified.
+# Exact versions installed and tested on 2026-10-29 (pytest engine/tests, engine/validate.py).
+matplotlib==3.11.2
+networkx==3.7
+numpy==2.5.4
+pandas==3.1.0
+pysd==3.14.3
+pytest==9.2.0
+scipy==1.18.1
+xarray==2026.9.0

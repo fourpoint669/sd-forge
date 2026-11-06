@@ -1,0 +1,500 @@
+model_path,format,translates,runs,runtime_s,unsupported_functions,error,pysd_version
+raw/bptk-py/tests/test_models/test_abs.stmx,xmile,True,True,2.85,,,3.14.3
+raw/bptk-py/tests/test_models/test_array.stmx,xmile,False,False,2.74,,KeyError: '1',3.14.3
+raw/bptk-py/tests/test_models/test_array_2dimensional.stmx,xmile,False,False,2.73,,"IncompleteParseError: Rule 'expr_type' matched in its entirety, but it didn't consume all the text. The non-matching portion of the text begins with '(Inventory[*, *])' (line 1, column 4).",3.14.3
+raw/bptk-py/tests/test_models/test_array_3dimensional.stmx,xmile,False,False,2.78,,"IncompleteParseError: Rule 'expr_type' matched in its entirety, but it didn't consume all the text. The non-matching portion of the text begins with '(Inventory[*, *, *])' (line 1, column 4).",3.14.3
+raw/bptk-py/tests/test_models/test_array_edges.stmx,xmile,False,False,2.76,,"IncompleteParseError: Rule 'expr_type' matched in its entirety, but it didn't consume all the text. The non-matching portion of the text begins with '(Leaving[1:2])' (line 1, column 4).",3.14.3
+raw/bptk-py/tests/test_models/test_array_extended.stmx,xmile,False,False,2.74,,"IncompleteParseError: Rule 'expr_type' matched in its entirety, but it didn't consume all the text. The non-matching portion of the text begins with '(Stock[*])' (line 1, column 4).",3.14.3
+raw/bptk-py/tests/test_models/test_array_named_range.stmx,xmile,False,False,2.72,,"IncompleteParseError: Rule 'expr_type' matched in its entirety, but it didn't consume all the text. The non-matching portion of the text begins with '(Leaving[north:middl' (line 1, column 4).",3.14.3
+raw/bptk-py/tests/test_models/test_cgrowth.stmx,xmile,True,False,2.84,cgrowth,NotImplementedError: Not implemented function 'cgrowth',3.14.3
+raw/bptk-py/tests/test_models/test_clocktime.stmx,xmile,False,False,2.75,,KeyError: 'dt',3.14.3
+raw/bptk-py/tests/test_models/test_cos.stmx,xmile,True,True,2.84,,,3.14.3
+raw/bptk-py/tests/test_models/test_delay.stmx,xmile,True,True,2.0,,,3.14.3
+raw/bptk-py/tests/test_models/test_delayn.stmx,xmile,True,True,2.13,,,3.14.3
+raw/bptk-py/tests/test_models/test_derivn.stmx,xmile,True,False,2.01,derivn,NotImplementedError: Not implemented function 'derivn',3.14.3
+raw/bptk-py/tests/test_models/test_doublequote.stmx,xmile,True,True,1.93,,,3.14.3
+raw/bptk-py/tests/test_models/test_dt_fraction.stmx,xmile,True,True,2.04,,,3.14.3
+raw/bptk-py/tests/test_models/test_dt_rational.stmx,xmile,True,True,1.99,,,3.14.3
+raw/bptk-py/tests/test_models/test_endval.stmx,xmile,False,False,1.97,,KeyError: 'dt',3.14.3
+raw/bptk-py/tests/test_models/test_expressions.stmx,xmile,True,True,2.05,,,3.14.3
+raw/bptk-py/tests/test_models/test_financials.stmx,xmile,False,False,2.03,,KeyError: 'starttime',3.14.3
+raw/bptk-py/tests/test_models/test_forecast.stmx,xmile,False,False,2.02,,KeyError: 'nan',3.14.3
+raw/bptk-py/tests/test_models/test_if.stmx,xmile,True,True,2.1,,,3.14.3
+raw/bptk-py/tests/test_models/test_init.stmx,xmile,True,True,2.01,,,3.14.3
+raw/bptk-py/tests/test_models/test_interpolate.stmx,xmile,False,False,1.96,,IndexError: list index out of range,3.14.3
+raw/bptk-py/tests/test_models/test_invnorm.stmx,xmile,True,False,1.91,invnorm,NotImplementedError: Not implemented function 'invnorm',3.14.3
+raw/bptk-py/tests/test_models/test_log10.stmx,xmile,True,True,2.01,,,3.14.3
+raw/bptk-py/tests/test_models/test_logic.stmx,xmile,True,True,2.03,,,3.14.3
+raw/bptk-py/tests/test_models/test_logistic.stmx,xmile,True,True,2.03,,,3.14.3
+raw/bptk-py/tests/test_models/test_lognormal.stmx,xmile,True,False,2.0,lognormal,NotImplementedError: Not implemented function 'lognormal',3.14.3
+raw/bptk-py/tests/test_models/test_lookup.stmx,xmile,False,False,1.96,,"VisitationError: TypeError: LookupsStructure.__init__() missing 3 required positional arguments: 'x_limits', 'y_limits', and 'type'  Parse tree: <Node called ""call"" matching ""LOOKUP(gf, 1)"">  <-- *** We were here. ***     <Node called ""reference"" matching ""LOOKUP"">         <Node called ""name"" matching ""LOOKUP"">             <Node called ""basic_id"" matching ""LOOKUP"">                 <RegexNode calle",3.14.3
+raw/bptk-py/tests/test_models/test_lookuparea.stmx,xmile,True,False,1.94,lookuparea,NotImplementedError: Not implemented function 'lookuparea',3.14.3
+raw/bptk-py/tests/test_models/test_math_rounding.stmx,xmile,False,False,1.73,,"IncompleteParseError: Rule 'expr_type' matched in its entirety, but it didn't consume all the text. The non-matching portion of the text begins with ' MOD 3' (line 1, column 2).",3.14.3
+raw/bptk-py/tests/test_models/test_max.stmx,xmile,False,False,1.65,,IndexError: list index out of range,3.14.3
+raw/bptk-py/tests/test_models/test_negbinomial.stmx,xmile,True,False,1.65,negbinomial,NotImplementedError: Not implemented function 'negbinomial',3.14.3
+raw/bptk-py/tests/test_models/test_no_dimensions.stmx,xmile,True,True,1.69,,,3.14.3
+raw/bptk-py/tests/test_models/test_normalcdf.stmx,xmile,True,False,1.62,normalcdf,NotImplementedError: Not implemented function 'normalcdf',3.14.3
+raw/bptk-py/tests/test_models/test_npv.stmx,xmile,True,False,1.61,npv,NotImplementedError: Not implemented function 'npv',3.14.3
+raw/bptk-py/tests/test_models/test_pareto.stmx,xmile,True,False,1.6,pareto,NotImplementedError: Not implemented function 'pareto',3.14.3
+raw/bptk-py/tests/test_models/test_percent.stmx,xmile,True,False,1.66,percent,NotImplementedError: Not implemented function 'percent',3.14.3
+raw/bptk-py/tests/test_models/test_permutation.stmx,xmile,False,False,1.65,permutations,NotImplementedError: Not implemented function 'permutations',3.14.3
+raw/bptk-py/tests/test_models/test_poisson.stmx,xmile,True,False,1.66,poisson,NotImplementedError: Not implemented function 'poisson',3.14.3
+raw/bptk-py/tests/test_models/test_ramp.stmx,xmile,False,False,1.82,,"VisitationError: KeyError: 1  Parse tree: <Node called ""call"" matching ""RAMP(slope)"">  <-- *** We were here. ***     <Node called ""reference"" matching ""RAMP"">         <Node called ""name"" matching ""RAMP"">             <Node called ""basic_id"" matching ""RAMP"">                 <RegexNode called ""id_start"" matching ""R"">                 <Node matching ""AMP"">                     <Node called ""id_continue""",3.14.3
+raw/bptk-py/tests/test_models/test_random.stmx,xmile,False,False,1.72,random,NotImplementedError: Not implemented function 'random',3.14.3
+raw/bptk-py/tests/test_models/test_rootn.stmx,xmile,True,True,1.68,,,3.14.3
+raw/bptk-py/tests/test_models/test_safediv.stmx,xmile,True,True,1.73,,,3.14.3
+raw/bptk-py/tests/test_models/test_sim_builtins.stmx,xmile,False,False,1.61,,KeyError: 'starttime',3.14.3
+raw/bptk-py/tests/test_models/test_sinwave.stmx,xmile,True,True,1.74,,,3.14.3
+raw/bptk-py/tests/test_models/test_smooth.stmx,xmile,True,True,1.7,,,3.14.3
+raw/bptk-py/tests/test_models/test_smth3.stmx,xmile,True,True,1.74,,,3.14.3
+raw/bptk-py/tests/test_models/test_smthn.stmx,xmile,False,False,1.7,,KeyError: 'inf',3.14.3
+raw/bptk-py/tests/test_models/test_sqrt.stmx,xmile,True,True,1.67,,,3.14.3
+raw/bptk-py/tests/test_models/test_step.stmx,xmile,True,True,1.75,,,3.14.3
+raw/bptk-py/tests/test_models/test_tan.stmx,xmile,True,True,1.75,,,3.14.3
+raw/bptk-py/tests/test_models/test_time.stmx,xmile,True,True,1.7,,,3.14.3
+raw/bptk-py/tests/test_models/test_trend.stmx,xmile,True,True,1.71,,,3.14.3
+raw/bptk-py/tests/test_models/test_triangular.stmx,xmile,True,False,1.67,triangular,NotImplementedError: Not implemented function 'triangular',3.14.3
+raw/bptk-py/tests/test_models/test_weibull.stmx,xmile,True,False,1.66,weibull,NotImplementedError: Not implemented function 'weibull',3.14.3
+raw/bptk-py/website-tutorial/concepts/accessing_raw_simulation_results/simulation_models/sd_simple_project.itmx,xmile,False,False,1.6,,"ValueError: The file to translate, '/var/folders/vx/jth7yvzj0tn3wkp2ck70j0xr0000gn/T/tmpfpsjrdto/sd_simple_project.itmx' is not a Xmile model. It must end with any of .xmile, .xml, .stmx extensions.",3.14.3
+raw/bptk-py/website-tutorial/concepts/advanced_plotting_features/simulation_models/sd_simple_project.itmx,xmile,False,False,1.58,,"ValueError: The file to translate, '/var/folders/vx/jth7yvzj0tn3wkp2ck70j0xr0000gn/T/tmpo1tyrxu9/sd_simple_project.itmx' is not a Xmile model. It must end with any of .xmile, .xml, .stmx extensions.",3.14.3
+raw/bptk-py/website-tutorial/concepts/bptk_architecture/simulation_models/sd_simple_project.itmx,xmile,False,False,1.53,,"ValueError: The file to translate, '/var/folders/vx/jth7yvzj0tn3wkp2ck70j0xr0000gn/T/tmpj6ni043o/sd_simple_project.itmx' is not a Xmile model. It must end with any of .xmile, .xml, .stmx extensions.",3.14.3
+raw/bptk-py/website-tutorial/concepts/scenarios/simulation_models/sd_simple_project.itmx,xmile,False,False,1.58,,"ValueError: The file to translate, '/var/folders/vx/jth7yvzj0tn3wkp2ck70j0xr0000gn/T/tmp2ubm_8r4/sd_simple_project.itmx' is not a Xmile model. It must end with any of .xmile, .xml, .stmx extensions.",3.14.3
+raw/bptk-py/website-tutorial/model_library/beergame/simulation_models/beer_game.stmx,xmile,False,False,1.64,,IndexError: list index out of range,3.14.3
+raw/bptk-py/website-tutorial/model_library/competitive_pricing/simulation_models/competitive_pricing.stmx,xmile,True,True,1.76,,,3.14.3
+raw/bptk-py/website-tutorial/model_library/customer_acquisition/simulation_models/customer_acquisition.stmx,xmile,True,True,1.68,,,3.14.3
+raw/bptk-py/website-tutorial/model_library/make_your_psf_grow/xmile/simulation_models/delay_example.stmx,xmile,True,True,1.63,,,3.14.3
+raw/bptk-py/website-tutorial/model_library/make_your_psf_grow/xmile/simulation_models/make_your_psf_grow.stmx,xmile,False,False,1.56,,IndexError: list index out of range,3.14.3
+raw/bptk-py/website-tutorial/model_library/make_your_psf_grow/xmile/simulation_models/step1_mypsfg.stmx,xmile,True,True,1.61,,,3.14.3
+raw/bptk-py/website-tutorial/model_library/make_your_psf_grow/xmile/simulation_models/step2_mypsfg.stmx,xmile,True,True,1.57,,,3.14.3
+raw/bptk-py/website-tutorial/model_library/make_your_psf_grow/xmile/simulation_models/step3_mypsfg.stmx,xmile,True,True,1.67,,,3.14.3
+raw/bptk-py/website-tutorial/model_library/make_your_psf_grow/xmile/simulation_models/step4_mypsfg.stmx,xmile,True,True,1.66,,,3.14.3
+raw/bptk-py/website-tutorial/model_library/make_your_psf_grow/xmile/simulation_models/step5_mypsfg.stmx,xmile,True,True,1.62,,,3.14.3
+raw/bptk-py/website-tutorial/model_library/make_your_psf_grow/xmile/simulation_models/step6_mypsfg.stmx,xmile,True,True,1.65,,,3.14.3
+raw/bptk-py/website-tutorial/model_library/make_your_psf_grow/xmile/simulation_models/step7_mypsfg.stmx,xmile,True,True,1.6,,,3.14.3
+raw/bptk-py/website-tutorial/quickstart/xmile/simulation_models/customer_acquisition_xmile.stmx,xmile,True,True,1.57,,,3.14.3
+raw/bptk-py/website-tutorial/xmile/exporting_simulation_results/simulation_models/customer_acquisition.stmx,xmile,True,True,1.63,,,3.14.3
+raw/bptk-py/website-tutorial/xmile/writing_computational_essays/simulation_models/sd_simple_project.itmx,xmile,False,False,1.39,,"ValueError: The file to translate, '/var/folders/vx/jth7yvzj0tn3wkp2ck70j0xr0000gn/T/tmpftk09glv/sd_simple_project.itmx' is not a Xmile model. It must end with any of .xmile, .xml, .stmx extensions.",3.14.3
+raw/bptk-py/website-tutorial/xmile/writing_computational_essays/simulation_models/sd_simple_project_v0.itmx,xmile,False,False,1.51,,"ValueError: The file to translate, '/var/folders/vx/jth7yvzj0tn3wkp2ck70j0xr0000gn/T/tmpn2cggllt/sd_simple_project_v0.itmx' is not a Xmile model. It must end with any of .xmile, .xml, .stmx extensions.",3.14.3
+raw/bptk-py/website-tutorial/xmile/xmile_arrays/simulation_models/sd_arrayed_variables.stmx,xmile,False,False,1.57,,"IncompleteParseError: Rule 'expr_type' matched in its entirety, but it didn't consume all the text. The non-matching portion of the text begins with '(Inventory[*, *])' (line 1, column 4).",3.14.3
+raw/bptk-py/website-tutorial/xmile/xmile_step_by_step/simulation_models/sd_simple_project.itmx,xmile,False,False,1.52,,"ValueError: The file to translate, '/var/folders/vx/jth7yvzj0tn3wkp2ck70j0xr0000gn/T/tmp_s_o87zk/sd_simple_project.itmx' is not a Xmile model. It must end with any of .xmile, .xml, .stmx extensions.",3.14.3
+raw/pysd/tests/more-tests/constant_pipeline/test_constant_pipeline.mdl,vensim,True,True,1.59,,,3.14.3
+raw/pysd/tests/more-tests/data_model/test_data_model.mdl,vensim,True,True,1.74,,,3.14.3
+raw/pysd/tests/more-tests/julia_allocate/test_julia_allocate.mdl,vensim,False,False,1.51,,AttributeError: 'CallStructure' object has no attribute 'reference',3.14.3
+raw/pysd/tests/more-tests/julia_data_structure/test_julia_data_structure.mdl,vensim,True,True,1.52,,,3.14.3
+raw/pysd/tests/more-tests/julia_delay_fixed/test_julia_delay_fixed.mdl,vensim,True,True,1.49,,,3.14.3
+raw/pysd/tests/more-tests/julia_forecast/test_julia_forecast.mdl,vensim,True,True,1.49,,,3.14.3
+raw/pysd/tests/more-tests/julia_sample_if_true/test_julia_sample_if_true.mdl,vensim,True,True,1.55,,,3.14.3
+raw/pysd/tests/more-tests/julia_trend/test_julia_trend.mdl,vensim,True,True,1.53,,,3.14.3
+raw/pysd/tests/more-tests/not_implemented_and_incomplete/test_not_implemented_and_incomplete.mdl,vensim,True,False,1.54,my_func,NotImplementedError: Not implemented function 'my_func',3.14.3
+raw/pysd/tests/more-tests/random/test_random.mdl,vensim,True,True,4.66,,,3.14.3
+raw/pysd/tests/more-tests/random/test_random_scale0.mdl,vensim,True,True,2.15,,,3.14.3
+raw/pysd/tests/more-tests/split_model/test_split_model.mdl,vensim,True,True,1.72,,,3.14.3
+raw/pysd/tests/more-tests/split_model/test_split_model_sub_subviews.mdl,vensim,True,True,1.91,,,3.14.3
+raw/pysd/tests/more-tests/split_model/test_split_model_subviews.mdl,vensim,True,True,1.85,,,3.14.3
+raw/pysd/tests/more-tests/split_model/test_split_multiviews_vars.mdl,vensim,True,True,1.78,,,3.14.3
+raw/pysd/tests/more-tests/split_model_vensim_8_2_1/test_split_model_vensim_8_2_1.mdl,vensim,True,True,1.85,,,3.14.3
+raw/pysd/tests/more-tests/split_model_with_macro/test_split_model_with_macro.mdl,vensim,True,True,1.85,,,3.14.3
+raw/pysd/tests/more-tests/stepper_cache/stepper_cache.mdl,vensim,True,True,1.82,,,3.14.3
+raw/pysd/tests/more-tests/subscript_individually_defined_stocks2/test_subscript_individually_defined_stocks2.mdl,vensim,True,True,2.3,,,3.14.3
+raw/readsdr/tests/testthat/2d_pop.xmile,xmile,False,False,1.86,,AttributeError: 'NoneType' object has no attribute 'strip',3.14.3
+raw/readsdr/tests/testthat/SEjIkR.xmile,xmile,False,False,1.87,,"IncompleteParseError: Rule 'expr_type' matched in its entirety, but it didn't consume all the text. The non-matching portion of the text begins with ' in' (line 1, column 2).",3.14.3
+raw/readsdr/tests/testthat/test_models/SEIR_simlin.stmx,xmile,True,True,1.91,,,3.14.3
+raw/readsdr/tests/testthat/test_models/pop_births.stmx,xmile,True,True,1.77,,,3.14.3
+raw/readsdr/tests/testthat/test_models/vec_pop.stmx,xmile,False,False,1.7,,AttributeError: 'NoneType' object has no attribute 'strip',3.14.3
+raw/sdeverywhere/examples/hello-world/model/sample.mdl,vensim,True,True,1.81,,,3.14.3
+raw/sdeverywhere/examples/house-game/model/houses.mdl,vensim,True,True,1.88,,,3.14.3
+raw/sdeverywhere/models/active_initial/active_initial.mdl,vensim,True,True,1.73,,,3.14.3
+raw/sdeverywhere/models/active_initial/active_initial.stmx,xmile,False,False,1.65,,ValueError: Circular initialization... Not able to initialize the following objects: 	_integ_capacity_1,3.14.3
+raw/sdeverywhere/models/allocate/allocate.mdl,vensim,True,True,1.88,,,3.14.3
+raw/sdeverywhere/models/allocate/allocate.stmx,xmile,False,False,1.62,,"IncompleteParseError: Rule 'expr_type' matched in its entirety, but it didn't consume all the text. The non-matching portion of the text begins with '(demand[*])' (line 1, column 4).",3.14.3
+raw/sdeverywhere/models/allocate_by_priority/allocate_by_priority.mdl,vensim,True,True,1.72,,,3.14.3
+raw/sdeverywhere/models/allocate_price/allocate_price.mdl,vensim,True,False,1.73,find_market_price,NotImplementedError: Not implemented function 'find_market_price',3.14.3
+raw/sdeverywhere/models/allocate_ptype/allocate_ptype.mdl,vensim,True,False,1.72,,NotImplementedError: fixed_quantity priority profile is not implemented.,3.14.3
+raw/sdeverywhere/models/arrays/arrays.mdl,vensim,False,False,1.77,,"InvalidInput: cannot parse: 253:81          [31.,32.,33.]], {'DimC': _subscript_dict['DimC'], 'DimC'': _subscript_dict['DimC'']}, ['DimC', ""DimC'""])                                                                                     ^ ParseError: bad input",3.14.3
+raw/sdeverywhere/models/arrays/arrays.stmx,xmile,False,False,1.56,,"IncompleteParseError: Rule 'expr_type' matched in its entirety, but it didn't consume all the text. The non-matching portion of the text begins with '(a[*])+1' (line 1, column 4).",3.14.3
+raw/sdeverywhere/models/comments/comments.mdl,vensim,False,False,1.68,,"IncompleteParseError: Rule 'expr_type' matched in its entirety, but it didn't consume all the text. The non-matching portion of the text begins with ', {transportation se' (line 1, column 2).",3.14.3
+raw/sdeverywhere/models/comments/comments.stmx,xmile,True,True,1.67,,,3.14.3
+raw/sdeverywhere/models/comments/expected.mdl,vensim,True,True,1.64,,,3.14.3
+raw/sdeverywhere/models/delay/delay.mdl,vensim,True,True,2.12,,,3.14.3
+raw/sdeverywhere/models/delay/delay.stmx,xmile,True,True,2.19,,,3.14.3
+raw/sdeverywhere/models/delayfixed/delayfixed.mdl,vensim,True,True,1.73,,,3.14.3
+raw/sdeverywhere/models/delayfixed/delayfixed.stmx,xmile,True,True,1.74,,,3.14.3
+raw/sdeverywhere/models/delayfixed2/delayfixed2.mdl,vensim,True,True,1.72,,,3.14.3
+raw/sdeverywhere/models/delayfixed2/delayfixed2.stmx,xmile,True,True,1.72,,,3.14.3
+raw/sdeverywhere/models/depreciate/depreciate.mdl,vensim,True,False,1.83,depreciate_straightline,NotImplementedError: Not implemented function 'depreciate_straightline',3.14.3
+raw/sdeverywhere/models/depreciate/depreciate.stmx,xmile,True,False,1.87,depreciate_straightline,NotImplementedError: Not implemented function 'depreciate_straightline',3.14.3
+raw/sdeverywhere/models/directconst/directconst.mdl,vensim,False,False,1.91,,FileNotFoundError: _ext_constant_a File '/private/var/folders/vx/jth7yvzj0tn3wkp2ck70j0xr0000gn/T/tmpr30888bw/data/a.csv' not found.,3.14.3
+raw/sdeverywhere/models/directconst_invalidcell/directconst_invalidcell.mdl,vensim,False,False,1.95,,FileNotFoundError: _ext_constant_c File '/private/var/folders/vx/jth7yvzj0tn3wkp2ck70j0xr0000gn/T/tmpoqmrw_yq/data/c.csv' not found.,3.14.3
+raw/sdeverywhere/models/directdata/directdata.mdl,vensim,False,False,2.04,,ValueError: _ext_data_c Indirect reference to file: '?data',3.14.3
+raw/sdeverywhere/models/directdata_endofdata/directdata_endofdata.mdl,vensim,False,False,1.97,,FileNotFoundError: _ext_data_x_from_csv File '/private/var/folders/vx/jth7yvzj0tn3wkp2ck70j0xr0000gn/T/tmpmbod143k/data/data.csv' not found.,3.14.3
+raw/sdeverywhere/models/directdata_invalidcell/directdata_invalidcell.mdl,vensim,False,False,1.91,,FileNotFoundError: _ext_data_x_from_csv File '/private/var/folders/vx/jth7yvzj0tn3wkp2ck70j0xr0000gn/T/tmp5ynyuz49/data/data.csv' not found.,3.14.3
+raw/sdeverywhere/models/directlookups/directlookups.mdl,vensim,False,False,2.06,,ValueError: _ext_lookup_a_from_tagged_xlsx Indirect reference to file: '?lookups',3.14.3
+raw/sdeverywhere/models/directlookups_endofdata/directlookups_endofdata.mdl,vensim,False,False,1.99,,FileNotFoundError: _ext_lookup_x_from_csv File '/private/var/folders/vx/jth7yvzj0tn3wkp2ck70j0xr0000gn/T/tmpcnr4hzcq/data/data.csv' not found.,3.14.3
+raw/sdeverywhere/models/directlookups_invalidcell/directlookups_invalidcell.mdl,vensim,False,False,2.06,,FileNotFoundError: _ext_lookup_x_from_csv File '/private/var/folders/vx/jth7yvzj0tn3wkp2ck70j0xr0000gn/T/tmp29fus8uk/data/data.csv' not found.,3.14.3
+raw/sdeverywhere/models/directsubs/directsubs.mdl,vensim,True,True,1.85,,,3.14.3
+raw/sdeverywhere/models/elmcount/elmcount.mdl,vensim,True,True,1.83,,,3.14.3
+raw/sdeverywhere/models/elmcount/elmcount.stmx,xmile,True,False,1.74,size,NotImplementedError: Not implemented function 'size',3.14.3
+raw/sdeverywhere/models/except/except.mdl,vensim,False,False,1.84,,"ValueError: cannot reshape array of size 2 into shape (5,)",3.14.3
+raw/sdeverywhere/models/except2/except2.mdl,vensim,False,False,2.04,,"ValueError: cannot reshape array of size 2 into shape (5,)",3.14.3
+raw/sdeverywhere/models/extdata/extdata.mdl,vensim,False,False,2.18,,"ParseError: Rule 'keyword' didn't match at '' (line 1, column 9).",3.14.3
+raw/sdeverywhere/models/flatten/expected.mdl,vensim,True,True,2.44,,,3.14.3
+raw/sdeverywhere/models/flatten/input1.mdl,vensim,True,True,2.31,,,3.14.3
+raw/sdeverywhere/models/flatten/input2.mdl,vensim,False,False,2.33,,"ParseError: Rule 'keyword' didn't match at '' (line 1, column 34).",3.14.3
+raw/sdeverywhere/models/gamma_ln/gamma_ln.mdl,vensim,True,False,2.2,gamma_ln,NotImplementedError: Not implemented function 'gamma_ln',3.14.3
+raw/sdeverywhere/models/getdata/getdata.mdl,vensim,False,False,2.28,,"ParseError: Rule 'keyword' didn't match at '' (line 1, column 13).",3.14.3
+raw/sdeverywhere/models/index/index.mdl,vensim,True,True,2.31,,,3.14.3
+raw/sdeverywhere/models/initial/initial.mdl,vensim,True,True,2.57,,,3.14.3
+raw/sdeverywhere/models/interleaved/interleaved.mdl,vensim,True,False,2.87,,RecursionError: maximum recursion depth exceeded,3.14.3
+raw/sdeverywhere/models/interleaved/interleaved.stmx,xmile,True,False,2.99,,RecursionError: maximum recursion depth exceeded,3.14.3
+raw/sdeverywhere/models/invertmatrix/invertmatrix.mdl,vensim,True,True,2.89,,,3.14.3
+raw/sdeverywhere/models/longeqns/longeqns.mdl,vensim,True,True,3.08,,,3.14.3
+raw/sdeverywhere/models/lookup/lookup.mdl,vensim,True,False,3.31,,TypeError: g() missing 1 required positional argument: 'x',3.14.3
+raw/sdeverywhere/models/mapping/mapping.mdl,vensim,False,False,3.12,,"ValueError: cannot reshape array of size 2 into shape (5,)",3.14.3
+raw/sdeverywhere/models/multimap/multimap.mdl,vensim,False,False,3.36,,"ValueError: cannot reshape array of size 3 into shape (6,)",3.14.3
+raw/sdeverywhere/models/npv/npv.mdl,vensim,True,False,3.6,npv,NotImplementedError: Not implemented function 'npv',3.14.3
+raw/sdeverywhere/models/power/power.mdl,vensim,True,True,3.59,,,3.14.3
+raw/sdeverywhere/models/preprocess/expected.mdl,vensim,False,False,3.63,,"ParseError: Rule 'keyword' didn't match at '' (line 1, column 16).",3.14.3
+raw/sdeverywhere/models/preprocess/input.mdl,vensim,False,False,3.65,,KeyError: 't1',3.14.3
+raw/sdeverywhere/models/prune/prune.mdl,vensim,False,False,3.78,,"ParseError: Rule 'keyword' didn't match at '' (line 1, column 9).",3.14.3
+raw/sdeverywhere/models/pulsetrain/pulsetrain.mdl,vensim,True,True,3.76,,,3.14.3
+raw/sdeverywhere/models/quantum/quantum.mdl,vensim,True,True,4.03,,,3.14.3
+raw/sdeverywhere/models/ref/ref.mdl,vensim,True,False,4.28,,RecursionError: maximum recursion depth exceeded,3.14.3
+raw/sdeverywhere/models/same_family_179/same_family_179.mdl,vensim,False,False,4.14,,"InvalidInput: cannot parse: 136:165         value.loc[_subscript_dict['DimA']] = if_then_else(rank().loc[_subscript_dict['DimA']].rename({'DimAB': 'DimA'}) >= rank().loc[_subscript_dict['DimA'']].rename({'DimAB': ""DimA'""}), lambda: np.abs(intensity().loc[_subscript_dict['DimA']].rename({'DimAB': 'DimA'}) - other().loc[_subscript_dict['DimA'']].rename({'DimAB': ""DimA'""})), lambda: xr.DataArray(666,",3.14.3
+raw/sdeverywhere/models/same_family_278/same_family_278.mdl,vensim,True,True,4.05,,,3.14.3
+raw/sdeverywhere/models/sample/sample.mdl,vensim,True,True,3.91,,,3.14.3
+raw/sdeverywhere/models/separateall/separateall.mdl,vensim,True,True,3.54,,,3.14.3
+raw/sdeverywhere/models/smooth/smooth.mdl,vensim,True,True,3.99,,,3.14.3
+raw/sdeverywhere/models/smooth3/smooth3.mdl,vensim,True,True,3.12,,,3.14.3
+raw/sdeverywhere/models/specialchars/specialchars.mdl,vensim,True,True,2.84,,,3.14.3
+raw/sdeverywhere/models/subalias/subalias.mdl,vensim,True,True,2.42,,,3.14.3
+raw/sdeverywhere/models/subscript/subscript.mdl,vensim,True,True,2.35,,,3.14.3
+raw/sdeverywhere/models/sum/sum.mdl,vensim,True,True,2.35,,,3.14.3
+raw/sdeverywhere/models/sumif/sumif.mdl,vensim,False,False,1.9,,"ParseError: Rule 'keyword' didn't match at '' (line 1, column 15).",3.14.3
+raw/sdeverywhere/models/trend/trend.mdl,vensim,True,True,2.2,,,3.14.3
+raw/sdeverywhere/models/trend/trend.stmx,xmile,True,True,2.09,,,3.14.3
+raw/sdeverywhere/models/trig/trig.mdl,vensim,True,True,2.04,,,3.14.3
+raw/sdeverywhere/models/vector/vector.mdl,vensim,True,False,1.91,vector_elm_map,NotImplementedError: Not implemented function 'vector_elm_map',3.14.3
+raw/sdeverywhere/tests/integration/bundle-exit-code/bundle-exit-code.mdl,vensim,True,True,1.82,,,3.14.3
+raw/sdeverywhere/tests/integration/data-file-resolution/model/data-file-resolution.mdl,vensim,False,False,1.86,,FileNotFoundError: _ext_constant_c1 File '/private/var/folders/vx/jth7yvzj0tn3wkp2ck70j0xr0000gn/T/tmp4pt1byh2/data/constants.csv' not found.,3.14.3
+raw/sdeverywhere/tests/integration/ext-control-params/ext-control-params.mdl,vensim,False,False,1.8,,AttributeError: 'ExtConstant' object has no attribute 'data',3.14.3
+raw/sdeverywhere/tests/integration/game-inputs/game-inputs.mdl,vensim,True,True,1.72,,,3.14.3
+raw/sdeverywhere/tests/integration/impl-var-access-no-time/impl-var-access-no-time.mdl,vensim,True,True,1.78,,,3.14.3
+raw/sdeverywhere/tests/integration/impl-var-access/impl-var-access.mdl,vensim,True,True,1.85,,,3.14.3
+raw/sdeverywhere/tests/integration/model-check-error/model-check-error.mdl,vensim,True,True,1.84,,,3.14.3
+raw/sdeverywhere/tests/integration/model-check/model-check-test.mdl,vensim,True,True,1.82,,,3.14.3
+raw/sdeverywhere/tests/integration/override-constants/override-constants.mdl,vensim,True,True,1.84,,,3.14.3
+raw/sdeverywhere/tests/integration/override-lookups/override-lookups.mdl,vensim,False,False,1.76,,"ParseError: Rule 'keyword' didn't match at '' (line 1, column 13).",3.14.3
+raw/sdeverywhere/tests/integration/saveper/saveper.mdl,vensim,True,True,1.78,,,3.14.3
+raw/sdeverywhere/tests/integration/unicode/unicode.mdl,vensim,True,True,1.87,,,3.14.3
+raw/sdmr/models/01 Chapter/Vensim/Customers.mdl,vensim,True,True,1.85,,,3.14.3
+raw/sdmr/models/03 Chapter/Vensim/01 S Shaped Growth.mdl,vensim,True,True,1.85,,,3.14.3
+raw/sdmr/models/03 Chapter/Vensim/02 Solow.mdl,vensim,True,True,1.88,,,3.14.3
+raw/sdmr/models/03 Chapter/Vensim/03 Overshoot.mdl,vensim,True,True,1.89,,,3.14.3
+raw/sdmr/models/03 Chapter/Vensim/Solow.mdl,vensim,True,True,1.86,,,3.14.3
+raw/sdmr/models/04 Chapter/Extra Examples/FixedDelay.mdl,vensim,True,True,1.88,,,3.14.3
+raw/sdmr/models/04 Chapter/Vensim/Health Model.mdl,vensim,True,True,2.03,,,3.14.3
+raw/sdmr/models/05 Chapter/Vensim/01 SIR Aggregate.mdl,vensim,True,True,1.78,,,3.14.3
+raw/sdmr/models/05 Chapter/Vensim/02 SIR Cohort.mdl,vensim,True,True,1.86,,,3.14.3
+raw/sdmr/models/05 Chapter/Vensim/02 SIR Policy.mdl,vensim,True,True,1.77,,,3.14.3
+raw/sdmr/models/05 Chapter/Vensim/03 SIR Cohort.mdl,vensim,True,True,1.87,,,3.14.3
+raw/sdmr/models/05 Chapter/Vensim/04 SIR Cohort Policy.mdl,vensim,True,True,1.9,,,3.14.3
+raw/sdmr/models/08 Additional/03 Sensitivity Examples/WorldModel.mdl,vensim,True,True,1.77,,,3.14.3
+raw/sdmr/models/08 Additional/04 School Closures/School Closure Initial Model.mdl,vensim,True,True,1.77,,,3.14.3
+raw/sdmr/models/08 Additional/05 Retailer Beer Game/Full Beer Model.mdl,vensim,True,False,2.07,,NameError: name 'xr' is not defined,3.14.3
+raw/sdmr/models/08 Additional/05 Retailer Beer Game/Retailer.mdl,vensim,True,True,1.7,,,3.14.3
+raw/sdmr/pysd2r/pysd2r_scripts/models/Energy.mdl,vensim,True,True,3.07,,,3.14.3
+raw/sdmr/pysd2r/pysd2r_scripts/models/Population.mdl,vensim,True,True,1.71,,,3.14.3
+raw/sdmr/pysd2r/pysd2r_scripts/models/SIR.mdl,vensim,True,True,1.82,,,3.14.3
+raw/sdmr/pysd2r/pysd2r_scripts/models/TimeSeriesTest.mdl,vensim,True,True,1.76,,,3.14.3
+raw/sdmr/tidyverse/sdr_paper1/vensim/01 Population Model.mdl,vensim,True,True,1.68,,,3.14.3
+raw/sdmr/tidyverse/sdr_paper1/vensim/01 SIR Model.mdl,vensim,True,True,1.81,,,3.14.3
+raw/sdmr/tidyverse/sdr_paper1/vensim/01 Test Population.mdl,vensim,True,True,1.67,,,3.14.3
+raw/sdmr/tidyverse/sdr_paper1/vensim/02 SIR Aggregate.mdl,vensim,True,True,1.79,,,3.14.3
+raw/sdmr/tidyverse/sdr_paper1/vensim/Pop.mdl,vensim,True,True,1.66,,,3.14.3
+raw/sdmr/tidyverse/sdr_paper2/vensim/BusinessStructures.mdl,vensim,True,True,1.75,,,3.14.3
+raw/simlin-stdlib/stdlib/delay1.stmx,xmile,False,False,1.5,,"ParseError: Rule 'logic_oper' didn't match at 'isModuleInput(initia' (line 1, column 5).",3.14.3
+raw/simlin-stdlib/stdlib/delay3.stmx,xmile,False,False,1.45,,"ParseError: Rule 'logic_oper' didn't match at 'isModuleInput(initia' (line 1, column 5).",3.14.3
+raw/simlin-stdlib/stdlib/smth1.stmx,xmile,False,False,1.45,,"IncompleteParseError: Rule 'expr_type' matched in its entirety, but it didn't consume all the text. The non-matching portion of the text begins with ' isModuleInput(initi' (line 1, column 3).",3.14.3
+raw/simlin-stdlib/stdlib/smth3.stmx,xmile,False,False,1.48,,"IncompleteParseError: Rule 'expr_type' matched in its entirety, but it didn't consume all the text. The non-matching portion of the text begins with ' isModuleInput(initi' (line 1, column 3).",3.14.3
+raw/simlin-stdlib/stdlib/systems_conversion.stmx,xmile,False,False,1.46,,KeyError: 'inf',3.14.3
+raw/simlin-stdlib/stdlib/systems_leak.stmx,xmile,False,False,1.44,,KeyError: 'inf',3.14.3
+raw/simlin-stdlib/stdlib/systems_rate.stmx,xmile,False,False,1.41,,KeyError: 'inf',3.14.3
+raw/simlin-stdlib/stdlib/trend.stmx,xmile,False,False,1.42,,"IncompleteParseError: Rule 'expr_type' matched in its entirety, but it didn't consume all the text. The non-matching portion of the text begins with ' isModuleInput(initi' (line 1, column 3).",3.14.3
+raw/test-models/samples/Lotka_Volterra/Lotka_Volterra.mdl,vensim,True,True,1.51,,,3.14.3
+raw/test-models/samples/Population/Subscripted Population Model.mdl,vensim,True,True,2.57,,,3.14.3
+raw/test-models/samples/Query_file/Query_file.mdl,vensim,True,True,2.1,,,3.14.3
+raw/test-models/samples/Roessler_Chaos/roessler_chaos.mdl,vensim,True,True,1.69,,,3.14.3
+raw/test-models/samples/SIR/SIR.mdl,vensim,True,True,1.69,,,3.14.3
+raw/test-models/samples/SIR/SIR.stmx,xmile,True,True,1.62,,,3.14.3
+raw/test-models/samples/SIR/SIR.xmile,xmile,True,True,1.69,,,3.14.3
+raw/test-models/samples/SIR/SIR_legacy.stmx,xmile,True,True,1.65,,,3.14.3
+raw/test-models/samples/SIR/SIR_reciprocal-dt.xmile,xmile,True,True,1.73,,,3.14.3
+raw/test-models/samples/Workforce/workforce.mdl,vensim,True,True,5.16,,,3.14.3
+raw/test-models/samples/arrays/a2a/a2a.stmx,xmile,True,True,1.62,,,3.14.3
+raw/test-models/samples/arrays/non-a2a/non-a2a-gf.stmx,xmile,False,False,1.58,,IndexError: list index out of range,3.14.3
+raw/test-models/samples/arrays/non-a2a/non-a2a.stmx,xmile,True,True,1.67,,,3.14.3
+raw/test-models/samples/bpowers-hares_and_lynxes_modules/model.stmx,xmile,False,False,1.66,,"ParseError: Rule 'expr_type' didn't match at '{Enter equation for ' (line 1, column 1).",3.14.3
+raw/test-models/samples/bpowers-hares_and_lynxes_modules/model.xmile,xmile,False,False,1.76,,"ParseError: Rule 'expr_type' didn't match at '{Enter equation for ' (line 1, column 1).",3.14.3
+raw/test-models/samples/bpowers-hares_and_lynxes_modules/model_legacy.stmx,xmile,True,True,1.78,,,3.14.3
+raw/test-models/samples/display/1style.stmx,xmile,False,False,1.67,,IndexError: list index out of range,3.14.3
+raw/test-models/samples/display/multipoint-connection.stmx,xmile,False,False,1.71,,IndexError: list index out of range,3.14.3
+raw/test-models/samples/pendulum/Single_Pendulum.mdl,vensim,True,True,1.97,,,3.14.3
+raw/test-models/samples/simple_harmonic_oscillator/simple_harmonic_oscillator.mdl,vensim,True,True,1.9,,,3.14.3
+raw/test-models/samples/teacup/teacup.mdl,vensim,True,True,1.99,,,3.14.3
+raw/test-models/samples/teacup/teacup.stmx,xmile,True,True,1.89,,,3.14.3
+raw/test-models/samples/teacup/teacup.xmile,xmile,True,True,1.89,,,3.14.3
+raw/test-models/samples/teacup/teacup_legacy.stmx,xmile,True,True,1.74,,,3.14.3
+raw/test-models/samples/teacup/teacup_mdl.mdl,vensim,True,True,1.8,,,3.14.3
+raw/test-models/samples/teacup/teacup_w_diagram.xmile,xmile,True,True,1.73,,,3.14.3
+raw/test-models/tests/abs/test_abs.mdl,vensim,True,True,1.74,,,3.14.3
+raw/test-models/tests/abs/test_abs.stmx,xmile,True,True,1.69,,,3.14.3
+raw/test-models/tests/abs/test_abs.xmile,xmile,True,True,1.71,,,3.14.3
+raw/test-models/tests/active_initial/test_active_initial.mdl,vensim,True,True,1.62,,,3.14.3
+raw/test-models/tests/active_initial/test_active_initial.stmx,xmile,True,True,1.56,,,3.14.3
+raw/test-models/tests/active_initial/test_active_initial.xmile,xmile,True,True,1.56,,,3.14.3
+raw/test-models/tests/active_initial_circular/test_active_initial_circular.mdl,vensim,True,True,1.6,,,3.14.3
+raw/test-models/tests/allocate_available/test_allocate_available.mdl,vensim,True,True,3.03,,,3.14.3
+raw/test-models/tests/allocate_by_priority/test_allocate_by_priority.mdl,vensim,True,True,3.62,,,3.14.3
+raw/test-models/tests/arguments/test_arguments.mdl,vensim,True,True,1.61,,,3.14.3
+raw/test-models/tests/arithmetics/test_arithmetics.mdl,vensim,True,True,2.25,,,3.14.3
+raw/test-models/tests/arithmetics_exp/test_arithmetics_exp.mdl,vensim,True,True,2.26,,,3.14.3
+raw/test-models/tests/arithmetics_exp/test_arithmetics_exp.xmile,xmile,True,True,2.22,,,3.14.3
+raw/test-models/tests/array_with_line_break/test_array_with_line_break.mdl,vensim,True,True,1.74,,,3.14.3
+raw/test-models/tests/builtin_max/builtin_max.mdl,vensim,True,True,1.75,,,3.14.3
+raw/test-models/tests/builtin_max/builtin_max.stmx,xmile,True,True,1.73,,,3.14.3
+raw/test-models/tests/builtin_max/builtin_max.xmile,xmile,True,True,1.74,,,3.14.3
+raw/test-models/tests/builtin_min/builtin_min.mdl,vensim,True,True,1.78,,,3.14.3
+raw/test-models/tests/builtin_min/builtin_min.stmx,xmile,True,True,1.5,,,3.14.3
+raw/test-models/tests/builtin_min/builtin_min.xmile,xmile,True,True,1.47,,,3.14.3
+raw/test-models/tests/case_sensitive_extension/teacup-upper.MDL,vensim,True,True,1.54,,,3.14.3
+raw/test-models/tests/chained_initialization/test_chained_initialization.mdl,vensim,True,True,1.51,,,3.14.3
+raw/test-models/tests/chained_initialization/test_chained_initialization.stmx,xmile,True,True,1.42,,,3.14.3
+raw/test-models/tests/chained_initialization/test_chained_initialization.xmile,xmile,True,True,1.43,,,3.14.3
+raw/test-models/tests/comparisons/comparisons.stmx,xmile,True,True,1.4,,,3.14.3
+raw/test-models/tests/comparisons/comparisons.xmile,xmile,True,True,1.41,,,3.14.3
+raw/test-models/tests/conditional_subscripts/test_conditional_subscripts.mdl,vensim,True,True,1.54,,,3.14.3
+raw/test-models/tests/constant_expressions/test_constant_expressions.mdl,vensim,True,True,1.49,,,3.14.3
+raw/test-models/tests/constant_expressions/test_constant_expressions.stmx,xmile,True,True,1.45,,,3.14.3
+raw/test-models/tests/constant_expressions/test_constant_expressions.xmile,xmile,True,True,1.48,,,3.14.3
+raw/test-models/tests/control_vars/test_control_vars.mdl,vensim,True,True,1.59,,,3.14.3
+raw/test-models/tests/data_from_other_model/model_to_generate_data.mdl,vensim,True,False,1.6,,"ValueError: could not broadcast input array from shape (3,2,1) into shape (3,2)",3.14.3
+raw/test-models/tests/data_from_other_model/test_data_from_other_model.mdl,vensim,True,True,2.09,,,3.14.3
+raw/test-models/tests/delay_fixed/test_delay_fixed.mdl,vensim,True,True,1.58,,,3.14.3
+raw/test-models/tests/delay_numeric_error/test_delay_numeric_error.mdl,vensim,True,True,1.6,,,3.14.3
+raw/test-models/tests/delay_parentheses/test_delay_parentheses.mdl,vensim,True,True,1.55,,,3.14.3
+raw/test-models/tests/delay_pipeline/test_pipeline_delays.mdl,vensim,True,True,1.67,,,3.14.3
+raw/test-models/tests/delay_xmile/test_delay_xmile.xmile,xmile,True,True,1.58,,,3.14.3
+raw/test-models/tests/delays/test_delays.mdl,vensim,True,True,1.57,,,3.14.3
+raw/test-models/tests/dynamic_final_time/test_dynamic_final_time.mdl,vensim,True,True,1.58,,,3.14.3
+raw/test-models/tests/elm_count/test_elm_count.mdl,vensim,True,True,1.63,,,3.14.3
+raw/test-models/tests/euler_step_vs_saveper/test_euler_step_vs_saveper.mdl,vensim,True,True,1.64,,,3.14.3
+raw/test-models/tests/eval_order/eval_order.stmx,xmile,True,True,1.49,,,3.14.3
+raw/test-models/tests/eval_order/eval_order.xmile,xmile,True,True,1.5,,,3.14.3
+raw/test-models/tests/except/test_except.mdl,vensim,True,True,1.6,,,3.14.3
+raw/test-models/tests/except_multiple/test_except_multiple.mdl,vensim,True,True,1.7,,,3.14.3
+raw/test-models/tests/except_subranges/test_except_subranges.mdl,vensim,True,True,1.55,,,3.14.3
+raw/test-models/tests/exp/test_exp.mdl,vensim,True,True,1.53,,,3.14.3
+raw/test-models/tests/exp/test_exp.stmx,xmile,True,True,1.48,,,3.14.3
+raw/test-models/tests/exp/test_exp.xmile,xmile,True,True,1.5,,,3.14.3
+raw/test-models/tests/exponentiation/exponentiation.mdl,vensim,True,True,1.53,,,3.14.3
+raw/test-models/tests/exponentiation/exponentiation.stmx,xmile,True,True,1.46,,,3.14.3
+raw/test-models/tests/exponentiation/exponentiation.xmile,xmile,True,True,1.5,,,3.14.3
+raw/test-models/tests/forecast/test_forecast.mdl,vensim,True,True,2.07,,,3.14.3
+raw/test-models/tests/fully_invalid_names/test_fully_invalid_names.mdl,vensim,True,True,1.44,,,3.14.3
+raw/test-models/tests/function_capitalization/test_function_capitalization.mdl,vensim,True,True,1.52,,,3.14.3
+raw/test-models/tests/function_capitalization/test_function_capitalization.stmx,xmile,True,True,1.47,,,3.14.3
+raw/test-models/tests/function_capitalization/test_function_capitalization.xmile,xmile,True,True,1.44,,,3.14.3
+raw/test-models/tests/game/test_game.mdl,vensim,True,True,1.49,,,3.14.3
+raw/test-models/tests/game/test_game.stmx,xmile,True,True,1.45,,,3.14.3
+raw/test-models/tests/game/test_game.xmile,xmile,True,True,1.4,,,3.14.3
+raw/test-models/tests/get_constants/test_get_constants.mdl,vensim,False,False,1.46,,FileNotFoundError: _ext_constant_direct_constants File '/private/var/folders/vx/jth7yvzj0tn3wkp2ck70j0xr0000gn/T/tmpvnrkxpuo/data.csv' not found.,3.14.3
+raw/test-models/tests/get_constants_incomplete_subscript/test_get_constants_incomplete_subscript.mdl,vensim,True,True,1.46,,,3.14.3
+raw/test-models/tests/get_constants_subranges/test_get_constants_subranges.mdl,vensim,True,True,1.49,,,3.14.3
+raw/test-models/tests/get_data/test_get_data.mdl,vensim,False,False,1.53,,FileNotFoundError: _ext_data_xls_data_across File '/private/var/folders/vx/jth7yvzj0tn3wkp2ck70j0xr0000gn/T/tmpik__4ev2/data across.xls' not found.,3.14.3
+raw/test-models/tests/get_data_args_3d_xls/test_get_data_args_3d_xls.mdl,vensim,True,True,1.62,,,3.14.3
+raw/test-models/tests/get_lookups_data_3d_xls/test_get_lookups_data_3d_xls.mdl,vensim,True,True,1.79,,,3.14.3
+raw/test-models/tests/get_lookups_subscripted_args/test_get_lookups_subscripted_args.mdl,vensim,True,True,4.25,,,3.14.3
+raw/test-models/tests/get_lookups_subset/test_get_lookups_subset.mdl,vensim,True,True,1.91,,,3.14.3
+raw/test-models/tests/get_mixed_definitions/test_get_mixed_definitions.mdl,vensim,True,True,1.94,,,3.14.3
+raw/test-models/tests/get_subscript_3d_arrays_xls/test_get_subscript_3d_arrays_xls.mdl,vensim,True,True,1.62,,,3.14.3
+raw/test-models/tests/get_time_value/test_get_time_value.mdl,vensim,True,False,1.66,,NotImplementedError: 'relativeto=1' not implemented...,3.14.3
+raw/test-models/tests/get_time_value/test_get_time_value_simple.mdl,vensim,True,True,2.21,,,3.14.3
+raw/test-models/tests/get_values_order/test_get_values_order.mdl,vensim,True,True,1.64,,,3.14.3
+raw/test-models/tests/get_with_missing_values_xlsx/test_get_with_missing_values_xlsx.mdl,vensim,True,True,1.74,,,3.14.3
+raw/test-models/tests/get_xls_cellrange/test_get_xls_cellrange.mdl,vensim,True,True,1.63,,,3.14.3
+raw/test-models/tests/if_stmt/if_stmt.mdl,vensim,True,True,1.58,,,3.14.3
+raw/test-models/tests/if_stmt/if_stmt.stmx,xmile,True,True,1.55,,,3.14.3
+raw/test-models/tests/if_stmt/if_stmt.xmile,xmile,True,True,1.52,,,3.14.3
+raw/test-models/tests/initial_function/test_initial.mdl,vensim,True,True,1.58,,,3.14.3
+raw/test-models/tests/initial_function/test_initial.stmx,xmile,True,True,1.54,,,3.14.3
+raw/test-models/tests/initial_function/test_initial.xmile,xmile,True,True,1.49,,,3.14.3
+raw/test-models/tests/input_functions/test_inputs.mdl,vensim,True,True,1.47,,,3.14.3
+raw/test-models/tests/invert_matrix/test_invert_matrix.mdl,vensim,True,True,1.48,,,3.14.3
+raw/test-models/tests/limits/test_limits.mdl,vensim,True,True,1.42,,,3.14.3
+raw/test-models/tests/limits/test_limits.stmx,xmile,True,True,1.36,,,3.14.3
+raw/test-models/tests/limits/test_limits.xmile,xmile,True,True,1.39,,,3.14.3
+raw/test-models/tests/line_breaks/test_line_breaks.mdl,vensim,True,True,1.4,,,3.14.3
+raw/test-models/tests/line_breaks/test_line_breaks.stmx,xmile,True,True,1.4,,,3.14.3
+raw/test-models/tests/line_breaks/test_line_breaks.xmile,xmile,True,True,1.37,,,3.14.3
+raw/test-models/tests/line_continuation/test_line_continuation.mdl,vensim,True,True,1.4,,,3.14.3
+raw/test-models/tests/line_continuation/test_line_continuation.stmx,xmile,True,True,1.41,,,3.14.3
+raw/test-models/tests/line_continuation/test_line_continuation.xmile,xmile,True,True,1.36,,,3.14.3
+raw/test-models/tests/ln/test_ln.mdl,vensim,True,True,1.42,,,3.14.3
+raw/test-models/tests/ln/test_ln.stmx,xmile,True,True,1.41,,,3.14.3
+raw/test-models/tests/ln/test_ln.xmile,xmile,True,True,1.41,,,3.14.3
+raw/test-models/tests/log/test_log.mdl,vensim,True,True,1.43,,,3.14.3
+raw/test-models/tests/log/test_log.stmx,xmile,True,True,1.42,,,3.14.3
+raw/test-models/tests/log/test_log.xmile,xmile,True,True,1.44,,,3.14.3
+raw/test-models/tests/logicals/test_logicals.mdl,vensim,True,True,1.44,,,3.14.3
+raw/test-models/tests/logicals/test_logicals.stmx,xmile,False,False,1.42,,"ParseError: Rule 'logic_oper' didn't match at 'not THEN 1 ELSE 0 )' (line 1, column 18).",3.14.3
+raw/test-models/tests/logicals/test_logicals.xmile,xmile,True,True,1.42,,,3.14.3
+raw/test-models/tests/logicals/test_logicals_caseinsensitive.xmile,xmile,True,True,1.45,,,3.14.3
+raw/test-models/tests/lookups/test_lookups.mdl,vensim,True,True,1.63,,,3.14.3
+raw/test-models/tests/lookups/test_lookups.stmx,xmile,False,False,1.4,,"VisitationError: TypeError: LookupsStructure.__init__() missing 3 required positional arguments: 'x_limits', 'y_limits', and 'type'  Parse tree: <Node called ""call"" matching ""LOOKUP(lookup_function_table, Time)"">  <-- *** We were here. ***     <Node called ""reference"" matching ""LOOKUP"">         <Node called ""name"" matching ""LOOKUP"">             <Node called ""basic_id"" matching ""LOOKUP"">           ",3.14.3
+raw/test-models/tests/lookups/test_lookups.xmile,xmile,True,True,1.59,,,3.14.3
+raw/test-models/tests/lookups/test_lookups_no-indirect.stmx,xmile,True,True,1.44,,,3.14.3
+raw/test-models/tests/lookups/test_lookups_no-indirect.xmile,xmile,True,True,1.46,,,3.14.3
+raw/test-models/tests/lookups/test_lookups_xpts_sep.xmile,xmile,True,True,1.62,,,3.14.3
+raw/test-models/tests/lookups/test_lookups_xscale.xmile,xmile,True,True,1.65,,,3.14.3
+raw/test-models/tests/lookups/test_lookups_ypts_sep.xmile,xmile,True,True,1.65,,,3.14.3
+raw/test-models/tests/lookups_funcnames/test_lookups_funcnames.mdl,vensim,True,True,1.66,,,3.14.3
+raw/test-models/tests/lookups_inline/test_lookups_inline.mdl,vensim,True,True,1.47,,,3.14.3
+raw/test-models/tests/lookups_inline/test_lookups_inline.stmx,xmile,True,True,1.41,,,3.14.3
+raw/test-models/tests/lookups_inline/test_lookups_inline.xmile,xmile,True,True,1.37,,,3.14.3
+raw/test-models/tests/lookups_inline_bounded/test_lookups_inline_bounded.mdl,vensim,True,True,1.41,,,3.14.3
+raw/test-models/tests/lookups_inline_spaces/test_lookups_inline_spaces.mdl,vensim,True,True,1.49,,,3.14.3
+raw/test-models/tests/lookups_with_expr/test_lookups_with_expr.mdl,vensim,True,True,1.43,,,3.14.3
+raw/test-models/tests/lookups_without_range/test_lookups_without_range.mdl,vensim,True,True,1.64,,,3.14.3
+raw/test-models/tests/macro_cross_reference/test_macro_cross_reference.mdl,vensim,True,True,1.49,,,3.14.3
+raw/test-models/tests/macro_expression/test_macro_expression.mdl,vensim,True,True,1.43,,,3.14.3
+raw/test-models/tests/macro_expression/test_macro_expression.stmx,xmile,False,False,1.4,,"IncompleteParseError: Rule 'expr_type' matched in its entirety, but it didn't consume all the text. The non-matching portion of the text begins with ' MACRO(macro_input, ' (line 1, column 11).",3.14.3
+raw/test-models/tests/macro_expression/test_macro_expression.xmile,xmile,False,False,1.37,,"IncompleteParseError: Rule 'expr_type' matched in its entirety, but it didn't consume all the text. The non-matching portion of the text begins with ' MACRO(macro_input, ' (line 1, column 11).",3.14.3
+raw/test-models/tests/macro_multi_expression/test_macro_multi_expression.mdl,vensim,True,True,1.47,,,3.14.3
+raw/test-models/tests/macro_multi_expression/test_macro_multi_expression.stmx,xmile,False,False,1.4,,"IncompleteParseError: Rule 'expr_type' matched in its entirety, but it didn't consume all the text. The non-matching portion of the text begins with ' MACRO(macro_input, ' (line 1, column 11).",3.14.3
+raw/test-models/tests/macro_multi_expression/test_macro_multi_expression.xmile,xmile,False,False,1.38,,"IncompleteParseError: Rule 'expr_type' matched in its entirety, but it didn't consume all the text. The non-matching portion of the text begins with ' MACRO(macro_input, ' (line 1, column 11).",3.14.3
+raw/test-models/tests/macro_multi_macros/test_macro_multi_macros.mdl,vensim,True,True,1.47,,,3.14.3
+raw/test-models/tests/macro_multi_macros/test_macro_multi_macros.stmx,xmile,False,False,1.33,,"IncompleteParseError: Rule 'expr_type' matched in its entirety, but it didn't consume all the text. The non-matching portion of the text begins with ' MACRO(macro_input, ' (line 1, column 7).",3.14.3
+raw/test-models/tests/macro_multi_macros/test_macro_multi_macros.xmile,xmile,False,False,1.55,,"IncompleteParseError: Rule 'expr_type' matched in its entirety, but it didn't consume all the text. The non-matching portion of the text begins with ' MACRO(macro_input, ' (line 1, column 7).",3.14.3
+raw/test-models/tests/macro_stock/test_macro_stock.mdl,vensim,True,True,1.58,,,3.14.3
+raw/test-models/tests/macro_stock/test_macro_stock.stmx,xmile,False,False,1.54,,"IncompleteParseError: Rule 'expr_type' matched in its entirety, but it didn't consume all the text. The non-matching portion of the text begins with ' MACRO(macro_input, ' (line 1, column 11).",3.14.3
+raw/test-models/tests/macro_stock/test_macro_stock.xmile,xmile,False,False,1.53,,"IncompleteParseError: Rule 'expr_type' matched in its entirety, but it didn't consume all the text. The non-matching portion of the text begins with ' MACRO(macro_input, ' (line 1, column 11).",3.14.3
+raw/test-models/tests/macro_trailing_definition/test_macro_trailing_definition.mdl,vensim,True,True,1.66,,,3.14.3
+raw/test-models/tests/min_max_1arg/test_min_max_1arg.xmile,xmile,True,True,1.64,,,3.14.3
+raw/test-models/tests/model_doc/model_doc.mdl,vensim,True,True,1.68,,,3.14.3
+raw/test-models/tests/model_doc/model_doc.stmx,xmile,True,True,1.66,,,3.14.3
+raw/test-models/tests/model_doc/model_doc.xmile,xmile,True,True,1.73,,,3.14.3
+raw/test-models/tests/multiple_lines_def/test_multiple_lines_def.mdl,vensim,True,True,1.76,,,3.14.3
+raw/test-models/tests/na/test_na.mdl,vensim,True,True,1.66,,,3.14.3
+raw/test-models/tests/nested_functions/test_nested_functions.mdl,vensim,True,True,1.6,,,3.14.3
+raw/test-models/tests/non_negative_all/test_non_negative_all1.xmile,xmile,True,True,1.55,,,3.14.3
+raw/test-models/tests/non_negative_all/test_non_negative_all2.xmile,xmile,True,True,1.58,,,3.14.3
+raw/test-models/tests/non_negative_flows/test_non_negative_flows.xmile,xmile,True,True,1.56,,,3.14.3
+raw/test-models/tests/non_negative_flows/test_non_negative_flows_behavior.xmile,xmile,True,True,1.53,,,3.14.3
+raw/test-models/tests/non_negative_stocks/test_non_negative_stocks.xmile,xmile,True,True,1.54,,,3.14.3
+raw/test-models/tests/non_negative_stocks/test_non_negative_stocks_behavior.xmile,xmile,True,True,1.52,,,3.14.3
+raw/test-models/tests/number_handling/test_number_handling.mdl,vensim,True,True,1.55,,,3.14.3
+raw/test-models/tests/number_handling/test_number_handling.stmx,xmile,True,True,1.47,,,3.14.3
+raw/test-models/tests/number_handling/test_number_handling.xmile,xmile,True,True,1.49,,,3.14.3
+raw/test-models/tests/odd_number_quotes/teacup_3quotes.mdl,vensim,True,True,1.52,,,3.14.3
+raw/test-models/tests/parentheses/test_parens.mdl,vensim,True,True,1.49,,,3.14.3
+raw/test-models/tests/parentheses/test_parens.stmx,xmile,True,True,1.42,,,3.14.3
+raw/test-models/tests/parentheses/test_parens.xmile,xmile,True,True,1.43,,,3.14.3
+raw/test-models/tests/partial_range_definitions/test_partial_range_definitions.mdl,vensim,True,True,1.64,,,3.14.3
+raw/test-models/tests/pi/test_pi.xmile,xmile,True,True,1.4,,,3.14.3
+raw/test-models/tests/power/power.mdl,vensim,True,True,1.51,,,3.14.3
+raw/test-models/tests/reality_checks/test_reality_checks.mdl,vensim,True,True,1.49,,,3.14.3
+raw/test-models/tests/reference_capitalization/test_reference_capitalization.mdl,vensim,True,True,1.49,,,3.14.3
+raw/test-models/tests/reference_capitalization/test_reference_capitalization.stmx,xmile,True,True,1.53,,,3.14.3
+raw/test-models/tests/reference_capitalization/test_reference_capitalization.xmile,xmile,True,True,1.47,,,3.14.3
+raw/test-models/tests/repeated_subscript/test_repeated_subscript.mdl,vensim,True,True,1.54,,,3.14.3
+raw/test-models/tests/rounding/test_rounding.mdl,vensim,True,True,1.56,,,3.14.3
+raw/test-models/tests/rounding/test_rounding.xmile,xmile,True,True,1.51,,,3.14.3
+raw/test-models/tests/sample_if_true/test_sample_if_true.mdl,vensim,True,True,1.78,,,3.14.3
+raw/test-models/tests/smaller_range/test_smaller_range.mdl,vensim,True,True,1.55,,,3.14.3
+raw/test-models/tests/smooth/test_smooth.mdl,vensim,True,True,1.58,,,3.14.3
+raw/test-models/tests/smooth_and_stock/test_smooth_and_stock.mdl,vensim,True,True,1.53,,,3.14.3
+raw/test-models/tests/smooth_and_stock/test_smooth_and_stock.stmx,xmile,True,True,1.45,,,3.14.3
+raw/test-models/tests/smooth_and_stock/test_smooth_and_stock.xmile,xmile,True,True,1.44,,,3.14.3
+raw/test-models/tests/special_characters/test_special_variable_names.mdl,vensim,True,True,1.44,,,3.14.3
+raw/test-models/tests/special_characters_xmile/test_special_variable_names.stmx,xmile,False,False,1.41,,"IncompleteParseError: Rule 'expr_type' matched in its entirety, but it didn't consume all the text. The non-matching portion of the text begins with ',_lists,_and_INITIAL' (line 1, column 17).",3.14.3
+raw/test-models/tests/special_characters_xmile/test_special_variable_names.xmile,xmile,True,True,1.46,,,3.14.3
+raw/test-models/tests/sqrt/test_sqrt.mdl,vensim,True,True,1.49,,,3.14.3
+raw/test-models/tests/sqrt/test_sqrt.stmx,xmile,True,True,1.49,,,3.14.3
+raw/test-models/tests/sqrt/test_sqrt.xmile,xmile,True,True,1.44,,,3.14.3
+raw/test-models/tests/subrange_merge/test_subrange_merge.mdl,vensim,True,True,1.48,,,3.14.3
+raw/test-models/tests/subscript_1d_arrays/test_subscript_1d_arrays.mdl,vensim,True,True,1.55,,,3.14.3
+raw/test-models/tests/subscript_1d_arrays/test_subscript_1d_arrays.stmx,xmile,False,False,1.42,,"ParseError: Rule 'expr_type' didn't match at '???' (line 1, column 1).",3.14.3
+raw/test-models/tests/subscript_1d_arrays/test_subscript_1d_arrays.xmile,xmile,False,False,1.44,,"ParseError: Rule 'expr_type' didn't match at '???' (line 1, column 1).",3.14.3
+raw/test-models/tests/subscript_2d_arrays/test_subscript_2d_arrays.mdl,vensim,True,True,1.61,,,3.14.3
+raw/test-models/tests/subscript_3d_arrays/test_subscript_3d_arrays.mdl,vensim,True,True,1.77,,,3.14.3
+raw/test-models/tests/subscript_3d_arrays_lengthwise/test_subscript_3d_arrays_lengthwise.mdl,vensim,True,True,1.46,,,3.14.3
+raw/test-models/tests/subscript_3d_arrays_widthwise/test_subscript_3d_arrays_widthwise.mdl,vensim,True,True,1.47,,,3.14.3
+raw/test-models/tests/subscript_aggregation/test_subscript_aggregation.mdl,vensim,True,True,1.83,,,3.14.3
+raw/test-models/tests/subscript_constant_call/test_subscript_constant_call.mdl,vensim,True,True,1.54,,,3.14.3
+raw/test-models/tests/subscript_constant_call/test_subscript_constant_call.stmx,xmile,False,False,1.49,,"ParseError: Rule 'expr_type' didn't match at '???' (line 1, column 1).",3.14.3
+raw/test-models/tests/subscript_constant_call/test_subscript_constant_call.xmile,xmile,False,False,1.5,,"ParseError: Rule 'expr_type' didn't match at '???' (line 1, column 1).",3.14.3
+raw/test-models/tests/subscript_copy/test_subscript_copy.mdl,vensim,True,True,1.55,,,3.14.3
+raw/test-models/tests/subscript_copy/test_subscript_copy2.mdl,vensim,True,True,1.67,,,3.14.3
+raw/test-models/tests/subscript_definition/test_subscript_definition.mdl,vensim,True,True,1.66,,,3.14.3
+raw/test-models/tests/subscript_docs/subscript_docs.mdl,vensim,True,True,1.56,,,3.14.3
+raw/test-models/tests/subscript_element_name/test_subscript_element_name.mdl,vensim,True,True,1.61,,,3.14.3
+raw/test-models/tests/subscript_individually_defined_1_of_2d_arrays/subscript_individually_defined_1_of_2d_arrays.mdl,vensim,True,True,1.75,,,3.14.3
+raw/test-models/tests/subscript_individually_defined_1_of_2d_arrays_from_floats/subscript_individually_defined_1_of_2d_arrays_from_floats.mdl,vensim,True,True,1.68,,,3.14.3
+raw/test-models/tests/subscript_individually_defined_1d_arrays/subscript_individually_defined_1d_arrays.mdl,vensim,True,True,1.68,,,3.14.3
+raw/test-models/tests/subscript_individually_defined_1d_arrays/subscript_individually_defined_1d_arrays.stmx,xmile,True,True,1.74,,,3.14.3
+raw/test-models/tests/subscript_individually_defined_1d_arrays/subscript_individually_defined_1d_arrays.xmile,xmile,True,True,1.76,,,3.14.3
+raw/test-models/tests/subscript_individually_defined_stocks/test_subscript_individually_defined_stocks.mdl,vensim,True,True,2.21,,,3.14.3
+raw/test-models/tests/subscript_logicals/test_subscript_logicals.mdl,vensim,True,True,1.82,,,3.14.3
+raw/test-models/tests/subscript_mapping_simple/test_subscript_mapping_simple.mdl,vensim,True,True,1.85,,,3.14.3
+raw/test-models/tests/subscript_mapping_vensim/test_subscript_mapping_vensim.mdl,vensim,True,True,1.96,,,3.14.3
+raw/test-models/tests/subscript_mixed_assembly/test_subscript_mixed_assembly.mdl,vensim,True,True,1.72,,,3.14.3
+raw/test-models/tests/subscript_mixed_assembly/test_subscript_mixed_assembly.stmx,xmile,False,False,1.64,,"ParseError: Rule 'expr_type' didn't match at '???' (line 1, column 1).",3.14.3
+raw/test-models/tests/subscript_mixed_assembly/test_subscript_mixed_assembly.xmile,xmile,False,False,1.64,,"ParseError: Rule 'expr_type' didn't match at '???' (line 1, column 1).",3.14.3
+raw/test-models/tests/subscript_multiples/test_multiple_subscripts.mdl,vensim,True,True,1.81,,,3.14.3
+raw/test-models/tests/subscript_multiples/test_multiple_subscripts.stmx,xmile,False,False,1.57,,"ParseError: Rule 'expr_type' didn't match at '???' (line 1, column 1).",3.14.3
+raw/test-models/tests/subscript_multiples/test_multiple_subscripts.xmile,xmile,False,False,1.55,,"ParseError: Rule 'expr_type' didn't match at '???' (line 1, column 1).",3.14.3
+raw/test-models/tests/subscript_numeric_range/test_subscript_numeric_range.mdl,vensim,True,True,1.81,,,3.14.3
+raw/test-models/tests/subscript_selection/subscript_selection.mdl,vensim,True,True,1.65,,,3.14.3
+raw/test-models/tests/subscript_subranges/test_subscript_subrange.mdl,vensim,True,True,1.67,,,3.14.3
+raw/test-models/tests/subscript_subranges/test_subscript_subrange.stmx,xmile,False,False,1.55,,"ParseError: Rule 'expr_type' didn't match at '???' (line 1, column 1).",3.14.3
+raw/test-models/tests/subscript_subranges/test_subscript_subrange.xmile,xmile,False,False,1.58,,"ParseError: Rule 'expr_type' didn't match at '???' (line 1, column 1).",3.14.3
+raw/test-models/tests/subscript_subranges_equal/test_subscript_subrange_equal.mdl,vensim,True,True,1.69,,,3.14.3
+raw/test-models/tests/subscript_subranges_equal/test_subscript_subrange_equal.stmx,xmile,False,False,1.56,,"ParseError: Rule 'expr_type' didn't match at '???' (line 1, column 1).",3.14.3
+raw/test-models/tests/subscript_subranges_equal/test_subscript_subrange_equal.xmile,xmile,False,False,1.51,,"ParseError: Rule 'expr_type' didn't match at '???' (line 1, column 1).",3.14.3
+raw/test-models/tests/subscript_switching/subscript_switching.mdl,vensim,True,True,1.86,,,3.14.3
+raw/test-models/tests/subscript_transposition/test_subscript_transposition.mdl,vensim,True,True,1.66,,,3.14.3
+raw/test-models/tests/subscript_updimensioning/test_subscript_updimensioning.mdl,vensim,True,True,1.6,,,3.14.3
+raw/test-models/tests/subscript_updimensioning/test_subscript_updimensioning.stmx,xmile,False,False,1.41,,"ParseError: Rule 'expr_type' didn't match at '???' (line 1, column 1).",3.14.3
+raw/test-models/tests/subscript_updimensioning/test_subscript_updimensioning.xmile,xmile,False,False,1.5,,"ParseError: Rule 'expr_type' didn't match at '???' (line 1, column 1).",3.14.3
+raw/test-models/tests/subscripted_delays/test_subscripted_delays.mdl,vensim,True,True,3.32,,,3.14.3
+raw/test-models/tests/subscripted_flows/test_subscripted_flows.mdl,vensim,True,True,1.61,,,3.14.3
+raw/test-models/tests/subscripted_flows/test_subscripted_flows.stmx,xmile,False,False,1.45,,"ParseError: Rule 'expr_type' didn't match at '???' (line 1, column 1).",3.14.3
+raw/test-models/tests/subscripted_flows/test_subscripted_flows.xmile,xmile,False,False,1.52,,"ParseError: Rule 'expr_type' didn't match at '???' (line 1, column 1).",3.14.3
+raw/test-models/tests/subscripted_if_then_else/test_subscripted_if_then_else.mdl,vensim,True,True,1.64,,,3.14.3
+raw/test-models/tests/subscripted_logicals/test_subscripted_logicals.mdl,vensim,True,True,1.84,,,3.14.3
+raw/test-models/tests/subscripted_lookups/test_subscripted_lookups.mdl,vensim,True,True,2.11,,,3.14.3
+raw/test-models/tests/subscripted_ramp_step/test_subscripted_ramp_step.mdl,vensim,True,True,2.16,,,3.14.3
+raw/test-models/tests/subscripted_round/test_subscripted_round.mdl,vensim,True,True,2.54,,,3.14.3
+raw/test-models/tests/subscripted_smooth/test_subscripted_smooth.mdl,vensim,True,True,2.51,,,3.14.3
+raw/test-models/tests/subscripted_trend/test_subscripted_trend.mdl,vensim,True,True,2.09,,,3.14.3
+raw/test-models/tests/subscripted_trig/test_subscripted_trig.mdl,vensim,True,True,1.82,,,3.14.3
+raw/test-models/tests/subscripted_trig/test_subscripted_trig.xmile,xmile,True,True,1.85,,,3.14.3
+raw/test-models/tests/subscripted_xidz/test_subscripted_xidz.mdl,vensim,True,True,1.84,,,3.14.3
+raw/test-models/tests/subset_duplicated_coord/test_subset_duplicated_coord.mdl,vensim,True,True,1.75,,,3.14.3
+raw/test-models/tests/tabbed_arrays/tabbed_arrays.mdl,vensim,True,True,1.82,,,3.14.3
+raw/test-models/tests/time/test_time.mdl,vensim,True,True,1.66,,,3.14.3
+raw/test-models/tests/trend/test_trend.mdl,vensim,True,True,1.58,,,3.14.3
+raw/test-models/tests/trig/test_trig.mdl,vensim,True,True,1.6,,,3.14.3
+raw/test-models/tests/trig/test_trig.stmx,xmile,True,True,1.51,,,3.14.3
+raw/test-models/tests/trig/test_trig.xmile,xmile,True,True,1.51,,,3.14.3
+raw/test-models/tests/unchangeable_constant/test_unchangeable_constant.mdl,vensim,True,True,1.57,,,3.14.3
+raw/test-models/tests/unicode_characters/unicode_test_model.mdl,vensim,True,True,1.49,,,3.14.3
+raw/test-models/tests/variable_ranges/test_variable_ranges.mdl,vensim,True,True,1.55,,,3.14.3
+raw/test-models/tests/vector_order/test_vector_order.mdl,vensim,True,True,2.67,,,3.14.3
+raw/test-models/tests/vector_select/test_vector_select.mdl,vensim,True,True,2.47,,,3.14.3
+raw/test-models/tests/with_lookup/test_with_lookup.mdl,vensim,True,True,1.61,,,3.14.3
+raw/test-models/tests/xidz_zidz/xidz_zidz.mdl,vensim,True,True,1.54,,,3.14.3
+raw/test-models/tests/xidz_zidz/xidz_zidz.stmx,xmile,True,True,1.43,,,3.14.3
+raw/test-models/tests/xidz_zidz/xidz_zidz.xmile,xmile,True,True,1.48,,,3.14.3
+raw/test-models/tests/zeroled_decimals/test_zeroled_decimals.mdl,vensim,True,True,1.55,,,3.14.3
+raw/test-models/tests/zeroled_decimals/test_zeroled_decimals.xmile,xmile,True,True,1.48,,,3.14.3
