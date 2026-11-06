@@ -1,0 +1,3 @@
+interface:
+  display_name: "sd-explorer"
+  short_description: "Turn a validated model into one interactive page"

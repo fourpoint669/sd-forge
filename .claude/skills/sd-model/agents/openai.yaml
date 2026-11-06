@@ -1,0 +1,3 @@
+interface:
+  display_name: "sd-model"
+  short_description: "Build and validate a system dynamics model for a question"
