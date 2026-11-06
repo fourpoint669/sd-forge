@@ -1,0 +1,72 @@
+# Windows check without a Windows machine: the same steps on windows-latest and, as a control, on
+# ubuntu-latest, so a failure that appears only on Windows is isolated. No Playwright, so the browser
+# tests skip (they are covered by tests.yml on Ubuntu with --require-browser). node is installed because
+# the parity and loop-score gates need it in every mode and never skip.
+name: windows-ci
+
+on:
+  push:
+    branches: [windows-readiness]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: windows-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  suite:
+    name: suite (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          # PySD 3.14.3 support for newer Python is unverified (engine/requirements.txt).
+          python-version: '3.12'
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+
+      - name: Show line-ending settings (what the checkout did to the files)
+        run: |
+          git config --show-origin --get-all core.autocrlf || echo "core.autocrlf not set"
+          git ls-files --eol engine/validate.py projects/bass-b2b-adoption/validation.toml projects/bass-b2b-adoption/mc_bands.csv
+
+      - name: Build the Python environment
+        run: |
+          python -m venv .venv
+          if [ -x .venv/Scripts/python.exe ]; then PY=.venv/Scripts/python.exe; else PY=.venv/bin/python; fi
+          echo "PY=$PY" >> "$GITHUB_ENV"
+          "$PY" -m pip install --upgrade pip
+          "$PY" -m pip install -r engine/requirements.txt
+
+      - name: Documentation and PDF drift
+        # On failure, re-render and print what differs, so a platform-only difference is visible in the log.
+        run: |
+          "$PY" -I engine/build_docs.py --check || {
+            "$PY" -I engine/build_docs.py || true
+            git --no-pager diff --stat
+            git --no-pager diff --text -- docs README.md | head -150
+            exit 1
+          }
+
+      - name: Repository, licence and explorer checks
+        if: ${{ !cancelled() }}
+        run: '"$PY" -I engine/check_repo.py --require-explorer'
+
+      - name: Test suite, no browser required
+        if: ${{ !cancelled() }}
+        run: '"$PY" -I -m pytest engine/tests -q -rs'
