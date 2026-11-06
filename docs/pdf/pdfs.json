@@ -1,0 +1,23 @@
+{
+ "documents": {
+  "README.md": {
+   "bytes": 144530,
+   "pdf": "docs/pdf/README.pdf",
+   "pdf_sha256": "3394c349894d53d4ca6e75dd23ffa1b5fbbfa3495d43d851d0de2d55cba2ccf4",
+   "source_sha256": "96097e77947a33a4059a1bf9f94dfcd5b858fdd41c5a2426e20b1d8a1175162f"
+  },
+  "docs/MANUAL.md": {
+   "bytes": 428330,
+   "pdf": "docs/pdf/MANUAL.pdf",
+   "pdf_sha256": "21ac968bb63661f33402641730f647e5224e7caf93f54fa43b4ee43afaf3b27c",
+   "source_sha256": "256d7139a0cfaecf8759212636a6a8348f143cecfa7bf2e8c33793368a55c3ff"
+  },
+  "docs/QUICKSTART.md": {
+   "bytes": 385295,
+   "pdf": "docs/pdf/QUICKSTART.pdf",
+   "pdf_sha256": "36e0e2c14afd45163540077b76e3f16a7f7e9e001175579e93946b87a8375f3e",
+   "source_sha256": "e404b58b501a55306878f0ee5210404960efc8e1f989a4e66cd7724d052a41ba"
+  }
+ },
+ "made_by": "engine/build_docs.py --pdfs (engine/docs_pdfs.js)"
+}

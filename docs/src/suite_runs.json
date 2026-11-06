@@ -1,0 +1,11 @@
+{
+ "without_playwright": {
+  "command": "NODE_PATH= .venv/bin/python -I -m pytest engine/tests -q",
+  "commit": "release-candidate",
+  "failed": 0,
+  "passed": 671,
+  "skipped": 237,
+  "summary_line": "671 passed, 237 skipped in 1184.60s (0:19:44)",
+  "where": "Mac, in a clone outside the folder that holds node_modules, with an empty NODE_PATH, so Playwright was unreachable"
+ }
+}

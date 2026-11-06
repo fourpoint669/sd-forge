@@ -1,0 +1,8 @@
+{
+ "bytes": 232806,
+ "image": "docs/img/explorer-annotated.jpg",
+ "image_sha256": "60b74c033596f27694a524af2cd504814cebc2004e8b9eab534ba150bffdf58f",
+ "made_by": "engine/build_docs.py --screenshots (engine/docs_screenshots.js)",
+ "source": "projects/saas-churn-vs-winrate/explorer.html",
+ "source_sha256": "f94ac974a225fd14855750e4fd44e83e59b6e4692c54fe9657a729e98fb9f6fa"
+}
